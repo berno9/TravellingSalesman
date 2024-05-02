@@ -1,3 +1,0 @@
-C:/Users/User/Documents/segundoano/DAGERAL/TravellingSalesman/cmake-build-debug/CMakeFiles/TravellingSalesman.dir
-C:/Users/User/Documents/segundoano/DAGERAL/TravellingSalesman/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/User/Documents/segundoano/DAGERAL/TravellingSalesman/cmake-build-debug/CMakeFiles/rebuild_cache.dir
