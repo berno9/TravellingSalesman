@@ -1,5 +1,5 @@
 
-#include "ToyEdge.h"
+#include "../headers/ToyEdge.h"
 
 ToyEdge::ToyEdge(string orig, string dest, string type, double distance) :
         orig(orig), dest(dest),  type(type), distance(distance) {}
