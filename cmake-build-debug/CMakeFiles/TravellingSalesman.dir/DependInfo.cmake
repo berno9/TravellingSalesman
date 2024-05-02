@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/teres/Downloads/TravellingSalesman/src/classes/Script.cpp" "CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.obj" "gcc" "CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.obj.d"
+  "C:/Users/teres/Downloads/TravellingSalesman/src/classes/TSPSolver.cpp" "CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj" "gcc" "CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj.d"
   "C:/Users/teres/Downloads/TravellingSalesman/src/classes/ToyEdge.cpp" "CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj" "gcc" "CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj.d"
   "C:/Users/teres/Downloads/TravellingSalesman/src/main.cpp" "CMakeFiles/TravellingSalesman.dir/src/main.cpp.obj" "gcc" "CMakeFiles/TravellingSalesman.dir/src/main.cpp.obj.d"
   )

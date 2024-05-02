@@ -80,12 +80,12 @@ clean: CMakeFiles/TravellingSalesman.dir/clean
 CMakeFiles/TravellingSalesman.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4 "Built target TravellingSalesman"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target TravellingSalesman"
 .PHONY : CMakeFiles/TravellingSalesman.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TravellingSalesman.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/TravellingSalesman.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/TravellingSalesman.dir/rule

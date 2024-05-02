@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.obj"
   "CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.obj.d"
+  "CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj"
+  "CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj.d"
   "CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj"
   "CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj.d"
   "CMakeFiles/TravellingSalesman.dir/src/main.cpp.obj"

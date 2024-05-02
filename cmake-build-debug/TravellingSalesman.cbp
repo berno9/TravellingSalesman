@@ -85,6 +85,9 @@
 		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/classes/Script.cpp">
 			<Option target="TravellingSalesman"/>
 		</Unit>
+		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/classes/TSPSolver.cpp">
+			<Option target="TravellingSalesman"/>
+		</Unit>
 		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/classes/ToyEdge.cpp">
 			<Option target="TravellingSalesman"/>
 		</Unit>
@@ -92,6 +95,9 @@
 			<Option target="TravellingSalesman"/>
 		</Unit>
 		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/headers/Script.h">
+			<Option target="TravellingSalesman"/>
+		</Unit>
+		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/headers/TSPSolver.h">
 			<Option target="TravellingSalesman"/>
 		</Unit>
 		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/headers/ToyEdge.h">

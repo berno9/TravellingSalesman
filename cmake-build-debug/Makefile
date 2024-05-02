@@ -152,6 +152,30 @@ src/classes/Script.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.s
 .PHONY : src/classes/Script.cpp.s
 
+src/classes/TSPSolver.obj: src/classes/TSPSolver.cpp.obj
+.PHONY : src/classes/TSPSolver.obj
+
+# target to build an object file
+src/classes/TSPSolver.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj
+.PHONY : src/classes/TSPSolver.cpp.obj
+
+src/classes/TSPSolver.i: src/classes/TSPSolver.cpp.i
+.PHONY : src/classes/TSPSolver.i
+
+# target to preprocess a source file
+src/classes/TSPSolver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.i
+.PHONY : src/classes/TSPSolver.cpp.i
+
+src/classes/TSPSolver.s: src/classes/TSPSolver.cpp.s
+.PHONY : src/classes/TSPSolver.s
+
+# target to generate assembly for a file
+src/classes/TSPSolver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.s
+.PHONY : src/classes/TSPSolver.cpp.s
+
 src/classes/ToyEdge.obj: src/classes/ToyEdge.cpp.obj
 .PHONY : src/classes/ToyEdge.obj
 
@@ -212,6 +236,9 @@ help:
 	@echo ... src/classes/Script.obj
 	@echo ... src/classes/Script.i
 	@echo ... src/classes/Script.s
+	@echo ... src/classes/TSPSolver.obj
+	@echo ... src/classes/TSPSolver.i
+	@echo ... src/classes/TSPSolver.s
 	@echo ... src/classes/ToyEdge.obj
 	@echo ... src/classes/ToyEdge.i
 	@echo ... src/classes/ToyEdge.s
