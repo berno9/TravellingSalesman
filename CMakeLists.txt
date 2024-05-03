@@ -7,7 +7,7 @@ add_executable(TravellingSalesman src/main.cpp
         src/headers/Graph.h
         src/headers/Script.h
         src/classes/Script.cpp
-        src/headers/ToyEdge.h
-        src/classes/ToyEdge.cpp
         src/headers/TSPSolver.h
-        src/classes/TSPSolver.cpp)
+        src/classes/TSPSolver.cpp
+        src/headers/Menu.h
+        src/classes/Menu.cpp)

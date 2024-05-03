@@ -96,24 +96,10 @@ CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\teres\Downloads\TravellingSalesman\src\classes\Script.cpp -o CMakeFiles\TravellingSalesman.dir\src\classes\Script.cpp.s
 
-CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj: CMakeFiles/TravellingSalesman.dir/flags.make
-CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj: C:/Users/teres/Downloads/TravellingSalesman/src/classes/ToyEdge.cpp
-CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj: CMakeFiles/TravellingSalesman.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj -MF CMakeFiles\TravellingSalesman.dir\src\classes\ToyEdge.cpp.obj.d -o CMakeFiles\TravellingSalesman.dir\src\classes\ToyEdge.cpp.obj -c C:\Users\teres\Downloads\TravellingSalesman\src\classes\ToyEdge.cpp
-
-CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\teres\Downloads\TravellingSalesman\src\classes\ToyEdge.cpp > CMakeFiles\TravellingSalesman.dir\src\classes\ToyEdge.cpp.i
-
-CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\teres\Downloads\TravellingSalesman\src\classes\ToyEdge.cpp -o CMakeFiles\TravellingSalesman.dir\src\classes\ToyEdge.cpp.s
-
 CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj: CMakeFiles/TravellingSalesman.dir/flags.make
 CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj: C:/Users/teres/Downloads/TravellingSalesman/src/classes/TSPSolver.cpp
 CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj: CMakeFiles/TravellingSalesman.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj -MF CMakeFiles\TravellingSalesman.dir\src\classes\TSPSolver.cpp.obj.d -o CMakeFiles\TravellingSalesman.dir\src\classes\TSPSolver.cpp.obj -c C:\Users\teres\Downloads\TravellingSalesman\src\classes\TSPSolver.cpp
 
 CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.i: cmake_force
@@ -124,20 +110,34 @@ CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\teres\Downloads\TravellingSalesman\src\classes\TSPSolver.cpp -o CMakeFiles\TravellingSalesman.dir\src\classes\TSPSolver.cpp.s
 
+CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.obj: CMakeFiles/TravellingSalesman.dir/flags.make
+CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.obj: C:/Users/teres/Downloads/TravellingSalesman/src/classes/Menu.cpp
+CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.obj: CMakeFiles/TravellingSalesman.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.obj -MF CMakeFiles\TravellingSalesman.dir\src\classes\Menu.cpp.obj.d -o CMakeFiles\TravellingSalesman.dir\src\classes\Menu.cpp.obj -c C:\Users\teres\Downloads\TravellingSalesman\src\classes\Menu.cpp
+
+CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\teres\Downloads\TravellingSalesman\src\classes\Menu.cpp > CMakeFiles\TravellingSalesman.dir\src\classes\Menu.cpp.i
+
+CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\teres\Downloads\TravellingSalesman\src\classes\Menu.cpp -o CMakeFiles\TravellingSalesman.dir\src\classes\Menu.cpp.s
+
 # Object files for target TravellingSalesman
 TravellingSalesman_OBJECTS = \
 "CMakeFiles/TravellingSalesman.dir/src/main.cpp.obj" \
 "CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.obj" \
-"CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj" \
-"CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj"
+"CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj" \
+"CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.obj"
 
 # External object files for target TravellingSalesman
 TravellingSalesman_EXTERNAL_OBJECTS =
 
 TravellingSalesman.exe: CMakeFiles/TravellingSalesman.dir/src/main.cpp.obj
 TravellingSalesman.exe: CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.obj
-TravellingSalesman.exe: CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj
 TravellingSalesman.exe: CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj
+TravellingSalesman.exe: CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.obj
 TravellingSalesman.exe: CMakeFiles/TravellingSalesman.dir/build.make
 TravellingSalesman.exe: CMakeFiles/TravellingSalesman.dir/linkLibs.rsp
 TravellingSalesman.exe: CMakeFiles/TravellingSalesman.dir/objects1.rsp

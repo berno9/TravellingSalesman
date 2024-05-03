@@ -82,25 +82,25 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/classes/Menu.cpp">
+			<Option target="TravellingSalesman"/>
+		</Unit>
 		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/classes/Script.cpp">
 			<Option target="TravellingSalesman"/>
 		</Unit>
 		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/classes/TSPSolver.cpp">
 			<Option target="TravellingSalesman"/>
 		</Unit>
-		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/classes/ToyEdge.cpp">
+		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/headers/Graph.h">
 			<Option target="TravellingSalesman"/>
 		</Unit>
-		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/headers/Graph.h">
+		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/headers/Menu.h">
 			<Option target="TravellingSalesman"/>
 		</Unit>
 		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/headers/Script.h">
 			<Option target="TravellingSalesman"/>
 		</Unit>
 		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/headers/TSPSolver.h">
-			<Option target="TravellingSalesman"/>
-		</Unit>
-		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/headers/ToyEdge.h">
 			<Option target="TravellingSalesman"/>
 		</Unit>
 		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/src/main.cpp">

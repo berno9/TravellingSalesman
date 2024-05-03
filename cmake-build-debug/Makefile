@@ -128,6 +128,30 @@ TravellingSalesman/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/build
 .PHONY : TravellingSalesman/fast
 
+src/classes/Menu.obj: src/classes/Menu.cpp.obj
+.PHONY : src/classes/Menu.obj
+
+# target to build an object file
+src/classes/Menu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.obj
+.PHONY : src/classes/Menu.cpp.obj
+
+src/classes/Menu.i: src/classes/Menu.cpp.i
+.PHONY : src/classes/Menu.i
+
+# target to preprocess a source file
+src/classes/Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.i
+.PHONY : src/classes/Menu.cpp.i
+
+src/classes/Menu.s: src/classes/Menu.cpp.s
+.PHONY : src/classes/Menu.s
+
+# target to generate assembly for a file
+src/classes/Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.s
+.PHONY : src/classes/Menu.cpp.s
+
 src/classes/Script.obj: src/classes/Script.cpp.obj
 .PHONY : src/classes/Script.obj
 
@@ -176,30 +200,6 @@ src/classes/TSPSolver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.s
 .PHONY : src/classes/TSPSolver.cpp.s
 
-src/classes/ToyEdge.obj: src/classes/ToyEdge.cpp.obj
-.PHONY : src/classes/ToyEdge.obj
-
-# target to build an object file
-src/classes/ToyEdge.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.obj
-.PHONY : src/classes/ToyEdge.cpp.obj
-
-src/classes/ToyEdge.i: src/classes/ToyEdge.cpp.i
-.PHONY : src/classes/ToyEdge.i
-
-# target to preprocess a source file
-src/classes/ToyEdge.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.i
-.PHONY : src/classes/ToyEdge.cpp.i
-
-src/classes/ToyEdge.s: src/classes/ToyEdge.cpp.s
-.PHONY : src/classes/ToyEdge.s
-
-# target to generate assembly for a file
-src/classes/ToyEdge.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TravellingSalesman.dir\build.make CMakeFiles/TravellingSalesman.dir/src/classes/ToyEdge.cpp.s
-.PHONY : src/classes/ToyEdge.cpp.s
-
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -233,15 +233,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... TravellingSalesman
+	@echo ... src/classes/Menu.obj
+	@echo ... src/classes/Menu.i
+	@echo ... src/classes/Menu.s
 	@echo ... src/classes/Script.obj
 	@echo ... src/classes/Script.i
 	@echo ... src/classes/Script.s
 	@echo ... src/classes/TSPSolver.obj
 	@echo ... src/classes/TSPSolver.i
 	@echo ... src/classes/TSPSolver.s
-	@echo ... src/classes/ToyEdge.obj
-	@echo ... src/classes/ToyEdge.i
-	@echo ... src/classes/ToyEdge.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
