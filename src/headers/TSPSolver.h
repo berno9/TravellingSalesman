@@ -8,6 +8,7 @@
 #include <functional>
 #include <chrono>
 #include <unordered_set>
+#include <cmath>
 
 using namespace std;
 
@@ -22,6 +23,8 @@ public:
                       double& minCost, vector<Vertex<int> *> &tspPath);
     double tspBruteForce(Graph<int>* g, vector<Vertex<int> *> &tspPath);
     void calculateTSP(Graph<int>*g);
+
+    double haversineDistance(Vertex<int> *v1, Vertex<int> *v2);
 };
 
 

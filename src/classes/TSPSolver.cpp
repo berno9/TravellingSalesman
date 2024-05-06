@@ -1,5 +1,32 @@
-
 #include "../headers/TSPSolver.h"
+
+
+double TSPSolver::haversineDistance(Vertex<int> *v1, Vertex<int> *v2) {
+    constexpr double R = 6371.0; // Earth radius in kilometers
+
+    double lat1 = v1->getLatitude();
+    double lon1 = v1->getLongitude();
+    double lat2 = v2->getLatitude();
+    double lon2 = v2->getLongitude();
+
+    lat1 *= M_PI / 180.0;
+    lon1 *= M_PI / 180.0;
+    lat2 *= M_PI / 180.0;
+    lon2 *= M_PI / 180.0;
+
+    double dlat = lat2 - lat1;
+    double dlon = lon2 - lon1;
+
+    // Haversine formula
+    double a = sin(dlat / 2) * sin(dlat / 2) +
+               cos(lat1) * cos(lat2) *
+               sin(dlon / 2) * sin(dlon / 2);
+    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
+    double distance = R * c;
+
+    return distance;
+}
+
 
 void TSPSolver::dijkstra(Graph<int>* g, Vertex<int>* source) {
     auto cmp = [](Vertex<int>* a, Vertex<int>* b) {
