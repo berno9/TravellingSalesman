@@ -27,6 +27,8 @@ public:
     bool isProcessing() const;
     unsigned int getIndegree() const;
     double getDist() const;
+    double getLatitude() const;
+    double getLongitude() const;
     Edge<T> *getPath() const;
     std::vector<Edge<T> *> getIncoming() const;
 
@@ -35,6 +37,8 @@ public:
     void setProcesssing(bool processing);
     void setIndegree(unsigned int indegree);
     void setDist(double dist);
+    void setLatitude(double lat);
+    void setLongitude(double lat);
     void setPath(Edge<T> *path);
     Edge<T> * addEdge(Vertex<T> *dest, double w);
     bool removeEdge(T in);
@@ -42,6 +46,8 @@ public:
 
 protected:
     T info;                // info node
+    double latitude;
+    double longitude;
     std::vector<Edge<T> *> adj;  // outgoing edges
 
     // auxiliary fields
@@ -103,7 +109,7 @@ public:
      *  Adds a vertex with a given content or info (in) to a graph (this).
      *  Returns true if successful, and false if a vertex with that content already exists.
      */
-    bool addVertex(const T &in);
+    bool addVertex(const T &in, double lat, double lon);
     bool removeVertex(const T &in);
 
     /*
@@ -231,6 +237,16 @@ double Vertex<T>::getDist() const {
 }
 
 template <class T>
+double Vertex<T>::getLatitude() const {
+    return this->latitude;
+}
+
+template <class T>
+double Vertex<T>::getLongitude() const {
+    return this->longitude;
+}
+
+template <class T>
 Edge<T> *Vertex<T>::getPath() const {
     return this->path;
 }
@@ -263,6 +279,16 @@ void Vertex<T>::setIndegree(unsigned int indegree) {
 template <class T>
 void Vertex<T>::setDist(double dist) {
     this->dist = dist;
+}
+
+template <class T>
+void Vertex<T>::setLatitude(double lat) {
+    this->latitude = lat;
+}
+
+template <class T>
+void Vertex<T>::setLongitude(double lon) {
+    this->longitude = lon;
 }
 
 template <class T>
@@ -374,10 +400,13 @@ int Graph<T>::findVertexIdx(const T &in) const {
  *  Returns true if successful, and false if a vertex with that content already exists.
  */
 template <class T>
-bool Graph<T>::addVertex(const T &in) {
+bool Graph<T>::addVertex(const T &in, double lon, double lat) {
     if (findVertex(in) != nullptr)
         return false;
-    vertexSet.push_back(new Vertex<T>(in));
+    auto temp = new Vertex<T>(in);
+    temp->setLatitude(lat);
+    temp->setLongitude(lon);
+    vertexSet.push_back(temp);
     return true;
 }
 
