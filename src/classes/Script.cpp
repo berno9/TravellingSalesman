@@ -29,6 +29,20 @@ void Script::read_shipping() {
             shipGraph->addVertex(origin, 0.0, 0.0);
             shipGraph->addVertex(destination, 0.0, 0.0);
             shipGraph->addEdge(origin, destination, distance);
+            bool dir = true;
+            for (Vertex<int>* v: shipGraph->getVertexSet()){
+                if (v->getInfo() == destination){
+                    for (Edge<int>* e: v->getAdj()){
+                        if (e->getDest()->getInfo() == origin) {
+                            dir = false;
+                        }
+                    }
+                }
+            }
+
+            if (dir) {
+                shipGraph->addEdge(destination, origin, distance);
+            }
         }
     }
     File1.close();
@@ -58,6 +72,21 @@ void Script::read_stadiums() {
             stGraph->addVertex(origin, 0.0, 0.0);
             stGraph->addVertex(destination, 0.0, 0.0);
             stGraph->addEdge(origin, destination, distance);
+
+            bool dir = true;
+            for (Vertex<int>* v: stGraph->getVertexSet()){
+                if (v->getInfo() == destination){
+                    for (Edge<int>* e: v->getAdj()){
+                        if (e->getDest()->getInfo() == origin) {
+                            dir = false;
+                        }
+                    }
+                }
+            }
+
+            if (dir) {
+                stGraph->addEdge(destination, origin, distance);
+            }
         }
     }
     File1.close();
@@ -88,6 +117,21 @@ void Script::read_tourism() {
             tmGraph->addVertex(origin, 0.0, 0.0);
             tmGraph->addVertex(destination, 0.0, 0.0);
             tmGraph->addEdge(origin, destination, distance);
+
+            bool dir = true;
+            for (Vertex<int>* v: tmGraph->getVertexSet()){
+                if (v->getInfo() == destination){
+                    for (Edge<int>* e: v->getAdj()){
+                        if (e->getDest()->getInfo() == origin) {
+                            dir = false;
+                        }
+                    }
+                }
+            }
+
+            if (dir) {
+                tmGraph->addEdge(destination, origin, distance);
+            }
         }
     }
     File1.close();
