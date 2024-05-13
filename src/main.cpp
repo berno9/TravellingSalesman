@@ -11,9 +11,9 @@ int main() {
     Script script;
     script.read_tourism();
     //script.read_shipping();
-    //script.read_tourism();
+    //script.read_tourism();m
     TSPSolver tspSolver;
-    tspSolver.calculateTSP(script.getTmGraph());
+    tspSolver.calculateTSP(script.getTGraph());
 
     //script.read_stadiums();
     //script.read_shipping();
