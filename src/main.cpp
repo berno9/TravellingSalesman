@@ -15,7 +15,7 @@ int main() {
     script.read_rwg_g1();
     TSPSolver tspSolver;
     tspSolver.calculateTSP(script.getTmGraph());
-    //tspSolver.calculateTriangleTSP(script.getShipGraph());
+    tspSolver.calculateTriangleTSP(script.getTmGraph());
     //Menu menu = Menu(tspSolver, script);
     //menu.mainMenu();
 

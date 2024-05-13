@@ -166,6 +166,7 @@ CMakeFiles/TravellingSalesman.dir/src/classes/Menu.cpp.obj: C:/Users/diana_9kbxr
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/execution_defs.h \
+  C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/MutablePriorityQueue.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_map \
@@ -409,7 +410,8 @@ CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.obj: C:/Users/diana_9kb
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/deque \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_deque.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/deque.tcc \
-  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h
+  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h \
+  C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/MutablePriorityQueue.h
 
 CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj: C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/classes/TSPSolver.cpp \
   C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/TSPSolver.h \
@@ -575,6 +577,7 @@ CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj: C:/Users/diana_
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/execution_defs.h \
+  C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/MutablePriorityQueue.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_map \
@@ -818,6 +821,7 @@ CMakeFiles/TravellingSalesman.dir/src/main.cpp.obj: C:/Users/diana_9kbxrpt/Downl
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_deque.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/deque.tcc \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h \
+  C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/MutablePriorityQueue.h \
   C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/TSPSolver.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
   C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h \
@@ -1198,6 +1202,8 @@ C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32
 C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h:
+
+C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/MutablePriorityQueue.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional:
 
