@@ -24,7 +24,15 @@ public:
     double tspBruteForce(Graph<int>* g, vector<Vertex<int> *> &tspPath);
     void calculateTSP(Graph<int>*g);
 
+    void triangularApproximation(Graph<int>* g, Vertex<int>* current, double current_cost, int num_visited, double& min_cost,
+                                            vector<Vertex<int>*>& tsp_path);
+    double tspTriangleBruteForce(Graph<int>* g, vector<Vertex<int> *> &tsp_path);
+    void calculateTriangleTSP(Graph<int>* g) ;
     double haversineDistance(Vertex<int> *v1, Vertex<int> *v2);
+
+    void prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &result, double &cost);
+    void preorderMST(Graph<int>* g, Vertex<int>* current, std::vector<Vertex<int>*> &result, double &cost, Vertex<int>* &prev);
+
 };
 
 

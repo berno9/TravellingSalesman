@@ -9,28 +9,28 @@ using namespace std;
 
 int main() {
     Script script;
+
+    script.read_stadiums();
+    script.read_shipping();
     script.read_tourism();
-    //script.read_shipping();
-    //script.read_tourism();m
-    TSPSolver tspSolver;
-    tspSolver.calculateTSP(script.getTGraph());
-
-    //script.read_stadiums();
-    //script.read_shipping();
-    //script.read_tourism();
     script.read_rwg_g1();
-    //TSPSolver tspSolver;
-    //tspSolver.calculateTSP(script.getStGraph());
-
+    TSPSolver tspSolver;
+    tspSolver.calculateTSP(script.getTmGraph());
+    tspSolver.calculateTriangleTSP(script.getTmGraph());
 
     //Menu menu = Menu(tspSolver, script);
     //menu.mainMenu();
 
+
+
+//---------------------Bernardo----------------------------
+    /*
     auto g1 = script.getRealWorldGraph1();
 
     for (auto v : g1->getVertexSet()) {
         cout << v->getInfo() << ", " << fixed << setprecision(6) << v->getLongitude() << ", "
                 << fixed << setprecision(6) << v->getLatitude() << "; " << endl;
-    }
+    }*/
+//--------------------------------------------------------
     return 0;
 }

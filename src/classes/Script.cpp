@@ -1,4 +1,3 @@
-
 #include "../headers/Script.h"
 
 #include <iostream>
