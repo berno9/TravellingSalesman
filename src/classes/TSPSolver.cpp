@@ -147,7 +147,10 @@ void TSPSolver::preorderMST(Graph<int>* g, Vertex<int>* current, std::vector<Ver
             prev = e->getDest();
         }
         else if (!e->getDest()->isVisited()) {
-            double tmp = e->getWeight();
+            double tmp = 0;
+            for (Edge<int> * edg :prev->getAdj() )
+                if (edg->getDest()->getInfo() == e->getDest()->getInfo())
+                    tmp = edg->getWeight();
             if (tmp == 0) {
                 Vertex<int>* dest = e->getDest();
                 if (prev != nullptr && dest != nullptr) {
@@ -169,8 +172,10 @@ void TSPSolver::preorderMST(Graph<int>* g, Vertex<int>* current, std::vector<Ver
 
 
 void TSPSolver::prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &result, double &cost) {
+    Graph<int> * mst = new Graph<int>();
     MutablePriorityQueue<Vertex<int>> pq;
     for (auto v: g->getVertexSet()) {
+        mst->addVertex(v->getInfo(), v->getLatitude(), v->getLatitude());
         v->setVisited(false);
         v->setDist(std::numeric_limits<double>::max());
         v->setPath(nullptr);
@@ -185,7 +190,7 @@ void TSPSolver::prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &re
         }
         u->setVisited(true);
         if (u->getInfo() != source->getInfo()) {
-            g->addBidirectionalEdge(u->getPath()->getOrig()->getInfo(), u->getInfo(), u->getPath()->getWeight());
+            mst->addBidirectionalEdge(u->getPath()->getOrig()->getInfo(), u->getInfo(), u->getPath()->getWeight());
         }
         for (Edge<int>* e: u->getAdj()) {
             Vertex<int>* v = e->getDest();
@@ -205,10 +210,10 @@ void TSPSolver::prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &re
     for (auto v: g->getVertexSet()) {
         v->setVisited(false);
     }
-    Vertex<int>* v = g->findVertex(0);
+    Vertex<int>* v = mst->findVertex(0);
     Vertex<int>* prev = nullptr;
     preorderMST(g, v, result, cost, prev);
-    delete g;
+    delete mst;
 }
 
 
@@ -219,13 +224,16 @@ void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
     Vertex<int>* source = g->findVertex(0);
 
     prim(g,source, tsp_path, cost);
-    for(auto e : source->getAdj()){
-        if (e->getDest()->getInfo() == tsp_path[0]->getInfo()){
+    for(auto e : tsp_path[tsp_path.size() -1]->getAdj()){
+        if (e->getDest()->getInfo() == source->getInfo()){
             cost += e->getWeight();
         }
     }
     auto end = std::chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
+
+    Vertex<int>* finalVtx = g->findVertex(0);
+    tsp_path.push_back(finalVtx);
 
     cout << "TSP Path : ";
     for (size_t i = 0; i < tsp_path.size(); i++) {

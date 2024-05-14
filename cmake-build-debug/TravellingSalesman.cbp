@@ -9,6 +9,7 @@
 		<Build>
 			<Target title="all">
 <<<<<<< HEAD
+<<<<<<< HEAD
 				<Option working_dir="C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
@@ -22,6 +23,8 @@
 				<Option output="C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug/TravellingSalesman.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug"/>
 =======
+=======
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 				<Option working_dir="C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
@@ -34,7 +37,10 @@
 			<Target title="TravellingSalesman">
 				<Option output="C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/TravellingSalesman.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug"/>
+<<<<<<< HEAD
 >>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
+=======
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -49,6 +55,7 @@
 				</Compiler>
 				<MakeCommands>
 <<<<<<< HEAD
+<<<<<<< HEAD
 					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug/Makefile&quot;  VERBOSE=1 TravellingSalesman"/>
 					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -59,6 +66,8 @@
 				<Option output="C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug/TravellingSalesman.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug"/>
 =======
+=======
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/Makefile&quot;  VERBOSE=1 TravellingSalesman"/>
 					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -68,7 +77,10 @@
 			<Target title="TravellingSalesman/fast">
 				<Option output="C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/TravellingSalesman.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug"/>
+<<<<<<< HEAD
 >>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
+=======
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -82,6 +94,7 @@
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
+<<<<<<< HEAD
 <<<<<<< HEAD
 					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug/Makefile&quot;  VERBOSE=1 TravellingSalesman/fast"/>
 					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
@@ -136,6 +149,8 @@
 		</Unit>
 		<Unit filename="C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/CMakeLists.txt">
 =======
+=======
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/Makefile&quot;  VERBOSE=1 TravellingSalesman/fast"/>
 					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -188,7 +203,10 @@
 			<Option target="TravellingSalesman"/>
 		</Unit>
 		<Unit filename="C:/Users/teres/Downloads/TravellingSalesman/CMakeLists.txt">
+<<<<<<< HEAD
 >>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
+=======
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

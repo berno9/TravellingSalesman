@@ -55,11 +55,15 @@
 				}
 			],
 			"type" : "INTERNAL",
+<<<<<<< HEAD
 <<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/cache-v2-8b33add9ebe5d900c503.json
 			"value" : "c:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug"
 ========
 			"value" : "c:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug"
 >>>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2:cmake-build-debug/.cmake/api/v1/reply/cache-v2-5232f37dd5fff8fa2015.json
+=======
+			"value" : "c:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug"
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -647,11 +651,15 @@
 				}
 			],
 			"type" : "STATIC",
+<<<<<<< HEAD
 <<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/cache-v2-8b33add9ebe5d900c503.json
 			"value" : "C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug/CMakeFiles/pkgRedirects"
 ========
 			"value" : "C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/CMakeFiles/pkgRedirects"
 >>>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2:cmake-build-debug/.cmake/api/v1/reply/cache-v2-5232f37dd5fff8fa2015.json
+=======
+			"value" : "C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/CMakeFiles/pkgRedirects"
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -723,11 +731,15 @@
 				}
 			],
 			"type" : "INTERNAL",
+<<<<<<< HEAD
 <<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/cache-v2-8b33add9ebe5d900c503.json
 			"value" : "C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman"
 ========
 			"value" : "C:/Users/teres/Downloads/TravellingSalesman"
 >>>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2:cmake-build-debug/.cmake/api/v1/reply/cache-v2-5232f37dd5fff8fa2015.json
+=======
+			"value" : "C:/Users/teres/Downloads/TravellingSalesman"
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1347,11 +1359,15 @@
 				}
 			],
 			"type" : "STATIC",
+<<<<<<< HEAD
 <<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/cache-v2-8b33add9ebe5d900c503.json
 			"value" : "C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug"
 ========
 			"value" : "C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug"
 >>>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2:cmake-build-debug/.cmake/api/v1/reply/cache-v2-5232f37dd5fff8fa2015.json
+=======
+			"value" : "C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug"
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 		},
 		{
 			"name" : "TravellingSalesman_IS_TOP_LEVEL",
@@ -1375,11 +1391,15 @@
 				}
 			],
 			"type" : "STATIC",
+<<<<<<< HEAD
 <<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/cache-v2-8b33add9ebe5d900c503.json
 			"value" : "C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman"
 ========
 			"value" : "C:/Users/teres/Downloads/TravellingSalesman"
 >>>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2:cmake-build-debug/.cmake/api/v1/reply/cache-v2-5232f37dd5fff8fa2015.json
+=======
+			"value" : "C:/Users/teres/Downloads/TravellingSalesman"
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

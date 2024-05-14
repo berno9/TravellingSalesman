@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\diana_9kbxrpt\Downloads\uni\2ano_2semestre\DA\projeto2\TravellingSalesman -B C:\Users\diana_9kbxrpt\Downloads\uni\2ano_2semestre\DA\projeto2\TravellingSalesman\cmake-build-debug
 =======
 "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\teres\Downloads\TravellingSalesman -B C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug
 >>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
+=======
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\teres\Downloads\TravellingSalesman -B C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 -- The C compiler identification is GNU 13.1.0
 -- The CXX compiler identification is GNU 13.1.0
 -- Detecting C compiler ABI info
@@ -16,6 +20,7 @@
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 <<<<<<< HEAD
+<<<<<<< HEAD
 -- Configuring done (4.2s)
 -- Generating done (0.1s)
 -- Build files have been written to: C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug
@@ -24,3 +29,8 @@
 -- Generating done (0.0s)
 -- Build files have been written to: C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug
 >>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
+=======
+-- Configuring done (2.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb

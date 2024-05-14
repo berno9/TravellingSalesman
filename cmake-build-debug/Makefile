@@ -57,16 +57,22 @@ EQUALS = =
 
 # The top-level source directory on which CMake was run.
 <<<<<<< HEAD
+<<<<<<< HEAD
 CMAKE_SOURCE_DIR = C:\Users\diana_9kbxrpt\Downloads\uni\2ano_2semestre\DA\projeto2\TravellingSalesman
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = C:\Users\diana_9kbxrpt\Downloads\uni\2ano_2semestre\DA\projeto2\TravellingSalesman\cmake-build-debug
 =======
+=======
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 CMAKE_SOURCE_DIR = C:\Users\teres\Downloads\TravellingSalesman
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug
+<<<<<<< HEAD
 >>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
+=======
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -94,6 +100,7 @@ rebuild_cache/fast: rebuild_cache
 # The main all target
 all: cmake_check_build_system
 <<<<<<< HEAD
+<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\diana_9kbxrpt\Downloads\uni\2ano_2semestre\DA\projeto2\TravellingSalesman\cmake-build-debug\CMakeFiles C:\Users\diana_9kbxrpt\Downloads\uni\2ano_2semestre\DA\projeto2\TravellingSalesman\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\diana_9kbxrpt\Downloads\uni\2ano_2semestre\DA\projeto2\TravellingSalesman\cmake-build-debug\CMakeFiles 0
@@ -102,6 +109,11 @@ all: cmake_check_build_system
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles 0
 >>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
+=======
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\\CMakeFiles\progress.marks
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\teres\Downloads\TravellingSalesman\cmake-build-debug\CMakeFiles 0
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 .PHONY : all
 
 # The main clean target

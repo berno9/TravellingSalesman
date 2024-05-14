@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Install script for directory: C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman
 =======
 # Install script for directory: C:/Users/teres/Downloads/TravellingSalesman
 >>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
+=======
+# Install script for directory: C:/Users/teres/Downloads/TravellingSalesman
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,8 +54,12 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 <<<<<<< HEAD
+<<<<<<< HEAD
 file(WRITE "C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
 =======
 file(WRITE "C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
 >>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
+=======
+file(WRITE "C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
