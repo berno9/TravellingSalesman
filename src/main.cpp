@@ -14,8 +14,8 @@ int main() {
     script.read_tourism();
     script.read_rwg_g1();
     TSPSolver tspSolver;
-    tspSolver.calculateTSP(script.getTmGraph());
-    tspSolver.calculateTriangleTSP(script.getTmGraph());
+    tspSolver.calculateTSP(script.getStGraph());
+    tspSolver.calculateTriangleTSP(script.getStGraph());
     //Menu menu = Menu(tspSolver, script);
     //menu.mainMenu();
 
