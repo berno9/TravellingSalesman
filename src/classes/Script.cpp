@@ -188,6 +188,7 @@ void Script::read_rwg_g1() {
             rwg_g1->addVertex(origin, coordinates[origin].first, coordinates[origin].second);
             rwg_g1->addVertex(destination, coordinates[destination].first, coordinates[destination].second);
             rwg_g1->addEdge(origin, destination, distance);
+            rwg_g1->addEdge(destination, origin, distance);
 
         }
 

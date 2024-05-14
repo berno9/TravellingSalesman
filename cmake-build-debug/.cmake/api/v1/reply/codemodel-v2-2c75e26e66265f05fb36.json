@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/teres/Downloads/TravellingSalesman/cmake-build-debug",
-		"source" : "C:/Users/teres/Downloads/TravellingSalesman"
+		"build" : "C:/Users/User/Documents/segundoano/TravellingSalesman/cmake-build-debug",
+		"source" : "C:/Users/User/Documents/segundoano/TravellingSalesman"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 5
+		"minor" : 6
 	}
 }

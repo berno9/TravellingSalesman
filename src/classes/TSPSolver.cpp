@@ -1,6 +1,10 @@
 #include "../headers/TSPSolver.h"
 
 
+Graph<int> *TSPSolver::TheG() {
+    return script.getRealWorldGraph1();
+}
+
 double TSPSolver::haversineDistance(Vertex<int> *v1, Vertex<int> *v2) {
     constexpr double R = 6371.0; // Earth radius in kilometers
 
@@ -135,5 +139,70 @@ void TSPSolver::calculateTSP(Graph<int>* g) {
     cout << "Cost: " << cost << '\n';
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
+
+
+
+
+
+void TSPSolver::initializeCenters(std::vector<Cluster>& clusters, const Graph<int>* graph, int k) {
+    srand(time(NULL));
+    for (int i = 0; i < k; ++i) {
+        int index = rand() % graph->getVertexSet().size();
+        const Vertex<int>* vertex = graph->getVertexSet()[index];
+        clusters[i].centerX = vertex->getLatitude();
+        clusters[i].centerY = vertex->getLongitude();
+    }
+}
+
+void TSPSolver::assignToClusters(std::vector<Cluster>& clusters, const Graph<int>* graph) {
+    for (auto vertex : graph->getVertexSet()) {
+        double minDistance = numeric_limits<double>::max();
+        int nearestClusterIndex = -1;
+        for (size_t i = 0; i < clusters.size(); ++i) {
+            double distance = haversineDistance(vertex, graph->getVertexSet()[clusters[i].cities[0]]);
+            if (distance < minDistance) {
+                minDistance = distance;
+                nearestClusterIndex = i;
+            }
+        }
+        clusters[nearestClusterIndex].cities.push_back(vertex->getInfo());
+    }
+}
+
+void TSPSolver::updateCenters(std::vector<Cluster>& clusters, const Graph<int>* graph) {
+    for (Cluster& cluster : clusters) {
+        double sumX = 0.0;
+        double sumY = 0.0;
+        for (int cityIndex : cluster.cities) {
+            const Vertex<int>* vertex = graph->findVertex(cityIndex);
+            sumX += vertex->getLatitude();
+            sumY += vertex->getLongitude();
+        }
+        cluster.centerX = sumX / cluster.cities.size();
+        cluster.centerY = sumY / cluster.cities.size();
+    }
+}
+
+std::vector<Cluster> TSPSolver::kMeansClustering(const Graph<int>* graph, int k, int maxIterations) {
+    std::vector<Cluster> clusters(k);
+
+    initializeCenters(clusters, graph, k);
+
+    // Iterate until convergence or maximum iterations reached
+    for (int iter = 0; iter < maxIterations; ++iter) {
+
+        assignToClusters(clusters, graph);
+
+        updateCenters(clusters, graph);
+
+        for (Cluster& cluster : clusters) {
+            cluster.cities.clear();
+        }
+    }
+
+    return clusters;
+}
+
+
 
 
