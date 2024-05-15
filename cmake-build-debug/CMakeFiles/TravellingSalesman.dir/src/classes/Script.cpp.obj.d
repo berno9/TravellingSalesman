@@ -1,16 +1,6 @@
 CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.obj: \
-<<<<<<< HEAD
-<<<<<<< HEAD
  C:\Users\diana_9kbxrpt\Downloads\uni\2ano_2semestre\DA\projeto2\TravellingSalesman\src\classes\Script.cpp \
  C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/Script.h \
-=======
- C:\Users\teres\Downloads\TravellingSalesman\src\classes\Script.cpp \
- C:/Users/teres/Downloads/TravellingSalesman/src/headers/Script.h \
->>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
-=======
- C:\Users\teres\Downloads\TravellingSalesman\src\classes\Script.cpp \
- C:/Users/teres/Downloads/TravellingSalesman/src/headers/Script.h \
->>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -199,27 +189,10 @@ CMakeFiles/TravellingSalesman.dir/src/classes/Script.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_hermite.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_laguerre.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/riemann_zeta.tcc \
-<<<<<<< HEAD
-<<<<<<< HEAD
  C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/Graph.h \
-=======
- C:/Users/teres/Downloads/TravellingSalesman/src/headers/Graph.h \
->>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
-=======
- C:/Users/teres/Downloads/TravellingSalesman/src/headers/Graph.h \
->>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/queue \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/deque \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_deque.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/deque.tcc \
-<<<<<<< HEAD
-<<<<<<< HEAD
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h \
  C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/MutablePriorityQueue.h
-=======
- C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h
->>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
-=======
- C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h \
- C:/Users/teres/Downloads/TravellingSalesman/src/headers/MutablePriorityQueue.h
->>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb

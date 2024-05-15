@@ -57,7 +57,7 @@ void TSPSolver::dijkstra(Graph<int>* g, Vertex<int>* source) {
 }
 
 void TSPSolver::tspBacktrack(Graph<int>* g, Vertex<int> *current, double current_cost, int num_visited, double &min_cost,
-                                       vector<Vertex<int> *> &tsp_path) {
+                             vector<Vertex<int> *> &tsp_path) {
     if (num_visited == g->getNumVertex()) {
         double cost = current_cost;
         bool hasEdge = false;
@@ -163,6 +163,7 @@ void TSPSolver::preorderMST(Graph<int>* g, Vertex<int>* current, std::vector<Ver
             prev = e->getDest();
         }
         flag = false;
+
         Vertex<int>* w = e->getDest();
         if (!w->isVisited()) {
             preorderMST(g, w, result, cost, prev);
@@ -190,7 +191,7 @@ void TSPSolver::prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &re
         }
         u->setVisited(true);
         if (u->getInfo() != source->getInfo()) {
-            mst->addBidirectionalEdge(u->getPath()->getOrig()->getInfo(), u->getInfo(), u->getPath()->getWeight());
+            mst->addBidirectionalEdge(u->getPath()->getOrig()->getInfo(), u->getInfo(), u->getPath()->getWeight());//////////////
         }
         for (Edge<int>* e: u->getAdj()) {
             Vertex<int>* v = e->getDest();
@@ -220,6 +221,7 @@ void TSPSolver::prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &re
 void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
     vector<Vertex<int>*> tsp_path;
     double cost = 0;
+    double cost2 = 0;
     auto start = std::chrono::high_resolution_clock::now();
     Vertex<int>* source = g->findVertex(0);
 
@@ -234,13 +236,22 @@ void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
 
     Vertex<int>* finalVtx = g->findVertex(0);
     tsp_path.push_back(finalVtx);
+    for (size_t i = 0; i < tsp_path.size()-1; i++) {
+        auto nextNum = tsp_path[i+1]->getInfo();
+        for(auto e : tsp_path[i]->getAdj()){
+            if(e->getDest()->getInfo() == nextNum){
+                cost2 += e->getWeight();
+            }
+        }
+    }
 
     cout << "TSP Path : ";
     for (size_t i = 0; i < tsp_path.size(); i++) {
         cout << tsp_path[i]->getInfo() << (i == tsp_path.size() - 1 ? "\n" : " -> ");
     }
     cout << '\n';
-    cout << "Cost: " << cost << '\n';
+    cout << "Costi: " << cost << '\n';
+    cout << "Cost2: " << cost2 << '\n';
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
 

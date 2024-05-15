@@ -1,19 +1,7 @@
 CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj: \
-<<<<<<< HEAD
-<<<<<<< HEAD
  C:\Users\diana_9kbxrpt\Downloads\uni\2ano_2semestre\DA\projeto2\TravellingSalesman\src\classes\TSPSolver.cpp \
  C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/TSPSolver.h \
  C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/Graph.h \
-=======
- C:\Users\teres\Downloads\TravellingSalesman\src\classes\TSPSolver.cpp \
- C:/Users/teres/Downloads/TravellingSalesman/src/headers/TSPSolver.h \
- C:/Users/teres/Downloads/TravellingSalesman/src/headers/Graph.h \
->>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
-=======
- C:\Users\teres\Downloads\TravellingSalesman\src\classes\TSPSolver.cpp \
- C:/Users/teres/Downloads/TravellingSalesman/src/headers/TSPSolver.h \
- C:/Users/teres/Downloads/TravellingSalesman/src/headers/Graph.h \
->>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -175,14 +163,7 @@ CMakeFiles/TravellingSalesman.dir/src/classes/TSPSolver.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/execution_defs.h \
-<<<<<<< HEAD
-<<<<<<< HEAD
  C:/Users/diana_9kbxrpt/Downloads/uni/2ano_2semestre/DA/projeto2/TravellingSalesman/src/headers/MutablePriorityQueue.h \
-=======
->>>>>>> 54538a3cad605198209c6b11da5db88c7e04d2a2
-=======
- C:/Users/teres/Downloads/TravellingSalesman/src/headers/MutablePriorityQueue.h \
->>>>>>> 4cc1d21c3d11c064b06c972fe624693abc6edffb
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_map \

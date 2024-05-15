@@ -16,8 +16,8 @@ int main() {
     script.read_rwg_g1();
     TSPSolver tspSolver;
 
-    tspSolver.calculateTSP(script.getStGraph());
-    tspSolver.calculateTriangleTSP(script.getStGraph());
+    //tspSolver.calculateTSP(script.getShipGraph());
+    tspSolver.calculateTriangleTSP(script.getShipGraph());
 
     //Menu menu = Menu(tspSolver, script);
     //menu.mainMenu();
@@ -25,13 +25,14 @@ int main() {
 
 
 //---------------------Bernardo----------------------------
-    /*
-    auto g1 = script.getRealWorldGraph1();
 
+    auto g1 = script.getRealWorldGraph1();
+    /*
     for (auto v : g1->getVertexSet()) {
         cout << v->getInfo() << ", " << fixed << setprecision(6) << v->getLongitude() << ", "
                 << fixed << setprecision(6) << v->getLatitude() << "; " << endl;
     }*/
+    //tspSolver.calculateTriangleTSP(g1);
 //--------------------------------------------------------
     return 0;
 }
