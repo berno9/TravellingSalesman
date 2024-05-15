@@ -25,6 +25,7 @@ private:
     Graph<int> * tmGraph = new Graph<int>();
 
     Graph<int> * rwg_g1 = new Graph<int>();
+    Graph<int> * efcg_25 = new Graph<int>();
 public:
 
     void read_shipping();
@@ -32,12 +33,14 @@ public:
     void read_tourism();
 
     void read_rwg_g1();
+    void read_efcg_25();
 
     Graph<int> *getShipGraph() const;
     Graph<int> *getStGraph() const;
     Graph<int> *getTmGraph() const;
 
     Graph<int> *getRealWorldGraph1() const;
+    Graph<int> *getExtraFulllyConnected25() const;
 };
 
 

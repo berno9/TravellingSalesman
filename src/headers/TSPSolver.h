@@ -17,7 +17,6 @@ private:
 
 
 public:
-
     void dijkstra(Graph<int>* g, Vertex<int>* source);
     void tspBacktrack(Graph<int>* g, Vertex<int>* current, double current_cost, int numVisited,
                       double& minCost, vector<Vertex<int> *> &tspPath);
@@ -27,6 +26,8 @@ public:
     void triangularApproximation(Graph<int>* g, Vertex<int>* current, double current_cost, int num_visited, double& min_cost,
                                             vector<Vertex<int>*>& tsp_path);
     double tspTriangleBruteForce(Graph<int>* g, vector<Vertex<int> *> &tsp_path);
+
+    Edge<int>* existEdge(Graph<int>* g, int v1, int v2) const;
     void calculateTriangleTSP(Graph<int>* g) ;
     double haversineDistance(Vertex<int> *v1, Vertex<int> *v2);
 

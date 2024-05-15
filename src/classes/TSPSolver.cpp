@@ -136,6 +136,16 @@ void TSPSolver::calculateTSP(Graph<int>* g) {
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
 
+Edge<int>* TSPSolver::existEdge(Graph<int>* g, int v1, int v2) const {
+    Vertex<int>* vertex = g->findVertex(v1);
+    for(const auto& edge : vertex->getAdj()){
+        if(edge->getDest()->getInfo() == v2)
+            return edge;
+    }
+    return nullptr;
+}
+
+
 void TSPSolver::preorderMST(Graph<int>* g, Vertex<int>* current, std::vector<Vertex<int>*> &result, double &cost, Vertex<int>* &prev){
     Vertex<int>* v = g->findVertex(current->getInfo());
     result.push_back(v);
@@ -144,20 +154,26 @@ void TSPSolver::preorderMST(Graph<int>* g, Vertex<int>* current, std::vector<Ver
     for (Edge<int>* e: current->getAdj()) {
         if (flag && !e->getDest()->isVisited()) {
             cost += e->getWeight();
+            cout <<"edge weight"<< e->getWeight()<<e->getOrig()->getInfo()<<" "<<e->getDest()->getInfo()<<endl;
             prev = e->getDest();
         }
         else if (!e->getDest()->isVisited()) {
             double tmp = 0;
             for (Edge<int> * edg :prev->getAdj() )
-                if (edg->getDest()->getInfo() == e->getDest()->getInfo())
+                if (edg->getDest()->getInfo() == e->getDest()->getInfo()){
                     tmp = edg->getWeight();
+                    cout <<"edge weight"<< edg->getWeight()<<" "<<edg->getOrig()->getInfo()<<" "<<edg->getDest()->getInfo()<<endl;
+                }
+
             if (tmp == 0) {
                 Vertex<int>* dest = e->getDest();
                 if (prev != nullptr && dest != nullptr) {
                     double tmp = haversineDistance(prev, dest);
+                    cout<<"oii"<< tmp<<endl;
                     cost += tmp;
                 }
             } else {
+                cout << "byee"<<tmp<<endl;
                 cost += tmp;
             }
             prev = e->getDest();
@@ -175,9 +191,15 @@ void TSPSolver::prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &re
     Graph<int> * mst = new Graph<int>();
     MutablePriorityQueue<Vertex<int>> pq;
     for (auto v: g->getVertexSet()) {
-        mst->addVertex(v->getInfo(), v->getLatitude(), v->getLatitude());
+        Vertex<int> * vMst = mst->findVertex(v->getInfo());
+        if (!vMst) {
+            mst->addVertex(v->getInfo(), 0.0, 0.0);
+        }
+        else {
+            mst->addVertex(v->getInfo(), v->getLatitude(), v->getLatitude());
+        }
         v->setVisited(false);
-        v->setDist(std::numeric_limits<double>::max());
+        v->setDist(INF);
         v->setPath(nullptr);
     }
 
@@ -199,7 +221,7 @@ void TSPSolver::prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &re
                 double previous = v->getDist();
                 v->setDist(w);
                 v->setPath(e);
-                if (previous == std::numeric_limits<double>::max()) {
+                if (previous == INF) {
                     pq.insert(v);
                 } else {
                     pq.decreaseKey(v);
@@ -224,16 +246,17 @@ void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
     Vertex<int>* source = g->findVertex(0);
 
     prim(g,source, tsp_path, cost);
+    cout<<"---------------------------------------------------------------------------"<<endl;
     for(auto e : tsp_path[tsp_path.size() -1]->getAdj()){
         if (e->getDest()->getInfo() == source->getInfo()){
             cost += e->getWeight();
+            cout <<"edge weight"<< e->getWeight()<<" "<<e->getOrig()->getInfo()<<" "<<e->getDest()->getInfo()<<endl;
         }
     }
     auto end = std::chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
 
-    Vertex<int>* finalVtx = g->findVertex(0);
-    tsp_path.push_back(finalVtx);
+    tsp_path.push_back(source);
 
     cout << "TSP Path : ";
     for (size_t i = 0; i < tsp_path.size(); i++) {

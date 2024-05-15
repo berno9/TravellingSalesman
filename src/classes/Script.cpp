@@ -28,20 +28,7 @@ void Script::read_shipping() {
             shipGraph->addVertex(origin, 0.0, 0.0);
             shipGraph->addVertex(destination, 0.0, 0.0);
             shipGraph->addEdge(origin, destination, distance);
-            bool dir = true;
-            for (Vertex<int>* v: shipGraph->getVertexSet()){
-                if (v->getInfo() == destination){
-                    for (Edge<int>* e: v->getAdj()){
-                        if (e->getDest()->getInfo() == origin) {
-                            dir = false;
-                        }
-                    }
-                }
-            }
-
-            if (dir) {
-                shipGraph->addEdge(destination, origin, distance);
-            }
+            shipGraph->addEdge(destination, origin, distance);
         }
     }
     File1.close();
@@ -71,21 +58,8 @@ void Script::read_stadiums() {
             stGraph->addVertex(origin, 0.0, 0.0);
             stGraph->addVertex(destination, 0.0, 0.0);
             stGraph->addEdge(origin, destination, distance);
+            stGraph->addEdge(destination, origin, distance);
 
-            bool dir = true;
-            for (Vertex<int>* v: stGraph->getVertexSet()){
-                if (v->getInfo() == destination){
-                    for (Edge<int>* e: v->getAdj()){
-                        if (e->getDest()->getInfo() == origin) {
-                            dir = false;
-                        }
-                    }
-                }
-            }
-
-            if (dir) {
-                stGraph->addEdge(destination, origin, distance);
-            }
         }
     }
     File1.close();
@@ -116,21 +90,7 @@ void Script::read_tourism() {
             tmGraph->addVertex(origin, 0.0, 0.0);
             tmGraph->addVertex(destination, 0.0, 0.0);
             tmGraph->addEdge(origin, destination, distance);
-
-            bool dir = true;
-            for (Vertex<int>* v: tmGraph->getVertexSet()){
-                if (v->getInfo() == destination){
-                    for (Edge<int>* e: v->getAdj()){
-                        if (e->getDest()->getInfo() == origin) {
-                            dir = false;
-                        }
-                    }
-                }
-            }
-
-            if (dir) {
-                tmGraph->addEdge(destination, origin, distance);
-            }
+            tmGraph->addEdge(destination, origin, distance);
         }
     }
     File1.close();
@@ -187,12 +147,43 @@ void Script::read_rwg_g1() {
             rwg_g1->addVertex(origin, coordinates[origin].first, coordinates[origin].second);
             rwg_g1->addVertex(destination, coordinates[destination].first, coordinates[destination].second);
             rwg_g1->addEdge(origin, destination, distance);
-
+            rwg_g1->addEdge(destination, origin, distance);
         }
 
     }
     File1.close();
 
+}
+
+void Script::read_efcg_25() {
+    ifstream File1("../datasets/Extra_Fully_Connected_Graphs/edges_25.csv");
+
+    if (File1.is_open()) {
+        string line1;
+        int origin, destination;
+        double distance;
+        getline(File1, line1);
+
+        while (getline(File1, line1)) {
+            istringstream iss1(line1);
+            string orig, dest, dist;
+
+            getline(iss1, orig, ',');
+            getline(iss1, dest, ',');
+            getline(iss1, dist, ',');
+
+            origin = stoi(orig);
+            destination = stoi(dest);
+            distance = stod(dist);
+
+            efcg_25->addVertex(origin, 0.0, 0.0);
+            efcg_25->addVertex(destination, 0.0, 0.0);
+            efcg_25->addEdge(origin, destination, distance);
+            efcg_25->addEdge(destination, origin, distance);
+        }
+
+    }
+    File1.close();
 }
 
 Graph<int> * Script::getShipGraph() const {
@@ -209,4 +200,8 @@ Graph<int> * Script::getTmGraph() const {
 
 Graph<int> *Script::getRealWorldGraph1() const {
     return rwg_g1;
+}
+
+Graph<int> *Script::getExtraFulllyConnected25() const {
+    return efcg_25;
 }
