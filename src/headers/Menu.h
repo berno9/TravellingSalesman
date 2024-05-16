@@ -1,4 +1,5 @@
 
+
 #ifndef TRAVELLINGSALESMAN_MENU_H
 #define TRAVELLINGSALESMAN_MENU_H
 
@@ -8,18 +9,17 @@
 
 class Menu {
 private:
+    Graph<int> *g;
     Script script;
     TSPSolver tspSolver;
 public:
     Menu(TSPSolver tspSolver, Script script);
-
     void mainMenu();
-    void switchGraph();
+    void chooseGraph();
     void printToyGraph();
 
-    void solutionTSPBack(Graph<int>* g);
-    void next();
 };
 
 
 #endif //TRAVELLINGSALESMAN_MENU_H
+

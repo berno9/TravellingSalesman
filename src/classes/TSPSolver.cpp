@@ -1,6 +1,10 @@
 #include "../headers/TSPSolver.h"
 
 
+Graph<int> *TSPSolver::TheG() {
+    return script.getRealWorldGraph1();
+}
+
 double TSPSolver::haversineDistance(Vertex<int> *v1, Vertex<int> *v2) {
     constexpr double R = 6371.0; // Earth radius in kilometers
 
@@ -219,6 +223,8 @@ void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
         cout << tsp_path[i]->getInfo() << (i == tsp_path.size() - 1 ? "\n" : " -> ");
     }
     cout << '\n';
+
+
     cout << "Costi: " << cost << '\n';
     cout << "Cost2: " << cost2 << '\n';
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
@@ -264,7 +270,6 @@ double TSPSolver::tspNearestNeighbor(Graph<int>* g, vector<Vertex<int>*>& tsp_pa
     tsp_path.clear();
     std::size_t num_vertices = g->getNumVertex();
     std::vector<bool> visited(num_vertices, false);
-
     std::size_t start_idx = 0;
     Vertex<int>* current = g->getVertexSet()[start_idx];
     tsp_path.push_back(current);
@@ -304,7 +309,9 @@ double TSPSolver::tspNearestNeighbor(Graph<int>* g, vector<Vertex<int>*>& tsp_pa
     }
 
     return cost;
+
 }
+
 
 void TSPSolver::calculateNearestNeighborTSP(Graph<int>* g) {
     unsigned int iterations;
@@ -328,3 +335,140 @@ void TSPSolver::calculateNearestNeighborTSP(Graph<int>* g) {
     cout << "Cost: " << cost << '\n';
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
+
+
+
+/*
+
+
+void TSPSolver::initializeCenters(vector<Cluster>& clusters, const Graph<int>* graph, int k) {
+    srand(time(NULL));
+    unordered_map<int, bool> usedIndices;
+
+    for (int i = 0; i < k; ++i) {
+        int index;
+        do {
+            index = rand() % graph->getVertexSet().size();
+        } while (usedIndices.find(index) != usedIndices.end());
+
+        usedIndices[index] = true;
+        const Vertex<int>* vertex = graph->getVertexSet()[index];
+        clusters[i].centerX = vertex->getLatitude();
+        clusters[i].centerY = vertex->getLongitude();
+        clusters[i].cities.push_back(vertex->getInfo());
+    }
+}
+
+void TSPSolver::assignToClusters(vector<Cluster>& clusters, const Graph<int>* graph) {
+    for (Cluster& cluster : clusters)
+        cluster.cities.clear();
+
+    for (auto vertex : graph->getVertexSet()) {
+        double minDistance = numeric_limits<double>::max();
+        int nearestClusterIndex = -1;
+        for (size_t i = 0; i < clusters.size(); ++i) {
+            double distance = haversineDistance(vertex, graph->getVertexSet()[clusters[i].cities[0]]);
+            if (distance < minDistance) {
+                minDistance = distance;
+                nearestClusterIndex = i;
+            }
+        }
+        clusters[nearestClusterIndex].cities.push_back(vertex->getInfo());
+    }
+}
+
+void TSPSolver::updateCenters(vector<Cluster>& clusters, const Graph<int>* graph) {
+    for (Cluster& cluster : clusters) {
+        double sumX = 0.0;
+        double sumY = 0.0;
+        for (int cityIndex : cluster.cities) {
+            const Vertex<int>* vertex = graph->findVertex(cityIndex);
+            sumX += vertex->getLatitude();
+            sumY += vertex->getLongitude();
+        }
+        cluster.centerX = sumX / cluster.cities.size();
+        cluster.centerY = sumY / cluster.cities.size();
+    }
+}
+
+vector<Cluster> TSPSolver::kMeansClustering(const Graph<int>* graph, int k, int maxIterations) {
+    std::vector<Cluster> clusters(k);
+
+    initializeCenters(clusters, graph, k);
+
+    // Iterate until convergence or maximum iterations reached
+    for (int iter = 0; iter < maxIterations; ++iter) {
+
+        assignToClusters(clusters, graph);
+
+        updateCenters(clusters, graph);
+    }
+    return clusters;
+}
+
+vector<Vertex<int> *> TSPSolver::findBestTourForCluster(const Graph<int> *graph, const Cluster &cluster) {
+
+    Graph<int> subgraph;
+    std::unordered_map<int, Vertex<int>*> vertexMap;
+
+    for (int id : cluster.cities) {
+        auto vertex = graph->findVertex(id);
+        subgraph.addVertex(id, vertex->getLongitude(), vertex->getLatitude());
+        vertexMap[id] = vertex;
+    }
+
+    for (int id : cluster.cities) {
+        auto vertex = graph->findVertex(id);
+        for (const auto& edge : vertex->getAdj()) {
+            int destCityId = edge->getDest()->getInfo();
+            if (vertexMap.find(destCityId) != vertexMap.end())
+                subgraph.addEdge(vertex->getInfo(), destCityId, edge->getWeight());
+        }
+    }
+
+    return calculateTriangleTSPReturning(&subgraph);
+}
+
+Vertex<int> *TSPSolver::findClosestCity(Vertex<int> *city, const std::vector<Vertex<int> *> &tour) {
+    Vertex<int>* closestCity = nullptr;
+    double minDistance = std::numeric_limits<double>::max();
+
+    for (Vertex<int>* v : tour) {
+        double distance = haversineDistance(city, v);
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestCity = v;
+        }
+    }
+
+    return closestCity;
+}
+
+vector<Vertex<int>*> TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Cluster>& clusters) {
+    vector<Vertex<int>*> completeTour;
+
+    // Step 1: Calculate TSP Tour for Each Cluster
+    vector<std::vector<Vertex<int>*>> clusterTours;
+    for (const auto& cluster : clusters) {
+        std::vector<Vertex<int>*> tour = findBestTourForCluster(graph, cluster);
+        clusterTours.push_back(tour);
+    }
+
+    // Step 2: Tour stitching
+    completeTour = clusterTours[0];
+
+    // Stitch the TSP tours of the remaining clusters
+    for (size_t i = 1; i < clusterTours.size(); ++i) {
+        Vertex<int>* closestCity = findClosestCity(completeTour.back(), clusterTours[i]);
+        auto it = find(clusterTours[i].begin(), clusterTours[i].end(), closestCity);
+        completeTour.insert(completeTour.end(), std::next(it), clusterTours[i].end());
+        completeTour.insert(completeTour.end(), clusterTours[i].begin(), it);
+    }
+
+    // Step 3: Close the Tour
+    completeTour.push_back(completeTour.front());
+
+    return completeTour;
+}
+
+*/

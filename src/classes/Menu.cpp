@@ -1,22 +1,28 @@
 
+
 #include "../headers/Menu.h"
 
 Menu::Menu(TSPSolver tspSolver, Script script) : tspSolver(tspSolver), script(script) {}
 
 void Menu::mainMenu() {
     std::cout << std::endl;
-    std::cout << "#######################################################################" << std::endl;
-    std::cout << "##                                                                   ##" << std::endl;
-    std::cout << "##                    * * *   Consult   * * *                        ##" << std::endl;
-    std::cout << "##                                                                   ##" << std::endl;
-    std::cout << "##      1 - TSP with Backtracking                                    ##" << std::endl;
-    std::cout << "##                                                                   ##" << std::endl;
-    std::cout << "##      2 - TSP with Triangular Approximation Heuristic              ##" << std::endl;
-    std::cout << "##                                                                   ##" << std::endl;
-    std::cout << "##                                                                   ##" << std::endl;
-    std::cout << "##      0-> Exit                                                     ##" << std::endl;
-    std::cout << "##                                                                   ##" << std::endl;
-    std::cout << "#######################################################################" << std::endl << std::endl;
+    std::cout << "########################################################################################" << std::endl;
+    std::cout << "##                                                                                    ##" << std::endl;
+    std::cout << "##                    * * *   Consult TSP solutions   * * *                           ##" << std::endl;
+    std::cout << "##                                                                                    ##" << std::endl;
+    std::cout << "##      1 - Backtracking                                                              ##" << std::endl;
+    std::cout << "##                                                                                    ##" << std::endl;
+    std::cout << "##      2 - Triangular Approximation Heuristic                                        ##" << std::endl;
+    std::cout << "##                                                                                    ##" << std::endl;
+    std::cout << "##      3 - Divide cities into clusters and merge all sub tours                       ##" << std::endl;
+    std::cout << "##                                                                                    ##" << std::endl;
+    std::cout << "##      4 - Nearest neighbours                                                        ##" << std::endl;
+    std::cout << "##                                                                                    ##" << std::endl;
+    std::cout << "##      5 - Switch current graph                                                      ##" << std::endl;
+    std::cout << "##                                                                                    ##" << std::endl;
+    std::cout << "##      0-> Exit                                                                      ##" << std::endl;
+    std::cout << "##                                                                                    ##" << std::endl;
+    std::cout << "########################################################################################" << std::endl << std::endl;
 
 
     int k;
@@ -35,18 +41,36 @@ void Menu::mainMenu() {
         case 0:
             exit(0);
         case 1:
-            
+            // backtracking
+            tspSolver.calculateTSP(g);
+            mainMenu();
             break;
         case 2:
-
+            // 2-approximation
+            tspSolver.calculateTriangleTSP(g);
+            mainMenu();
+            break;
+        case 3:
+            // clusters
+            mainMenu();
+            break;
+        case 4:
+            // nearestNeighbor
+            tspSolver.calculateNearestNeighborTSP(g);
+            mainMenu();
+            break;
+        case 5:
+            // nearestNeighbor
+            chooseGraph();
+            break;
         default:
-            std::cout << "Option doesn't exist. Please insert a valid option." << std::endl;
+            std::cout << "Please insert a valid option." << std::endl;
             mainMenu(); break;
 
     }
 }
 
-void Menu::switchGraph() {
+void Menu::chooseGraph() {
     std::cout << std::endl;
     std::cout << "#######################################################################" << std::endl;
     std::cout << "##                                                                   ##" << std::endl;
@@ -89,7 +113,7 @@ void Menu::switchGraph() {
             break;
         default:
             std::cout << "Option doesn't exist. Please insert a valid option." << std::endl;
-            mainMenu(); break;
+            chooseGraph(); break;
 
     }
 }
@@ -127,21 +151,23 @@ void Menu::printToyGraph() {
         case 0:
             exit(0);
         case 1:
-
+            script.read_shipping();
+            g = script.getShipGraph();
+            mainMenu();
             break;
         case 2:
-
+            script.read_stadiums();
+            g = script.getStGraph();
+            mainMenu();
             break;
         case 3:
-
+            script.read_tourism();
+            g = script.getTmGraph();
+            mainMenu();
             break;
         default:
             std::cout << "Option doesn't exist. Please insert a valid option." << std::endl;
-            mainMenu(); break;
+            printToyGraph(); break;
 
     }
-}
-
-void Menu::solutionTSPBack(Graph<int>* g) {
-
 }
