@@ -89,16 +89,6 @@ void TSPSolver::calculateTSP(Graph<int>* g) {
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
 
-Edge<int>* TSPSolver::existEdge(Graph<int>* g, int v1, int v2) const {
-    Vertex<int>* vertex = g->findVertex(v1);
-    for(const auto& edge : vertex->getAdj()){
-        if(edge->getDest()->getInfo() == v2)
-            return edge;
-    }
-    return nullptr;
-}
-
-
 void TSPSolver::preorderMST(Graph<int>* g, Vertex<int>* current, std::vector<Vertex<int>*> &result, double &cost, Vertex<int>* &prev){
     Vertex<int>* v = g->findVertex(current->getInfo());
     result.push_back(v);
@@ -191,30 +181,150 @@ void TSPSolver::prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &re
 void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
     vector<Vertex<int>*> tsp_path;
     double cost = 0;
+    double cost2 = 0;
     auto start = std::chrono::high_resolution_clock::now();
     Vertex<int>* source = g->findVertex(0);
+    bool real_world = false;
+
 
     prim(g,source, tsp_path, cost);
     for(auto e : tsp_path[tsp_path.size() -1]->getAdj()){
         if (e->getDest()->getInfo() == source->getInfo()){
             cost += e->getWeight();
         }
+
     }
     auto end = std::chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
 
-    tsp_path.push_back(source);
+    Vertex<int>* finalVtx = g->findVertex(0);
+    tsp_path.push_back(finalVtx);
+    for (size_t i = 0; i < tsp_path.size()-1; i++) {
+        auto nextNum = tsp_path[i+1]->getInfo();
+        bool edgeExists = false;
+        for(auto e : tsp_path[i]->getAdj()){
+            if(e->getDest()->getInfo() == nextNum){
+                cost2 += e->getWeight();
+                edgeExists = true;
+                break;
+            }
+        }
+        if(!edgeExists && tsp_path[i]->getLatitude()){
+            cost2 += haversineDistance(tsp_path[i], tsp_path[i+1]);
+        }
+    }
 
     cout << "TSP Path : ";
     for (size_t i = 0; i < tsp_path.size(); i++) {
         cout << tsp_path[i]->getInfo() << (i == tsp_path.size() - 1 ? "\n" : " -> ");
     }
     cout << '\n';
-    cout << "Cost: " << cost << '\n';
+    cout << "Costi: " << cost << '\n';
+    cout << "Cost2: " << cost2 << '\n';
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
 
+void TSPSolver::twoOptSwap(vector<Vertex<int>*>& tsp_path, int i, int k) {
+    while (i < k) {
+        std::swap(tsp_path[i % tsp_path.size()], tsp_path[k % tsp_path.size()]);
+        i++;
+        k--;
+    }
+}
 
+void TSPSolver::twoOptAlgorithm(vector<Vertex<int>*>& tsp_path, unsigned int two_opt_iterations) {
+    int n = tsp_path.size();
+    unsigned int iterations = 0;
+    bool improvement = true;
 
+    while (improvement && iterations < two_opt_iterations) {
+        iterations++;
+        improvement = false;
+        for (int i = 0; i < n - 2; ++i) {
+            for (int k = i + 2; k < n; ++k) {
+                auto a = tsp_path[i]->getEdge(tsp_path[i + 1]->getInfo());
+                auto b = tsp_path[k]->getEdge(tsp_path[(k + 1) % n]->getInfo());
+                auto c = tsp_path[i]->getEdge(tsp_path[k]->getInfo());
+                auto d = tsp_path[i + 1]->getEdge(tsp_path[(k + 1) % n]->getInfo());
+                if (a == nullptr || b == nullptr || c == nullptr || d == nullptr) {
+                    continue;
+                }
+                double currentDistance = a->getWeight() + b->getWeight();
+                double newDistance = c->getWeight() + d->getWeight();
+                if (newDistance < currentDistance) {
+                    twoOptSwap(tsp_path, i + 1, k);
+                    improvement = true;
+                }
+            }
+        }
+    }
+}
 
+double TSPSolver::tspNearestNeighbor(Graph<int>* g, vector<Vertex<int>*>& tsp_path, unsigned int two_opt_iterations) {
+    tsp_path.clear();
+    std::size_t num_vertices = g->getNumVertex();
+    std::vector<bool> visited(num_vertices, false);
 
+    std::size_t start_idx = 0;
+    Vertex<int>* current = g->getVertexSet()[start_idx];
+    tsp_path.push_back(current);
+    visited[start_idx] = true;
+
+    while (tsp_path.size() < num_vertices) {
+        double min_edge_weight = std::numeric_limits<double>::infinity();
+        Vertex<int>* next_vertex = nullptr;
+
+        for (Edge<int>* edge : current->getAdj()) {
+            Vertex<int>* neighbor_vertex = edge->getDest();
+            if (!visited[neighbor_vertex->getInfo()] && edge->getWeight() < min_edge_weight) {
+                min_edge_weight = edge->getWeight();
+                next_vertex = neighbor_vertex;
+            }
+        }
+
+        if (next_vertex == nullptr) {
+            break;
+        }
+
+        tsp_path.push_back(next_vertex);
+        visited[next_vertex->getInfo()] = true;
+        current = next_vertex;
+    }
+
+    if (tsp_path.size() == num_vertices) {
+        Edge<int>* final_edge = tsp_path.back()->getEdge(g->getVertexSet()[start_idx]->getInfo());
+        tsp_path.push_back(g->getVertexSet()[start_idx]);
+    }
+    twoOptAlgorithm(tsp_path, two_opt_iterations);
+
+    double cost = 0;
+    for (int i = 0; i < tsp_path.size() - 1; i++) {
+        Edge<int>* edge = tsp_path[i]->getEdge(tsp_path[i + 1]->getInfo());
+        cost += edge->getWeight();
+    }
+
+    return cost;
+}
+
+void TSPSolver::calculateNearestNeighborTSP(Graph<int>* g) {
+    unsigned int iterations;
+    cout << "Iterations for the 2opt algorithm (0 to not run 2opt algorithm, more iterations -> more precise): ";
+    cin >> iterations;
+
+    vector<Vertex<int>*> tsp_path;
+
+    auto start = std::chrono::high_resolution_clock::now();
+
+    double cost = tspNearestNeighbor(g,tsp_path, iterations);
+
+    auto end = std::chrono::high_resolution_clock::now();
+    chrono::duration<double> duration = end - start;
+
+    cout << "TSP Path (Nearest Neighbor): ";
+    for (int i = 0; i < tsp_path.size(); i++) {
+        cout << tsp_path[i]->getInfo() << (i == tsp_path.size() - 1 ? "\n" : " -> ");
+    }
+
+    cout << "Cost: " << cost << '\n';
+    cout << "Elapsed Time: " << duration.count() << " s\n\n";
+}
