@@ -255,10 +255,10 @@ void TSPSolver::prim(Graph<int>* g, Vertex<int>* source, vector<Vertex<int>*> &r
 void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
     vector<Vertex<int>*> tsp_path;
     double cost = 0;
-    double cost2 = 0;
+    double costFinal = 0;
     auto start = std::chrono::high_resolution_clock::now();
     Vertex<int>* source = g->findVertex(0);
-    bool real_world = false;
+
 
     prim(g, source, tsp_path, cost);
     for(auto e : tsp_path[tsp_path.size() -1]->getAdj()){
@@ -276,13 +276,13 @@ void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
         bool edgeExists = false;
         for(auto e : tsp_path[i]->getAdj()){
             if(e->getDest()->getInfo() == nextNum){
-                cost2 += e->getWeight();
+                costFinal += e->getWeight();
                 edgeExists = true;
                 break;
             }
         }
         if(!edgeExists && tsp_path[i]->getLatitude()){
-            cost2 += haversineDistance(tsp_path[i], tsp_path[i+1]);
+            costFinal += haversineDistance(tsp_path[i], tsp_path[i+1]);
         }
     }
 
@@ -291,9 +291,8 @@ void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
         cout << tsp_path[i]->getInfo() << (i == tsp_path.size() - 1 ? "\n" : " -> ");
     }
     cout << '\n';
-
-    cout << "Costi: " << cost << '\n';
-    cout << "Cost2: " << cost2 << '\n';
+    
+    cout << "Cost: " << costFinal << '\n';
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
 

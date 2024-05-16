@@ -131,7 +131,7 @@ void Menu::chooseGraph() {
  * @details This function shows a menu with different toy graphs for the user to choose from.
  * Depending on the user input, it loads the selected toy graph by calling the appropriate function from the Script class.
  */
- 
+
 void Menu::printToyGraph() {
     std::cout << std::endl;
     std::cout << "#######################################################################" << std::endl;
