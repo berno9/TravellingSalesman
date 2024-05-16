@@ -2,6 +2,12 @@
 
 #include <iostream>
 
+/**
+ * @brief Reads shipping data from a CSV file and populates the shipping graph.
+ * @details The file should contain edges in the format: origin, destination, distance.
+ * Each edge is added in both directions to the graph.
+ * @note The file path is hardcoded to "../datasets/toyGraphs/shipping.csv".
+ */
 
 void Script::read_shipping() {
     ifstream File1("../datasets/toyGraphs/shipping.csv");
@@ -34,6 +40,12 @@ void Script::read_shipping() {
     File1.close();
 }
 
+/**
+ * @brief Reads stadium data from a CSV file and populates the stadium graph.
+ * @details The file should contain edges in the format: origin, destination, distance.
+ * Each edge is added in both directions to the graph.
+ * @note The file path is hardcoded to "../datasets/toyGraphs/stadiums.csv".
+ */
 
 void Script::read_stadiums() {
     ifstream File1("../datasets/toyGraphs/stadiums.csv");
@@ -65,6 +77,13 @@ void Script::read_stadiums() {
     File1.close();
 }
 
+/**
+ * @brief Reads tourism data from a CSV file and populates the tourism graph.
+ * @details The file should contain edges in the format: origin, destination, distance, labelOrigin, labelDestination.
+ * Each edge is added in both directions to the graph.
+ * @note The file path is hardcoded to "../datasets/toyGraphs/tourism.csv".
+ */
+
 void Script::read_tourism() {
     ifstream File1("../datasets/toyGraphs/tourism.csv");
     if (File1.is_open()){
@@ -95,6 +114,13 @@ void Script::read_tourism() {
     }
     File1.close();
 }
+
+/**
+ * @brief Reads real-world graph 1 data from CSV files and populates the graph.
+ * @details Reads node coordinates from "nodes.csv" and edges from "edges.csv".
+ * Each edge is added in both directions to the graph.
+ * @note The file paths are hardcoded to "../datasets/Real-World Graphs/graph1/nodes.csv" and "../datasets/Real-World Graphs/graph1/edges.csv".
+ */
 
 void Script::read_rwg_g1() {
 
@@ -155,6 +181,13 @@ void Script::read_rwg_g1() {
 
 }
 
+/**
+ * @brief Reads extra fully connected graph data from a CSV file and populates the graph.
+ * @details The file should contain edges in the format: origin, destination, distance.
+ * Each edge is added in both directions to the graph.
+ * @note The file path is hardcoded to "../datasets/Extra_Fully_Connected_Graphs/edges_25.csv".
+ */
+
 void Script::read_efcg_25() {
     ifstream File1("../datasets/Extra_Fully_Connected_Graphs/edges_25.csv");
 
@@ -186,21 +219,47 @@ void Script::read_efcg_25() {
     File1.close();
 }
 
+/**
+ * @brief Gets the shipping graph.
+ * @return A pointer to the shipping graph.
+ */
+
 Graph<int> * Script::getShipGraph() const {
     return shipGraph;
 }
+
+/**
+ * @brief Gets the stadium graph.
+ * @return A pointer to the stadium graph.
+ */
+
 
 Graph<int> * Script::getStGraph() const {
     return stGraph;
 }
 
+/**
+ * @brief Gets the tourism graph.
+ * @return A pointer to the tourism graph.
+ */
+
 Graph<int> * Script::getTmGraph() const {
     return tmGraph;
 }
 
+/**
+ * @brief Gets the real-world graph 1.
+ * @return A pointer to the real-world graph 1.
+ */
+
 Graph<int> *Script::getRealWorldGraph1() const {
     return rwg_g1;
 }
+
+/**
+ * @brief Gets the extra fully connected graph with 25 nodes.
+ * @return A pointer to the extra fully connected graph.
+ */
 
 Graph<int> *Script::getExtraFulllyConnected25() const {
     return efcg_25;
