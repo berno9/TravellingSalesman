@@ -5,6 +5,16 @@ Graph<int> *TSPSolver::TheG() {
     return script.getRealWorldGraph1();
 }
 
+/**
+ * @brief Calculates the Haversine distance between two vertices.
+ * @param v1 Pointer to the first vertex.
+ * @param v2 Pointer to the second vertex.
+ * @return The Haversine distance in kilometers.
+ * @details This function uses the Haversine formula to calculate the great-circle distance between two points on the Earth.
+ *   - Time Complexity: O(1)
+ *   - Space Complexity: O(1)
+ */
+
 double TSPSolver::haversineDistance(Vertex<int> *v1, Vertex<int> *v2) {
     constexpr double R = 6371.0; // Earth radius in kilometers
 
@@ -30,6 +40,19 @@ double TSPSolver::haversineDistance(Vertex<int> *v1, Vertex<int> *v2) {
     return distance;
 }
 
+/**
+ * @brief Solves the TSP using a backtracking approach.
+ * @param g Pointer to the graph.
+ * @param current Pointer to the current vertex.
+ * @param current_cost The current cost of the path.
+ * @param num_visited The number of visited vertices.
+ * @param min_cost Reference to the minimum cost found.
+ * @param tsp_path Reference to the vector storing the TSP path.
+ * @param current_path Reference to the vector storing the current path.
+ * @details This function recursively explores all possible paths to solve the TSP.
+ *   - Time Complexity: O(n!), where n is the number of vertices.
+ *   - Space Complexity: O(n), for the recursion stack and path storage.
+ */
 
 void TSPSolver::tspBacktrack(Graph<int>* g, Vertex<int>* current, double current_cost, int num_visited, double &min_cost, vector<Vertex<int> *> &tsp_path, vector<Vertex<int> *> &current_path) {
     current_path.push_back(current);
@@ -61,6 +84,16 @@ void TSPSolver::tspBacktrack(Graph<int>* g, Vertex<int>* current, double current
     current_path.pop_back();
 }
 
+/**
+ * @brief Solves the TSP using a brute force approach.
+ * @param g Pointer to the graph.
+ * @param tsp_path Reference to the vector storing the TSP path.
+ * @return The minimum cost of the TSP path.
+ * @details This function initializes the graph and calls the backtracking function to solve the TSP.
+ *   - Time Complexity: O(n!), where n is the number of vertices.
+ *   - Space Complexity: O(n), for path storage.
+ */
+
 double TSPSolver::tspBruteForce(Graph<int>* g, vector<Vertex<int> *> &tsp_path) {
     for (auto v: g->getVertexSet()) {
         v->setVisited(false);
@@ -75,6 +108,14 @@ double TSPSolver::tspBruteForce(Graph<int>* g, vector<Vertex<int> *> &tsp_path) 
 
     return min_cost;
 }
+
+/**
+ * @brief Calculates the TSP using brute force and prints the result.
+ * @param g Pointer to the graph.
+ * @details This function calculates the TSP path and cost using the brute force method, and prints the results including elapsed time.
+ *   - Time Complexity: O(n!), where n is the number of vertices.
+ *   - Space Complexity: O(n), for path storage.
+ */
 
 void TSPSolver::calculateTSP(Graph<int>* g) {
     vector<Vertex<int> *> tsp_path;
@@ -92,6 +133,18 @@ void TSPSolver::calculateTSP(Graph<int>* g) {
     cout << "Cost: " << cost << '\n';
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
+
+/**
+ * @brief Performs a preorder traversal of the MST to generate the TSP path.
+ * @param g Pointer to the graph.
+ * @param current Pointer to the current vertex.
+ * @param result Reference to the vector storing the TSP path.
+ * @param cost Reference to the total cost of the path.
+ * @param prev Reference to the previous vertex in the path.
+ * @details This function recursively traverses the MST in preorder to generate a TSP path.
+ *   - Time Complexity: O(V + E), where V is the number of vertices and E is the number of edges.
+ *   - Space Complexity: O(V), for path storage and recursion stack.
+ */
 
 void TSPSolver::preorderMST(Graph<int>* g, Vertex<int>* current, std::vector<Vertex<int>*> &result, double &cost, Vertex<int>* &prev){
     Vertex<int>* v = g->findVertex(current->getInfo());
@@ -129,8 +182,18 @@ void TSPSolver::preorderMST(Graph<int>* g, Vertex<int>* current, std::vector<Ver
     }
 }
 
+/**
+ * @brief Implements Prim's algorithm to generate an MST and uses preorder traversal for TSP.
+ * @param g Pointer to the graph.
+ * @param source Pointer to the source vertex.
+ * @param result Reference to the vector storing the TSP path.
+ * @param cost Reference to the total cost of the path.
+ * @details This function uses Prim's algorithm to generate a Minimum Spanning Tree (MST) and then performs a preorder traversal to estimate a TSP path.
+ *   - Time Complexity: O((V + E) log V), where V is the number of vertices and E is the number of edges.
+ *   - Space Complexity: O(V + E), for MST storage.
+ */
 
-void TSPSolver::prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &result, double &cost) {
+void TSPSolver::prim(Graph<int>* g, Vertex<int>* source, vector<Vertex<int>*> &result, double &cost) {
     Graph<int> * mst = new Graph<int>();
     MutablePriorityQueue<Vertex<int>> pq;
     for (auto v: g->getVertexSet()) {
@@ -181,22 +244,27 @@ void TSPSolver::prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &re
     delete mst;
 }
 
+/**
+ * @brief Calculates the TSP using a triangle inequality heuristic and prints the result.
+ * @param g Pointer to the graph.
+ * @details This function calculates the TSP path and cost using a triangle inequality heuristic (MST-based) and prints the results including elapsed time.
+ *   - Time Complexity: O(V + E log V), where V is the number of vertices and E is the number of edges.
+ *   - Space Complexity: O(V), for path storage.
+ */
 
 void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
     vector<Vertex<int>*> tsp_path;
     double cost = 0;
-    double cost2 = 0;
+    double costFinal = 0;
     auto start = std::chrono::high_resolution_clock::now();
     Vertex<int>* source = g->findVertex(0);
-    bool real_world = false;
 
 
-    prim(g,source, tsp_path, cost);
+    prim(g, source, tsp_path, cost);
     for(auto e : tsp_path[tsp_path.size() -1]->getAdj()){
         if (e->getDest()->getInfo() == source->getInfo()){
             cost += e->getWeight();
         }
-
     }
     auto end = std::chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
@@ -208,13 +276,13 @@ void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
         bool edgeExists = false;
         for(auto e : tsp_path[i]->getAdj()){
             if(e->getDest()->getInfo() == nextNum){
-                cost2 += e->getWeight();
+                costFinal += e->getWeight();
                 edgeExists = true;
                 break;
             }
         }
         if(!edgeExists && tsp_path[i]->getLatitude()){
-            cost2 += haversineDistance(tsp_path[i], tsp_path[i+1]);
+            costFinal += haversineDistance(tsp_path[i], tsp_path[i+1]);
         }
     }
 
@@ -223,12 +291,20 @@ void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
         cout << tsp_path[i]->getInfo() << (i == tsp_path.size() - 1 ? "\n" : " -> ");
     }
     cout << '\n';
-
-
-    cout << "Costi: " << cost << '\n';
-    cout << "Cost2: " << cost2 << '\n';
+    
+    cout << "Cost: " << costFinal << '\n';
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
+
+/**
+ * @brief Performs a 2-opt swap on the TSP path between indices i and k.
+ * @param tsp_path Reference to the vector storing the TSP path.
+ * @param i The starting index for the swap.
+ * @param k The ending index for the swap.
+ * @details This function performs the 2-opt swap to potentially shorten the TSP path.
+ *   - Time Complexity: O((k - i) / 2)
+ *   - Space Complexity: O(1)
+ */
 
 void TSPSolver::twoOptSwap(vector<Vertex<int>*>& tsp_path, int i, int k) {
     while (i < k) {
@@ -237,6 +313,15 @@ void TSPSolver::twoOptSwap(vector<Vertex<int>*>& tsp_path, int i, int k) {
         k--;
     }
 }
+
+/**
+ * @brief Improves the TSP path using the 2-opt algorithm.
+ * @param tsp_path Reference to the vector storing the TSP path.
+ * @param two_opt_iterations The number of iterations for the 2-opt algorithm.
+ * @details This function iteratively applies the 2-opt swap to reduce the TSP path length.
+ *   - Time Complexity: O(n^2 * iterations), where n is the number of vertices and iterations is the number of 2-opt iterations.
+ *   - Space Complexity: O(1)
+ */
 
 void TSPSolver::twoOptAlgorithm(vector<Vertex<int>*>& tsp_path, unsigned int two_opt_iterations) {
     int n = tsp_path.size();
@@ -265,6 +350,17 @@ void TSPSolver::twoOptAlgorithm(vector<Vertex<int>*>& tsp_path, unsigned int two
         }
     }
 }
+
+/**
+ * @brief Solves the TSP using the nearest neighbor heuristic with optional 2-opt optimization.
+ * @param g Pointer to the graph.
+ * @param tsp_path Reference to the vector storing the TSP path.
+ * @param two_opt_iterations The number of iterations for the 2-opt algorithm.
+ * @return The total cost of the TSP path.
+ * @details This function applies the nearest neighbor heuristic to generate an initial TSP path and then improves it using the 2-opt algorithm.
+ *   - Time Complexity: O(V^2 + n^2 * iterations), where V is the number of vertices and iterations is the number of 2-opt iterations.
+ *   - Space Complexity: O(V), for path storage.
+ */
 
 double TSPSolver::tspNearestNeighbor(Graph<int>* g, vector<Vertex<int>*>& tsp_path, unsigned int two_opt_iterations) {
     tsp_path.clear();
@@ -309,9 +405,15 @@ double TSPSolver::tspNearestNeighbor(Graph<int>* g, vector<Vertex<int>*>& tsp_pa
     }
 
     return cost;
-
 }
 
+/**
+ * @brief Calculates the TSP using the nearest neighbor heuristic and prints the result.
+ * @param g Pointer to the graph.
+ * @details This function calculates the TSP path and cost using the nearest neighbor heuristic with optional 2-opt optimization, and prints the results including elapsed time.
+ *   - Time Complexity: O(V^2 + n^2 * iterations), where V is the number of vertices and iterations is the number of 2-opt iterations.
+ *   - Space Complexity: O(V), for path storage.
+ */
 
 void TSPSolver::calculateNearestNeighborTSP(Graph<int>* g) {
     unsigned int iterations;
@@ -335,6 +437,7 @@ void TSPSolver::calculateNearestNeighborTSP(Graph<int>* g) {
     cout << "Cost: " << cost << '\n';
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
+
 
 
 
