@@ -206,10 +206,6 @@ CMakeFiles/TravellingSalesman.dir/src/main.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h \
  C:\Users\teres\Downloads\TravellingSalesman\src\headers/MutablePriorityQueue.h \
  C:\Users\teres\Downloads\TravellingSalesman\src\headers/TSPSolver.h \
- C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
- C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h \
- C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
- C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
@@ -219,6 +215,6 @@ CMakeFiles/TravellingSalesman.dir/src/main.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set \
  C:/Program\ Files/JetBrains/CLion\ 2023.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
+ C:\Users\teres\Downloads\TravellingSalesman\src\headers/Script.h \
  C:\Users\teres\Downloads\TravellingSalesman\src\headers/Menu.h \
- C:\Users\teres\Downloads\TravellingSalesman\src\headers/TSPSolver.h \
- C:\Users\teres\Downloads\TravellingSalesman\src\headers/Script.h
+ C:\Users\teres\Downloads\TravellingSalesman\src\headers/TSPSolver.h
