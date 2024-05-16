@@ -10,7 +10,7 @@ using namespace std;
 int main() {
     Script script;
     TSPSolver tspSolver;
-    //script.read_shipping();
+    script.read_rwg_g1();
 
     /*
     script.read_stadiums();
@@ -20,11 +20,11 @@ int main() {
     tspSolver.calculateTriangleTSP(script.getTmGraph());
 
      */
-    Menu menu = Menu(tspSolver, script);
-    menu.chooseGraph();
+    //Menu menu = Menu(tspSolver, script);
+    //menu.chooseGraph();
     //tspSolver.calculateTSP(script.getStGraph());
-    //tspSolver.calculateTriangleTSP(script.getStGraph());
-    //tspSolver.calculateNearestNeighborTSP(script.getShipGraph());
+    tspSolver.calculateTriangleTSP(script.getRealWorldGraph1());
+    //tspSolver.calculateNearestNeighborTSP(script.getRealWorldGraph1());
 
 
 //---------------------Bernardo----------------------------
