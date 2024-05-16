@@ -24,14 +24,16 @@ public:
     void triangularApproximation(Graph<int>* g, Vertex<int>* current, double current_cost, int num_visited, double& min_cost,
                                             vector<Vertex<int>*>& tsp_path);
     double tspTriangleBruteForce(Graph<int>* g, vector<Vertex<int> *> &tsp_path);
-
-    Edge<int>* existEdge(Graph<int>* g, int v1, int v2) const;
     void calculateTriangleTSP(Graph<int>* g) ;
     double haversineDistance(Vertex<int> *v1, Vertex<int> *v2);
 
     void prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &result, double &cost);
     void preorderMST(Graph<int>* g, Vertex<int>* current, std::vector<Vertex<int>*> &result, double &cost, Vertex<int>* &prev);
 
+    void twoOptSwap(vector<Vertex<int>*>& tsp_path, int i, int k);
+    void twoOptAlgorithm(vector<Vertex<int>*>& tsp_path, unsigned int two_opt_iterations);
+    double tspNearestNeighbor(Graph<int>* g, vector<Vertex<int>*>& tsp_path, unsigned int two_opt_iterations);
+    void calculateNearestNeighborTSP(Graph<int>* g);
 };
 
 

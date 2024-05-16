@@ -42,6 +42,7 @@ public:
     void setLongitude(double lat);
     void setPath(Edge<T> *path);
     Edge<T> * addEdge(Vertex<T> *dest, double w);
+    Edge<T> * getEdge(T dest);
     bool removeEdge(T in);
     void removeOutgoingEdges();
 
@@ -65,6 +66,16 @@ protected:
 
     void deleteEdge(Edge<T> *edge);
 };
+
+template<class T>
+Edge<T> *Vertex<T>::getEdge(T dest) {
+    for (auto e: adj) {
+        if (e->getDest()->getInfo() == dest){
+            return e;
+        }
+    }
+    return nullptr;
+}
 
 /********************** Edge  ****************************/
 
