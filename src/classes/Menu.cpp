@@ -2,8 +2,18 @@
 
 #include "../headers/Menu.h"
 
+/**
+ * @brief Constructs a Menu object with a TSPSolver and a Script.
+ * @param tspSolver An instance of the TSPSolver class.
+ * @param script An instance of the Script class.
+ */
 Menu::Menu(TSPSolver tspSolver, Script script) : tspSolver(tspSolver), script(script) {}
 
+/**
+ * @brief Displays the main menu and processes user input to select TSP algorithms or other options.
+ * @details This function shows a menu with several TSP algorithms and options for the user to choose from.
+ * Depending on the user input, it calls the appropriate function from the TSPSolver or navigates to a sub-menu.
+ */
 void Menu::mainMenu() {
     std::cout << std::endl;
     std::cout << "########################################################################################" << std::endl;
@@ -24,7 +34,6 @@ void Menu::mainMenu() {
     std::cout << "##                                                                                    ##" << std::endl;
     std::cout << "########################################################################################" << std::endl << std::endl;
 
-
     int k;
     std::cout << "Option: ";
     std::cin >> k;
@@ -41,35 +50,35 @@ void Menu::mainMenu() {
         case 0:
             exit(0);
         case 1:
-            // backtracking
             tspSolver.calculateTSP(g);
             mainMenu();
             break;
         case 2:
-            // 2-approximation
             tspSolver.calculateTriangleTSP(g);
             mainMenu();
             break;
         case 3:
-            // clusters
             mainMenu();
             break;
         case 4:
-            // nearestNeighbor
             tspSolver.calculateNearestNeighborTSP(g);
             mainMenu();
             break;
         case 5:
-            // nearestNeighbor
             chooseGraph();
             break;
         default:
             std::cout << "Please insert a valid option." << std::endl;
-            mainMenu(); break;
-
+            mainMenu();
+            break;
     }
 }
 
+/**
+ * @brief Displays the graph selection menu and processes user input to select the type of graph.
+ * @details This function shows a menu with different types of graphs for the user to choose from.
+ * Depending on the user input, it calls the appropriate function to load the selected graph.
+ */
 void Menu::chooseGraph() {
     std::cout << std::endl;
     std::cout << "#######################################################################" << std::endl;
@@ -80,12 +89,11 @@ void Menu::chooseGraph() {
     std::cout << "##                                                                   ##" << std::endl;
     std::cout << "##      2 - Extra Fully Connected Graphs                             ##" << std::endl;
     std::cout << "##                                                                   ##" << std::endl;
-    std::cout << "##      2 - Real World Graphs                                        ##" << std::endl;
+    std::cout << "##      3 - Real World Graphs                                        ##" << std::endl;
     std::cout << "##                                                                   ##" << std::endl;
     std::cout << "##      0-> Exit                                                     ##" << std::endl;
     std::cout << "##                                                                   ##" << std::endl;
     std::cout << "#######################################################################" << std::endl << std::endl;
-
 
     int k;
     std::cout << "Option: ";
@@ -106,18 +114,24 @@ void Menu::chooseGraph() {
             printToyGraph();
             break;
         case 2:
-
+            // Code to handle Extra Fully Connected Graphs selection
             break;
         case 3:
-
+            // Code to handle Real World Graphs selection
             break;
         default:
             std::cout << "Option doesn't exist. Please insert a valid option." << std::endl;
-            chooseGraph(); break;
-
+            chooseGraph();
+            break;
     }
 }
 
+/**
+ * @brief Displays the toy graph selection menu and processes user input to select a specific toy graph.
+ * @details This function shows a menu with different toy graphs for the user to choose from.
+ * Depending on the user input, it loads the selected toy graph by calling the appropriate function from the Script class.
+ */
+ 
 void Menu::printToyGraph() {
     std::cout << std::endl;
     std::cout << "#######################################################################" << std::endl;
@@ -128,12 +142,11 @@ void Menu::printToyGraph() {
     std::cout << "##                                                                   ##" << std::endl;
     std::cout << "##      2 - Stadium Graph                                            ##" << std::endl;
     std::cout << "##                                                                   ##" << std::endl;
-    std::cout << "##      2 - Tourism Graph                                            ##" << std::endl;
+    std::cout << "##      3 - Tourism Graph                                            ##" << std::endl;
     std::cout << "##                                                                   ##" << std::endl;
     std::cout << "##      0-> Exit                                                     ##" << std::endl;
     std::cout << "##                                                                   ##" << std::endl;
     std::cout << "#######################################################################" << std::endl << std::endl;
-
 
     int k;
     std::cout << "Option: ";
@@ -167,7 +180,7 @@ void Menu::printToyGraph() {
             break;
         default:
             std::cout << "Option doesn't exist. Please insert a valid option." << std::endl;
-            printToyGraph(); break;
-
+            printToyGraph();
+            break;
     }
 }
