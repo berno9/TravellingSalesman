@@ -412,7 +412,7 @@ double TSPSolver::tspNearestNeighbor(Graph<int>* g, vector<Vertex<int>*>& tsp_pa
 
 void TSPSolver::calculateNearestNeighborTSP(Graph<int>* g) {
     unsigned int iterations;
-    cout << "Iterations for the 2opt algorithm (0 to not run 2opt algorithm, more iterations -> more precise): ";
+    cout << "Iterations for the 2opt algorithm : ";
     cin >> iterations;
 
     vector<Vertex<int>*> tsp_path;
@@ -433,15 +433,23 @@ void TSPSolver::calculateNearestNeighborTSP(Graph<int>* g) {
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
 
+/**
+ * @brief Helper function for Prim's algorithm to find minimum spanning tree (MST).
+ * @param g Pointer to the graph.
+ * @param source Pointer to the source vertex.
+ * @param result Reference to the vector to store the MST vertices.
+ * @param cost Reference to the total cost of the MST.
+ */
 void TSPSolver::primHelper(Graph<int> *g, Vertex<int> *source, vector<Vertex<int> *> &result, double &cost) {
-    Graph<int> * mst = new Graph<int>();
+    Graph<int> *mst = new Graph<int>();
     MutablePriorityQueue<Vertex<int>> pq;
-    for (auto v: g->getVertexSet()) {
-        Vertex<int> * vMst = mst->findVertex(v->getInfo());
+
+    // Initialize the MST graph and priority queue
+    for (auto v : g->getVertexSet()) {
+        Vertex<int> *vMst = mst->findVertex(v->getInfo());
         if (!vMst) {
             mst->addVertex(v->getInfo(), 0.0, 0.0);
-        }
-        else {
+        } else {
             mst->addVertex(v->getInfo(), v->getLatitude(), v->getLatitude());
         }
         v->setVisited(false);
@@ -449,19 +457,26 @@ void TSPSolver::primHelper(Graph<int> *g, Vertex<int> *source, vector<Vertex<int
         v->setPath(nullptr);
     }
 
+    // Initialize source vertex
     source->setDist(0);
     pq.insert(source);
+
+    // Prim's algorithm
     while (!pq.empty()) {
-        Vertex<int>* u = pq.extractMin();
+        Vertex<int> *u = pq.extractMin();
         if (u->isVisited()) {
             continue;
         }
         u->setVisited(true);
+
+        // Add edge to MST if not the source vertex
         if (u->getInfo() != source->getInfo()) {
             mst->addBidirectionalEdge(u->getPath()->getOrig()->getInfo(), u->getInfo(), u->getPath()->getWeight());
         }
-        for (Edge<int>* e: u->getAdj()) {
-            Vertex<int>* v = e->getDest();
+
+        // Update distances and paths to adjacent vertices
+        for (Edge<int> *e : u->getAdj()) {
+            Vertex<int> *v = e->getDest();
             double w = e->getWeight();
             if (!v->isVisited() && w < v->getDist()) {
                 double previous = v->getDist();
@@ -475,50 +490,69 @@ void TSPSolver::primHelper(Graph<int> *g, Vertex<int> *source, vector<Vertex<int
             }
         }
     }
-    for (auto v: g->getVertexSet()) {
+
+    // Reset visited status of vertices in the original graph
+    for (auto v : g->getVertexSet()) {
         v->setVisited(false);
     }
-    Vertex<int>* v = g->getVertexSet()[0];
-    Vertex<int>* prev = nullptr;
+
+    // Traverse the MST in preorder to construct the result
+    Vertex<int> *v = g->getVertexSet()[0];
+    Vertex<int> *prev = nullptr;
     preorderMST(g, v, result, cost, prev);
+
     delete mst;
 }
 
+/**
+ * @brief Calculates the TSP path using Triangle TSP algorithm and returns the result.
+ * @param g Pointer to the graph.
+ * @return Vector of pointers to vertices representing the TSP path.
+ */
 vector<Vertex<int> *> TSPSolver::calculateTriangleTSPReturning(Graph<int> *g) {
-    vector<Vertex<int>*> tsp_path;
+    vector<Vertex<int> *> tsp_path;
     double cost = 0;
-    double costFinal = 0;
+
+    // Start timer
     auto start = std::chrono::high_resolution_clock::now();
-    Vertex<int>* source = g->getVertexSet()[0];
+    Vertex<int> *source = g->getVertexSet()[0];
 
-
+    // Run Prim's algorithm to find MST and construct TSP path
     primHelper(g, source, tsp_path, cost);
-    for(auto e : tsp_path[tsp_path.size() -1]->getAdj()){
-        if (e->getDest()->getInfo() == source->getInfo()){
+
+    // Adjust cost to account for returning to the source vertex
+    for (auto e : tsp_path[tsp_path.size() - 1]->getAdj()) {
+        if (e->getDest()->getInfo() == source->getInfo()) {
             cost += e->getWeight();
         }
     }
+
+    // End timer
     auto end = std::chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
 
-    Vertex<int>* finalVtx = g->getVertexSet()[0];
+    // Finalize the TSP path and calculate the total cost
+    Vertex<int> *finalVtx = g->getVertexSet()[0];
     tsp_path.push_back(finalVtx);
-    for (size_t i = 0; i < tsp_path.size()-1; i++) {
-        auto nextNum = tsp_path[i+1]->getInfo();
+    double costFinal = 0;
+    for (size_t i = 0; i < tsp_path.size() - 1; i++) {
+        auto nextNum = tsp_path[i + 1]->getInfo();
         bool edgeExists = false;
-        for(auto e : tsp_path[i]->getAdj()){
-            if(e->getDest()->getInfo() == nextNum){
+        for (auto e : tsp_path[i]->getAdj()) {
+            if (e->getDest()->getInfo() == nextNum) {
                 costFinal += e->getWeight();
                 edgeExists = true;
                 break;
             }
         }
-        if(!edgeExists && tsp_path[i]->getLatitude()){
-            costFinal += haversineDistance(tsp_path[i], tsp_path[i+1]);
+        if (!edgeExists && tsp_path[i]->getLatitude()) {
+            costFinal += haversineDistance(tsp_path[i], tsp_path[i + 1]);
         }
     }
+
     return tsp_path;
 }
+
 
 /**
  * @brief Initializes the cluster centers by selecting k random vertices from the graph.
