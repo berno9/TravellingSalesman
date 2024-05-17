@@ -10,7 +10,7 @@
  */
 
 void Script::read_shipping() {
-    ifstream File1("../datasets/toyGraphs/shipping.csv");
+    ifstream File1("../cmake-build-debug/datasets/toyGraphs/shipping.csv");
     if (File1.is_open()){
         string line;
         double distance;
@@ -48,7 +48,7 @@ void Script::read_shipping() {
  */
 
 void Script::read_stadiums() {
-    ifstream File1("../datasets/toyGraphs/stadiums.csv");
+    ifstream File1("../cmake-build-debug/datasets/toyGraphs/stadiums.csv");
     if (File1.is_open()){
         string line;
         double distance;
@@ -85,7 +85,7 @@ void Script::read_stadiums() {
  */
 
 void Script::read_tourism() {
-    ifstream File1("../datasets/toyGraphs/tourism.csv");
+    ifstream File1("../cmake-build-debug/datasets/toyGraphs/tourism.csv");
     if (File1.is_open()){
         string line;
         double distance;
@@ -116,15 +116,14 @@ void Script::read_tourism() {
 }
 
 /**
- * @brief Reads real-world graph 1 data from CSV files and populates the graph.
+ * @brief Reads real-world graph  data from CSV files and populates the graph.
  * @details Reads node coordinates from "nodes.csv" and edges from "edges.csv".
  * Each edge is added in both directions to the graph.
- * @note The file paths are hardcoded to "../datasets/Real-World Graphs/graph1/nodes.csv" and "../datasets/Real-World Graphs/graph1/edges.csv".
  */
 
-void Script::read_rwg_g1() {
+void Script::read_rwg(string s1, string s2) {
 
-    ifstream File2("../datasets/Real-World Graphs/graph1/nodes.csv");
+    ifstream File2(s1);
     unordered_map<int, pair<double,double>> coordinates;
 
     if (File2.is_open()) {
@@ -150,7 +149,7 @@ void Script::read_rwg_g1() {
     }
     File2.close();
 
-    ifstream File1("../datasets/Real-World Graphs/graph1/edges.csv");
+    ifstream File1(s2);
 
     if (File1.is_open()) {
         string line1;
@@ -170,10 +169,10 @@ void Script::read_rwg_g1() {
             destination = stoi(dest);
             distance = stod(dist);
 
-            rwg_g1->addVertex(origin, coordinates[origin].first, coordinates[origin].second);
-            rwg_g1->addVertex(destination, coordinates[destination].first, coordinates[destination].second);
-            rwg_g1->addEdge(origin, destination, distance);
-            rwg_g1->addEdge(destination, origin, distance);
+            rwg->addVertex(origin, coordinates[origin].first, coordinates[origin].second);
+            rwg->addVertex(destination, coordinates[destination].first, coordinates[destination].second);
+            rwg->addEdge(origin, destination, distance);
+            rwg->addEdge(destination, origin, distance);
         }
 
     }
@@ -185,11 +184,36 @@ void Script::read_rwg_g1() {
  * @brief Reads extra fully connected graph data from a CSV file and populates the graph.
  * @details The file should contain edges in the format: origin, destination, distance.
  * Each edge is added in both directions to the graph.
- * @note The file path is hardcoded to "../datasets/Extra_Fully_Connected_Graphs/edges_25.csv".
  */
 
-void Script::read_efcg_25() {
-    ifstream File1("../datasets/Extra_Fully_Connected_Graphs/edges_25.csv");
+void Script::read_efcg(string s1, string s2) {
+    ifstream File2(s1);
+    unordered_map<int, pair<double,double>> coordinates;
+
+    if (File2.is_open()) {
+        string line2;
+        int id;
+        double longitude, latitude;
+        getline(File2, line2);
+
+        while (getline(File2, line2)) {
+            istringstream iss2(line2);
+            string i, l, ll;
+
+            getline(iss2, i, ',');
+            getline(iss2, l, ',');
+            getline(iss2, ll, ',');
+
+            id = stoi(i);
+            longitude = stod(l);
+            latitude = stod(ll);
+
+            coordinates[id] = {longitude, latitude};
+        }
+    }
+    File2.close();
+
+    ifstream File1(s2);
 
     if (File1.is_open()) {
         string line1;
@@ -209,10 +233,10 @@ void Script::read_efcg_25() {
             destination = stoi(dest);
             distance = stod(dist);
 
-            efcg_25->addVertex(origin, 0.0, 0.0);
-            efcg_25->addVertex(destination, 0.0, 0.0);
-            efcg_25->addEdge(origin, destination, distance);
-            efcg_25->addEdge(destination, origin, distance);
+            efcg->addVertex(origin, coordinates[origin].first, coordinates[origin].second);
+            efcg->addVertex(destination, coordinates[destination].first, coordinates[destination].second);
+            efcg->addEdge(origin, destination, distance);
+            efcg->addEdge(destination, origin, distance);
         }
 
     }
@@ -248,19 +272,19 @@ Graph<int> * Script::getTmGraph() const {
 }
 
 /**
- * @brief Gets the real-world graph 1.
- * @return A pointer to the real-world graph 1.
+ * @brief Gets a real-world graph.
+ * @return A pointer to a real-world graph.
  */
 
-Graph<int> *Script::getRealWorldGraph1() const {
-    return rwg_g1;
+Graph<int> *Script::getRealWorldGraph() const {
+    return rwg;
 }
 
 /**
- * @brief Gets the extra fully connected graph with 25 nodes.
+ * @brief Gets the extra fully connected graph with a required number of nodes.
  * @return A pointer to the extra fully connected graph.
  */
 
-Graph<int> *Script::getExtraFulllyConnected25() const {
-    return efcg_25;
+Graph<int> *Script::getExtraFullyConnected() const {
+    return efcg;
 }

@@ -114,10 +114,10 @@ void Menu::chooseGraph() {
             printToyGraph();
             break;
         case 2:
-            // Code to handle Extra Fully Connected Graphs selection
+            printExtraFullyConnected();
             break;
         case 3:
-            // Code to handle Real World Graphs selection
+            printRealWorldGraph();
             break;
         default:
             std::cout << "Option doesn't exist. Please insert a valid option." << std::endl;
@@ -181,6 +181,187 @@ void Menu::printToyGraph() {
         default:
             std::cout << "Option doesn't exist. Please insert a valid option." << std::endl;
             printToyGraph();
+            break;
+    }
+}
+
+/**
+ * @brief Displays the real world graph selection menu and processes user input to select a specific real world graph.
+ * @details This function shows a menu with different toy graphs for the user to choose from.
+ * Depending on the user input, it loads the selected real world graph by calling the appropriate function from the Script class.
+ */
+
+void Menu::printRealWorldGraph() {
+    std::cout << std::endl;
+    std::cout << "#######################################################################" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##                * * *   Real World Graphs   * * *                  ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      1 - Graph 1                                                  ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      2 - Graph 2                                                  ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      3 - Graph 3                                                  ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      0-> Exit                                                     ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "#######################################################################" << std::endl << std::endl;
+
+    int k;
+    std::cout << "Option: ";
+    std::cin >> k;
+
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cout << "Invalid input. Please enter an integer." << std::endl;
+        mainMenu();
+        return;
+    }
+
+    switch (k) {
+        case 0:
+            exit(0);
+        case 1:
+            script.read_rwg("../cmake-build-debug/datasets/Real-World Graphs/graph1/nodes.csv", "../datasets/Real-World Graphs/graph1/edges.csv");
+            g = script.getRealWorldGraph();
+            mainMenu();
+            break;
+        case 2:
+            script.read_rwg("../cmake-build-debug/datasets/Real-World Graphs/graph2/nodes.csv", "../datasets/Real-World Graphs/graph2/edges.csv");
+            g = script.getRealWorldGraph();
+            mainMenu();
+            break;
+        case 3:
+            script.read_rwg("../cmake-build-debug/datasets/Real-World Graphs/graph2/nodes.csv", "../datasets/Real-World Graphs/graph2/edges.csv");
+            g = script.getRealWorldGraph();
+            mainMenu();
+            break;
+        default:
+            std::cout << "Option doesn't exist. Please insert a valid option." << std::endl;
+            printRealWorldGraph();
+            break;
+    }
+}
+
+/**
+ * @brief Displays the Extra Fully Connected selection menu and processes user input to select a specific Extra Fully Connected graph.
+ * @details This function shows a menu with different tExtra Fully Connected graphs for the user to choose from.
+ * Depending on the user input, it loads the selected Extra Fully Connected graph by calling the appropriate function from the Script class.
+ */
+
+void Menu::printExtraFullyConnected() {
+    std::cout << std::endl;
+    std::cout << "#######################################################################" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##         * * *   Extra Fully Connected  Graphs  * * *              ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      1 - 25 Edges                                                 ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      2 - 50 Edges                                                 ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      3 - 75 Edges                                                 ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      4 - 100 Edges                                                ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      5 - 200 Edges                                                ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      6 - 300 Edges                                                ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      7 - 400 Edges                                                ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      8 - 500 Edges                                                ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      9 - 600 Edges                                                ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      10 - 700 Edges                                               ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      11 - 800 Edges                                               ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      12 - 900 Edges                                               ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      0-> Exit                                                     ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "#######################################################################" << std::endl << std::endl;
+
+    int k;
+    std::cout << "Option: ";
+    std::cin >> k;
+
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cout << "Invalid input. Please enter an integer." << std::endl;
+        mainMenu();
+        return;
+    }
+
+    switch (k) {
+        case 0:
+            exit(0);
+        case 1:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_25.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        case 2:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_50.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        case 3:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_75.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        case 4:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_100.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        case 5:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_200.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        case 6:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_300.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        case 7:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_400.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        case 8:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_500.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        case 9:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_600.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        case 10:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_700.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        case 11:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_800.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        case 12:
+            script.read_efcg("../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/nodes.csv", "../cmake-build-debug/datasets/Extra_Fully_Connected_Graphs/edges_900.csv");
+            g = script.getExtraFullyConnected();
+            mainMenu();
+            break;
+        default:
+            std::cout << "Option doesn't exist. Please insert a valid option." << std::endl;
+            printExtraFullyConnected();
             break;
     }
 }

@@ -17,6 +17,8 @@ public:
     void mainMenu();
     void chooseGraph();
     void printToyGraph();
+    void printRealWorldGraph();
+    void printExtraFullyConnected();
 
 };
 
