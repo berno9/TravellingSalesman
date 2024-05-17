@@ -47,7 +47,7 @@ public:
     void initializeCenters(vector<Cluster>& clusters, const Graph<int>* graph, int k); // Initialize the cluster centers randomly
     void assignToClusters(vector<Cluster>& clusters, const Graph<int>* graph); // Assign vertices (cities) to clusters based on the nearest cluster center
     void updateCenters(vector<Cluster>& clusters, const Graph<int>* graph); // Update the cluster centers based on the mean of the vertices in each cluster
-    vector<Cluster> kMeansClustering(const Graph<int>* graph, int k, int maxIterations); // Perform KMeans clustering
+    vector<Cluster> kMeansClustering(const Graph<int>* graph); // Perform KMeans clustering
 
     vector<Vertex<int>*> findBestTourForCluster(const Graph<int>* graph, const Cluster& cluster); // Find best tour on a single cluster
     Vertex<int>* findClosestCity(Vertex<int>* city, const vector<Vertex<int>*>& tour);  // Find closest city to a given tour
