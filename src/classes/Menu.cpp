@@ -58,6 +58,7 @@ void Menu::mainMenu() {
             mainMenu();
             break;
         case 3:
+            tspSolver.uniteAllClusterTours(g, tspSolver.kMeansClustering(g));
             mainMenu();
             break;
         case 4:
@@ -223,17 +224,17 @@ void Menu::printRealWorldGraph() {
         case 0:
             exit(0);
         case 1:
-            script.read_rwg("../cmake-build-debug/datasets/Real-World Graphs/graph1/nodes.csv", "../datasets/Real-World Graphs/graph1/edges.csv");
+            script.read_rwg("../cmake-build-debug/datasets/Real-World Graphs/graph1/nodes.csv", "../cmake-build-debug/datasets/Real-World Graphs/graph1/edges.csv");
             g = script.getRealWorldGraph();
             mainMenu();
             break;
         case 2:
-            script.read_rwg("../cmake-build-debug/datasets/Real-World Graphs/graph2/nodes.csv", "../datasets/Real-World Graphs/graph2/edges.csv");
+            script.read_rwg("../cmake-build-debug/datasets/Real-World Graphs/graph2/nodes.csv", "../cmake-build-debug/datasets/Real-World Graphs/graph2/edges.csv");
             g = script.getRealWorldGraph();
             mainMenu();
             break;
         case 3:
-            script.read_rwg("../cmake-build-debug/datasets/Real-World Graphs/graph2/nodes.csv", "../datasets/Real-World Graphs/graph2/edges.csv");
+            script.read_rwg("../cmake-build-debug/datasets/Real-World Graphs/graph2/nodes.csv", "../cmake-build-debug/datasets/Real-World Graphs/graph2/edges.csv");
             g = script.getRealWorldGraph();
             mainMenu();
             break;

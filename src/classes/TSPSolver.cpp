@@ -433,6 +433,93 @@ void TSPSolver::calculateNearestNeighborTSP(Graph<int>* g) {
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
 
+void TSPSolver::primHelper(Graph<int> *g, Vertex<int> *source, vector<Vertex<int> *> &result, double &cost) {
+    Graph<int> * mst = new Graph<int>();
+    MutablePriorityQueue<Vertex<int>> pq;
+    for (auto v: g->getVertexSet()) {
+        Vertex<int> * vMst = mst->findVertex(v->getInfo());
+        if (!vMst) {
+            mst->addVertex(v->getInfo(), 0.0, 0.0);
+        }
+        else {
+            mst->addVertex(v->getInfo(), v->getLatitude(), v->getLatitude());
+        }
+        v->setVisited(false);
+        v->setDist(INF);
+        v->setPath(nullptr);
+    }
+
+    source->setDist(0);
+    pq.insert(source);
+    while (!pq.empty()) {
+        Vertex<int>* u = pq.extractMin();
+        if (u->isVisited()) {
+            continue;
+        }
+        u->setVisited(true);
+        if (u->getInfo() != source->getInfo()) {
+            mst->addBidirectionalEdge(u->getPath()->getOrig()->getInfo(), u->getInfo(), u->getPath()->getWeight());
+        }
+        for (Edge<int>* e: u->getAdj()) {
+            Vertex<int>* v = e->getDest();
+            double w = e->getWeight();
+            if (!v->isVisited() && w < v->getDist()) {
+                double previous = v->getDist();
+                v->setDist(w);
+                v->setPath(e);
+                if (previous == INF) {
+                    pq.insert(v);
+                } else {
+                    pq.decreaseKey(v);
+                }
+            }
+        }
+    }
+    for (auto v: g->getVertexSet()) {
+        v->setVisited(false);
+    }
+    Vertex<int>* v = g->getVertexSet()[0];
+    Vertex<int>* prev = nullptr;
+    preorderMST(g, v, result, cost, prev);
+    delete mst;
+}
+
+vector<Vertex<int> *> TSPSolver::calculateTriangleTSPReturning(Graph<int> *g) {
+    vector<Vertex<int>*> tsp_path;
+    double cost = 0;
+    double costFinal = 0;
+    auto start = std::chrono::high_resolution_clock::now();
+    Vertex<int>* source = g->getVertexSet()[0];
+
+
+    primHelper(g, source, tsp_path, cost);
+    for(auto e : tsp_path[tsp_path.size() -1]->getAdj()){
+        if (e->getDest()->getInfo() == source->getInfo()){
+            cost += e->getWeight();
+        }
+    }
+    auto end = std::chrono::high_resolution_clock::now();
+    chrono::duration<double> duration = end - start;
+
+    Vertex<int>* finalVtx = g->getVertexSet()[0];
+    tsp_path.push_back(finalVtx);
+    for (size_t i = 0; i < tsp_path.size()-1; i++) {
+        auto nextNum = tsp_path[i+1]->getInfo();
+        bool edgeExists = false;
+        for(auto e : tsp_path[i]->getAdj()){
+            if(e->getDest()->getInfo() == nextNum){
+                costFinal += e->getWeight();
+                edgeExists = true;
+                break;
+            }
+        }
+        if(!edgeExists && tsp_path[i]->getLatitude()){
+            costFinal += haversineDistance(tsp_path[i], tsp_path[i+1]);
+        }
+    }
+    return tsp_path;
+}
+
 /**
  * @brief Initializes the cluster centers by selecting k random vertices from the graph.
  * @param clusters A reference to the vector of clusters to initialize.
@@ -532,6 +619,8 @@ vector<Cluster> TSPSolver::kMeansClustering(const Graph<int>* graph) {
  * @param cluster A reference to the cluster for which to find the best tour.
  * @return A vector of pointers to vertices representing the best tour for the cluster.
  */
+
+
 vector<Vertex<int>*> TSPSolver::findBestTourForCluster(const Graph<int> *graph, const Cluster &cluster) {
     Graph<int> subgraph;
     unordered_map<int, Vertex<int>*> vertexMap;
@@ -580,7 +669,7 @@ Vertex<int>* TSPSolver::findClosestCity(Vertex<int> *city, const std::vector<Ver
  * @param clusters A reference to the vector of clusters.
  * @return A vector of pointers to vertices representing the complete tour.
  */
-vector<Vertex<int>*> TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Cluster>& clusters) {
+void TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Cluster>& clusters) {
     auto start = std::chrono::high_resolution_clock::now();
     vector<Vertex<int>*> completeTour;
 
@@ -612,6 +701,6 @@ vector<Vertex<int>*> TSPSolver::uniteAllClusterTours(const Graph<int>* graph, co
 
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 
-    return completeTour;
 }
+
 
