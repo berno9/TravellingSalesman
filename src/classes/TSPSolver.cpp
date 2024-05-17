@@ -1,10 +1,5 @@
 #include "../headers/TSPSolver.h"
 
-
-Graph<int> *TSPSolver::TheG() {
-    return script.getRealWorldGraph1();
-}
-
 /**
  * @brief Calculates the Haversine distance between two vertices.
  * @param v1 Pointer to the first vertex.
@@ -291,7 +286,7 @@ void TSPSolver::calculateTriangleTSP(Graph<int>* g) {
         cout << tsp_path[i]->getInfo() << (i == tsp_path.size() - 1 ? "\n" : " -> ");
     }
     cout << '\n';
-    
+
     cout << "Cost: " << costFinal << '\n';
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
@@ -438,12 +433,6 @@ void TSPSolver::calculateNearestNeighborTSP(Graph<int>* g) {
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
 
-
-
-
-/*
-
-
 void TSPSolver::initializeCenters(vector<Cluster>& clusters, const Graph<int>* graph, int k) {
     srand(time(NULL));
     unordered_map<int, bool> usedIndices;
@@ -499,7 +488,6 @@ vector<Cluster> TSPSolver::kMeansClustering(const Graph<int>* graph, int k, int 
 
     initializeCenters(clusters, graph, k);
 
-    // Iterate until convergence or maximum iterations reached
     for (int iter = 0; iter < maxIterations; ++iter) {
 
         assignToClusters(clusters, graph);
@@ -510,16 +498,14 @@ vector<Cluster> TSPSolver::kMeansClustering(const Graph<int>* graph, int k, int 
 }
 
 vector<Vertex<int> *> TSPSolver::findBestTourForCluster(const Graph<int> *graph, const Cluster &cluster) {
-
     Graph<int> subgraph;
-    std::unordered_map<int, Vertex<int>*> vertexMap;
+    unordered_map<int, Vertex<int>*> vertexMap;
 
     for (int id : cluster.cities) {
         auto vertex = graph->findVertex(id);
         subgraph.addVertex(id, vertex->getLongitude(), vertex->getLatitude());
         vertexMap[id] = vertex;
     }
-
     for (int id : cluster.cities) {
         auto vertex = graph->findVertex(id);
         for (const auto& edge : vertex->getAdj()) {
@@ -548,19 +534,17 @@ Vertex<int> *TSPSolver::findClosestCity(Vertex<int> *city, const std::vector<Ver
 }
 
 vector<Vertex<int>*> TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Cluster>& clusters) {
+    auto start = std::chrono::high_resolution_clock::now();
     vector<Vertex<int>*> completeTour;
 
-    // Step 1: Calculate TSP Tour for Each Cluster
     vector<std::vector<Vertex<int>*>> clusterTours;
     for (const auto& cluster : clusters) {
         std::vector<Vertex<int>*> tour = findBestTourForCluster(graph, cluster);
         clusterTours.push_back(tour);
     }
 
-    // Step 2: Tour stitching
     completeTour = clusterTours[0];
 
-    // Stitch the TSP tours of the remaining clusters
     for (size_t i = 1; i < clusterTours.size(); ++i) {
         Vertex<int>* closestCity = findClosestCity(completeTour.back(), clusterTours[i]);
         auto it = find(clusterTours[i].begin(), clusterTours[i].end(), closestCity);
@@ -568,10 +552,19 @@ vector<Vertex<int>*> TSPSolver::uniteAllClusterTours(const Graph<int>* graph, co
         completeTour.insert(completeTour.end(), clusterTours[i].begin(), it);
     }
 
-    // Step 3: Close the Tour
     completeTour.push_back(completeTour.front());
+
+
+    auto end = std::chrono::high_resolution_clock::now();
+    chrono::duration<double> duration = end - start;
+
+    cout << "TSP Path : ";
+    for (size_t i = 0; i < completeTour.size(); i++) {
+        cout << completeTour[i]->getInfo() << (i == completeTour.size() - 1 ? "\n" : " -> ");
+    }
+    cout << '\n';
+
+    cout << "Elapsed Time: " << duration.count() << " s\n\n";
 
     return completeTour;
 }
-
-*/

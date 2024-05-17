@@ -26,8 +26,6 @@ private:
     Script script;
 
 public:
-    Graph<int>* TheG();
-
 
     double haversineDistance(Vertex<int> *v1, Vertex<int> *v2);
 
