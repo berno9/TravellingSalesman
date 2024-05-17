@@ -45,6 +45,8 @@ public:
     Edge<T> * getEdge(T dest);
     bool removeEdge(T in);
     void removeOutgoingEdges();
+    Vertex<T>* getParent() const;
+    void setParent(Vertex<T>* parent);
 
     int queueIndex = 0;
 protected:
@@ -52,7 +54,7 @@ protected:
     double latitude;
     double longitude;
     std::vector<Edge<T> *> adj;  // outgoing edges
-
+    Vertex<T>* parent = nullptr;
     // auxiliary fields
     bool visited = false; // used by DFS, BFS, Prim ...
     bool processing = false; // used by isDAG (in addition to the visited attribute)
@@ -396,6 +398,16 @@ Vertex<T> * Graph<T>::findVertex(const T &in) const {
         if (v->getInfo() == in)
             return v;
     return nullptr;
+}
+
+template<class T>
+Vertex<T>* Vertex<T>::getParent() const {
+    return parent;
+}
+
+template<class T>
+void Vertex<T>::setParent(Vertex<T>* parent) {
+    this->parent = parent;
 }
 
 /*

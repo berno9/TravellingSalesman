@@ -6,6 +6,7 @@
 #include <vector>
 #include <chrono>
 #include <cmath>
+#include <set>
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
@@ -36,8 +37,6 @@ public:
     void prim(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &result, double &cost);
     void preorderMST(Graph<int>* g, Vertex<int>* current, std::vector<Vertex<int>*> &result, double &cost, Vertex<int>* &prev);
     void calculateTriangleTSP(Graph<int>* g);
-
-    double tSPGreedyHeuristic(vector<pair<unsigned, unsigned>>& path);
 
     void primHelper(Graph<int>* g,Vertex<int>* source, vector<Vertex<int>*> &result, double &cost);
     vector<Vertex<int>*> calculateTriangleTSPReturning(Graph<int>* g);
