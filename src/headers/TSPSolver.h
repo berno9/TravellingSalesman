@@ -29,11 +29,9 @@ private:
 
 public:
 
-    double shortestPathDistance(const Graph<int>* graph, Vertex<int>* v1, Vertex<int>* v2);
-    double haversineDistance(Vertex<int> *v1, Vertex<int> *v2);
-    double calculateDistance(const Graph<int>* graph, Vertex<int>* v1, Vertex<int>* v2);
-
     void printClustersHelper();
+
+    double haversineDistance(Vertex<int> *v1, Vertex<int> *v2);
 
     void tspBacktrack(Graph<int>* g, Vertex<int>* current, double current_cost, int num_visited, double &min_cost, vector<Vertex<int> *> &tsp_path, vector<Vertex<int> *> &current_path);
     double tspBruteForce(Graph<int>* g, vector<Vertex<int> *> &tspPath);
