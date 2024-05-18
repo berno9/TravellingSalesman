@@ -29,7 +29,9 @@ private:
 
 public:
 
+    double shortestPathDistance(const Graph<int>* graph, Vertex<int>* v1, Vertex<int>* v2);
     double haversineDistance(Vertex<int> *v1, Vertex<int> *v2);
+    double calculateDistance(const Graph<int>* graph, Vertex<int>* v1, Vertex<int>* v2);
 
     void printClustersHelper();
 
@@ -49,7 +51,7 @@ public:
     vector<Cluster> kMeansClustering(const Graph<int>* graph); // Perform KMeans clustering
 
     vector<Vertex<int>*> findBestTourForCluster(const Graph<int>* graph, const Cluster& cluster, bool two); // Find best tour on a single cluster
-    Vertex<int>* findClosestCity(Vertex<int>* city, const vector<Vertex<int>*>& tour);  // Find closest city to a given tour
+    Vertex<int>* findClosestCity(const Graph<int>* graph, Vertex<int>* city, const vector<Vertex<int>*>& tour);  // Find closest city to a given tour
     void uniteAllClusterTours(const Graph<int>* graph, const vector<Cluster>& clusters, bool two);  // Find complete tour from all clusters
 
 

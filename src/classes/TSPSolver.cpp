@@ -17,6 +17,63 @@ void TSPSolver::printClustersHelper() {
     this_thread::sleep_for(chrono::milliseconds(2000));
 }
 
+
+
+double TSPSolver::calculateDistance(const Graph<int>* graph, Vertex<int>* v1, Vertex<int>* v2) {
+    if (graph->getNumVertex() > 56) {
+        return haversineDistance(v1, v2);
+    }
+    return shortestPathDistance(graph, v1, v2);
+}
+
+
+/**
+ * @brief Calculates the shortest path distance between two vertices using Dijkstra's algorithm.
+ * @param graph Pointer to the graph.
+ * @param v1 Pointer to the first vertex.
+ * @param v2 Pointer to the second vertex.
+ * @return The distance
+ * @details This function uses the Dijkstra's algorithm to compute the shortest path distance between two vertices.
+ *   - Time Complexity: O((V+E)logV)
+ *   - Space Complexity: O(V)
+ */
+double TSPSolver::shortestPathDistance(const Graph<int>* graph, Vertex<int>* v1, Vertex<int>* v2) {
+    cout << "ola1" << endl;
+    unordered_map<Vertex<int>*, double> distances;
+    unordered_map<Vertex<int>*, bool> visited;
+    priority_queue<pair<double, Vertex<int>*>, vector<pair<double, Vertex<int>*>>, greater<>> pq;
+
+    for (auto vertex : graph->getVertexSet()) {
+        distances[vertex] = numeric_limits<double>::max();
+        visited[vertex] = false;
+    }
+
+    cout << "ola2" << endl;
+
+    distances[v1] = 0.0;
+    pq.push({0.0, v1});
+
+    while (!pq.empty()) {
+        Vertex<int>* current = pq.top().second;
+        pq.pop();
+
+        if (visited[current]) continue;
+        visited[current] = true;
+
+        for (const auto& edge : current->getAdj()) {
+            Vertex<int>* neighbor = edge->getDest();
+            double weight = edge->getWeight();
+
+            if (distances[current] + weight < distances[neighbor]) {
+                distances[neighbor] = distances[current] + weight;
+                pq.push({distances[neighbor], neighbor});
+            }
+        }
+    }
+    cout << "ola3" << endl;
+    return distances[v2];
+}
+
 /**
  * @brief Calculates the Haversine distance between two vertices.
  * @param v1 Pointer to the first vertex.
@@ -565,7 +622,7 @@ vector<Vertex<int> *> TSPSolver::calculateTriangleTSPReturning(Graph<int> *g) {
             }
         }
         if (!edgeExists && tsp_path[i]->getLatitude()) {
-            costFinal += haversineDistance(tsp_path[i], tsp_path[i + 1]);
+            costFinal += calculateDistance(g, tsp_path[i], tsp_path[i + 1]);
         }
     }
 
@@ -596,7 +653,7 @@ void TSPSolver::initializeCenters(vector<Cluster>& clusters, const Graph<int>* g
 
         for (int j = 0; j < n; ++j) {
             for (int l = 0; l < i; ++l) {
-                double distance = haversineDistance(vertices[j], vertices[clusters[l].cities[0]]);
+                double distance = calculateDistance(graph, vertices[j], vertices[clusters[l].cities[0]]);
                 distances[j] = min(distances[j], distance);
             }
         }
@@ -630,7 +687,7 @@ void TSPSolver::assignToClusters(vector<Cluster>& clusters, const Graph<int>* gr
         double minDistance = numeric_limits<double>::max();
         int nearestClusterIndex = -1;
         for (size_t i = 0; i < clusters.size(); ++i) {
-            double distance = haversineDistance(vertex, graph->getVertexSet()[clusters[i].cities[0]]);
+            double distance = calculateDistance(graph, vertex, graph->getVertexSet()[clusters[i].cities[0]]);
             if (distance < minDistance) {
                 minDistance = distance;
                 nearestClusterIndex = i;
@@ -731,12 +788,12 @@ vector<Vertex<int>*> TSPSolver::findBestTourForCluster(const Graph<int> *graph, 
  * @param tour A vector of pointers to vertices representing the tour.
  * @return A pointer to the closest city in the tour.
  */
-Vertex<int>* TSPSolver::findClosestCity(Vertex<int> *city, const std::vector<Vertex<int>*> &tour) {
+Vertex<int>* TSPSolver::findClosestCity(const Graph<int>* graph, Vertex<int> *city, const std::vector<Vertex<int>*> &tour) {
     Vertex<int>* closestCity = nullptr;
     double minDistance = std::numeric_limits<double>::max();
 
     for (Vertex<int>* v : tour) {
-        double distance = haversineDistance(city, v);
+        double distance = calculateDistance(graph, city, v);
         if (distance < minDistance) {
             minDistance = distance;
             closestCity = v;
@@ -766,7 +823,7 @@ void TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Clust
     completeTour = clusterTours[0];
 
     for (size_t i = 1; i < clusterTours.size(); ++i) {
-        Vertex<int>* closestCity = findClosestCity(completeTour.back(), clusterTours[i]);
+        Vertex<int>* closestCity = findClosestCity(graph,completeTour.back(), clusterTours[i]);
         auto it = find(clusterTours[i].begin(), clusterTours[i].end(), closestCity);
         completeTour.insert(completeTour.end(), std::next(it), clusterTours[i].end());
         completeTour.insert(completeTour.end(), clusterTours[i].begin(), it);
