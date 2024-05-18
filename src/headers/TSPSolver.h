@@ -49,9 +49,8 @@ public:
     vector<Cluster> kMeansClustering(const Graph<int>* graph); // Perform KMeans clustering
 
     vector<Vertex<int>*> findBestTourForCluster(const Graph<int>* graph, const Cluster& cluster, bool two); // Find best tour on a single cluster
-    Vertex<int>* findClosestCity(const Graph<int>* graph, Vertex<int>* city, const vector<Vertex<int>*>& tour);  // Find closest city to a given tour
+    Vertex<int>* findClosestCity(Vertex<int>* city, const vector<Vertex<int>*>& tour);  // Find closest city to a given tour
     void uniteAllClusterTours(const Graph<int>* graph, const vector<Cluster>& clusters, bool two);  // Find complete tour from all clusters
-
 
     void twoOptSwap(vector<Vertex<int>*>& tsp_path, int i, int k);
     void twoOptAlgorithm(vector<Vertex<int>*>& tsp_path, unsigned int two_opt_iterations);

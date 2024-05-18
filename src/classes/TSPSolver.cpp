@@ -732,7 +732,7 @@ vector<Vertex<int>*> TSPSolver::findBestTourForCluster(const Graph<int> *graph, 
  * @param tour A vector of pointers to vertices representing the tour.
  * @return A pointer to the closest city in the tour.
  */
-Vertex<int>* TSPSolver::findClosestCity(const Graph<int>* graph, Vertex<int> *city, const std::vector<Vertex<int>*> &tour) {
+Vertex<int>* TSPSolver::findClosestCity(Vertex<int> *city, const std::vector<Vertex<int>*> &tour) {
     Vertex<int>* closestCity = nullptr;
     double minDistance = std::numeric_limits<double>::max();
 
@@ -767,7 +767,7 @@ void TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Clust
     completeTour = clusterTours[0];
 
     for (size_t i = 1; i < clusterTours.size(); ++i) {
-        Vertex<int>* closestCity = findClosestCity(graph,completeTour.back(), clusterTours[i]);
+        Vertex<int>* closestCity = findClosestCity(completeTour.back(), clusterTours[i]);
         auto it = find(clusterTours[i].begin(), clusterTours[i].end(), closestCity);
         completeTour.insert(completeTour.end(), std::next(it), clusterTours[i].end());
         completeTour.insert(completeTour.end(), clusterTours[i].begin(), it);
