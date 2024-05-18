@@ -1,16 +1,17 @@
-
 #ifndef TRAVELLINGSALESMAN_TSPSOLVER_H
 #define TRAVELLINGSALESMAN_TSPSOLVER_H
 
 #include "Graph.h"
 #include <vector>
 #include <chrono>
+#include <thread>
 #include <cmath>
 #include <set>
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
 #include <unordered_set>
+#include <numeric>
 #include "Script.h"
 
 using namespace std;
@@ -29,6 +30,9 @@ private:
 public:
 
     double haversineDistance(Vertex<int> *v1, Vertex<int> *v2);
+    double calculateTourDistance(const vector<Vertex<int>*>& tour);
+
+    void printClustersHelper();
 
     void tspBacktrack(Graph<int>* g, Vertex<int>* current, double current_cost, int num_visited, double &min_cost, vector<Vertex<int> *> &tsp_path, vector<Vertex<int> *> &current_path);
     double tspBruteForce(Graph<int>* g, vector<Vertex<int> *> &tspPath);

@@ -1,5 +1,22 @@
 #include "../headers/TSPSolver.h"
 
+
+void TSPSolver::printClustersHelper() {
+    cout << endl << "Greater numbers of clusters and iterations will generally lead to a less costly tour." << endl;
+    cout << "Running times may vary." << endl << endl;
+    this_thread::sleep_for(chrono::milliseconds(3000));
+    cout << "Here are some suggestions for those numbers:" << endl;
+    cout << "Clusters: 5, 10, 20, 50, 100, 200, ..." << endl;
+    cout << "Iterations: 50, 100, 200, 500, 1000, 2000, ..." << endl << endl;
+    this_thread::sleep_for(chrono::milliseconds(2000));
+    cout << "However, the choices for these values are completely up you." << endl << endl;
+    this_thread::sleep_for(chrono::milliseconds(2000));
+    cout << "You are encouraged to try multiple combinations of inputs." << endl << endl;
+    this_thread::sleep_for(chrono::milliseconds(2000));
+    cout << "Larger numbers will typically take more time." << endl << endl;
+    this_thread::sleep_for(chrono::milliseconds(2000));
+}
+
 /**
  * @brief Calculates the Haversine distance between two vertices.
  * @param v1 Pointer to the first vertex.
@@ -433,6 +450,8 @@ void TSPSolver::calculateNearestNeighborTSP(Graph<int>* g) {
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 }
 
+
+
 /**
  * @brief Helper function for Prim's algorithm to find minimum spanning tree (MST).
  * @param g Pointer to the graph.
@@ -561,20 +580,40 @@ vector<Vertex<int> *> TSPSolver::calculateTriangleTSPReturning(Graph<int> *g) {
  * @param k The number of clusters to initialize.
  */
 void TSPSolver::initializeCenters(vector<Cluster>& clusters, const Graph<int>* graph, int k) {
+
     srand(time(NULL));
-    unordered_map<int, bool> usedIndices;
+    vector<Vertex<int>*> vertices = graph->getVertexSet();
+    int n = vertices.size();
 
-    for (int i = 0; i < k; ++i) {
-        int index;
-        do {
-            index = rand() % graph->getVertexSet().size();
-        } while (usedIndices.find(index) != usedIndices.end());
+    int index = rand() % n;
+    const Vertex<int>* vertex = vertices[index];
+    clusters[0].centerX = vertex->getLatitude();
+    clusters[0].centerY = vertex->getLongitude();
+    clusters[0].cities.push_back(vertex->getInfo());
 
-        usedIndices[index] = true;
-        const Vertex<int>* vertex = graph->getVertexSet()[index];
-        clusters[i].centerX = vertex->getLatitude();
-        clusters[i].centerY = vertex->getLongitude();
-        clusters[i].cities.push_back(vertex->getInfo());
+    for (int i = 1; i < k; ++i) {
+        vector<double> distances(n, numeric_limits<double>::max());
+
+        for (int j = 0; j < n; ++j) {
+            for (int l = 0; l < i; ++l) {
+                double distance = haversineDistance(vertices[j], vertices[clusters[l].cities[0]]);
+                distances[j] = min(distances[j], distance);
+            }
+        }
+
+        double total = accumulate(distances.begin(), distances.end(), 0.0);
+        double r = (double) rand() / RAND_MAX * total;
+        double cumulative = 0.0;
+        for (int j = 0; j < n; ++j) {
+            cumulative += distances[j];
+            if (cumulative >= r) {
+                const Vertex<int>* selectedVertex = vertices[j];
+                clusters[i].centerX = selectedVertex->getLatitude();
+                clusters[i].centerY = selectedVertex->getLongitude();
+                clusters[i].cities.push_back(selectedVertex->getInfo());
+                break;
+            }
+        }
     }
 }
 
@@ -628,12 +667,21 @@ void TSPSolver::updateCenters(vector<Cluster>& clusters, const Graph<int>* graph
  * @return A vector of clusters after the k-means algorithm has been applied.
  */
 vector<Cluster> TSPSolver::kMeansClustering(const Graph<int>* graph) {
+
+    printClustersHelper();
+
     int k, maxIterations;
-    cout << "Insert number of iterations: ";
-    cin >> maxIterations;
-    cout << endl;
     cout << "Insert number of clusters: ";
     cin >> k;
+    cout << endl;
+    cout << "Insert number of iterations: ";
+    cin >> maxIterations;
+    this_thread::sleep_for(chrono::milliseconds(1000));
+    cout << endl;
+    cout << "This will only take a few moments..." << endl << endl;
+
+    //k = 100;
+    //maxIterations = 1000;
     std::vector<Cluster> clusters(k);
 
     initializeCenters(clusters, graph, k);
@@ -674,6 +722,7 @@ vector<Vertex<int>*> TSPSolver::findBestTourForCluster(const Graph<int> *graph, 
     }
 
     return calculateTriangleTSPReturning(&subgraph);
+
 }
 
 /**
@@ -704,6 +753,7 @@ Vertex<int>* TSPSolver::findClosestCity(Vertex<int> *city, const std::vector<Ver
  * @return A vector of pointers to vertices representing the complete tour.
  */
 void TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Cluster>& clusters) {
+
     auto start = std::chrono::high_resolution_clock::now();
     vector<Vertex<int>*> completeTour;
 
@@ -727,14 +777,31 @@ void TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Clust
     auto end = std::chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
 
+    double totalCost = 0.0;
     cout << "TSP Path : ";
-    for (size_t i = 0; i < completeTour.size(); i++) {
+    for (size_t i = 0; i < completeTour.size() - 1; i++) {
         cout << completeTour[i]->getInfo() << (i == completeTour.size() - 1 ? "\n" : " -> ");
+        for (auto edge : completeTour[i]->getAdj()) {
+            if (edge->getDest()->getInfo() == completeTour[i + 1]->getInfo())
+                totalCost += edge->getWeight();
+        }
     }
+    cout << completeTour[completeTour.size() - 1]->getInfo() << endl << endl;
+    cout << "Total cost: " << totalCost << endl;
     cout << '\n';
 
     cout << "Elapsed Time: " << duration.count() << " s\n\n";
 
+}
+
+
+
+double TSPSolver::calculateTourDistance(const vector<Vertex<int>*>& tour) {
+    double totalDistance = 0.0;
+    for (size_t i = 0; i < tour.size() - 1; ++i) {
+        totalDistance += haversineDistance(tour[i], tour[i + 1]);
+    }
+    return totalDistance;
 }
 
 
