@@ -20,6 +20,8 @@ public:
     void printRealWorldGraph();
     void printExtraFullyConnected();
 
+    void ifTwoOptHeuristic();
+
 };
 
 

@@ -703,7 +703,7 @@ vector<Cluster> TSPSolver::kMeansClustering(const Graph<int>* graph) {
  */
 
 
-vector<Vertex<int>*> TSPSolver::findBestTourForCluster(const Graph<int> *graph, const Cluster &cluster) {
+vector<Vertex<int>*> TSPSolver::findBestTourForCluster(const Graph<int> *graph, const Cluster &cluster, bool two) {
     Graph<int> subgraph;
     unordered_map<int, Vertex<int>*> vertexMap;
 
@@ -721,7 +721,7 @@ vector<Vertex<int>*> TSPSolver::findBestTourForCluster(const Graph<int> *graph, 
         }
     }
 
-    return calculateTriangleTSPReturning(&subgraph);
+    return two ? optimizeTourTwoOpt(calculateTriangleTSPReturning(&subgraph)) :  calculateTriangleTSPReturning(&subgraph);
 
 }
 
@@ -752,14 +752,14 @@ Vertex<int>* TSPSolver::findClosestCity(Vertex<int> *city, const std::vector<Ver
  * @param clusters A reference to the vector of clusters.
  * @return A vector of pointers to vertices representing the complete tour.
  */
-void TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Cluster>& clusters) {
+void TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Cluster>& clusters, bool two) {
 
     auto start = std::chrono::high_resolution_clock::now();
     vector<Vertex<int>*> completeTour;
 
     vector<std::vector<Vertex<int>*>> clusterTours;
     for (const auto& cluster : clusters) {
-        std::vector<Vertex<int>*> tour = findBestTourForCluster(graph, cluster);
+        std::vector<Vertex<int>*> tour = findBestTourForCluster(graph, cluster, two);
         clusterTours.push_back(tour);
     }
 
@@ -794,6 +794,45 @@ void TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Clust
 
 }
 
+
+vector<Vertex<int>*> TSPSolver::twoOptSwapHelper(const vector<Vertex<int>*>& tour, int i, int k) {
+    vector<Vertex<int>*> newTour(tour.size());
+    // 1. take route[0] to route[i-1] and add them in order to new_route
+    for (int c = 0; c <= i - 1; ++c) {
+        newTour[c] = tour[c];
+    }
+    // 2. take route[i] to route[k] and add them in reverse order to new_route
+    for (int c = i; c <= k; ++c) {
+        newTour[c] = tour[k - (c - i)];
+    }
+    // 3. take route[k+1] to end and add them in order to new_route
+    for (int c = k + 1; c < tour.size(); ++c) {
+        newTour[c] = tour[c];
+    }
+    return newTour;
+}
+
+vector<Vertex<int>*> TSPSolver::optimizeTourTwoOpt(const vector<Vertex<int>*>& tour) {
+    vector<Vertex<int>*> bestTour = tour;
+    double bestDistance = calculateTourDistance(tour);
+    bool improvement = true;
+
+    while (improvement) {
+        improvement = false;
+        for (int i = 1; i < tour.size() - 1; ++i) {
+            for (int k = i + 1; k < tour.size() - 1; ++k) {
+                vector<Vertex<int>*> newTour = twoOptSwapHelper(bestTour, i, k);
+                double newDistance = calculateTourDistance(newTour);
+                if (newDistance < bestDistance) {
+                    bestTour = newTour;
+                    bestDistance = newDistance;
+                    improvement = true;
+                }
+            }
+        }
+    }
+    return bestTour;
+}
 
 
 double TSPSolver::calculateTourDistance(const vector<Vertex<int>*>& tour) {
