@@ -1,0 +1,158 @@
+\doxysection{Script Class Reference}
+\hypertarget{class_script}{}\label{class_script}\index{Script@{Script}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_script_a41a1628edc502f6878cb7ede2824fd8c}{read\+\_\+shipping}} ()
+\begin{DoxyCompactList}\small\item\em Reads shipping data from a CSV file and populates the shipping graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_script_a9bf6410165e3ad92216f5c2028ad1804}{read\+\_\+stadiums}} ()
+\begin{DoxyCompactList}\small\item\em Reads stadium data from a CSV file and populates the stadium graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_script_a78830533894199811034c28aa3200f1e}{read\+\_\+tourism}} ()
+\begin{DoxyCompactList}\small\item\em Reads tourism data from a CSV file and populates the tourism graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_script_a4b8495bacffc6d4722cb0c1ade6a5141}{read\+\_\+rwg}} (\mbox{\hyperlink{class_edge}{string}} \mbox{\hyperlink{class_edge}{s1}}, \mbox{\hyperlink{class_edge}{string}} \mbox{\hyperlink{class_edge}{s2}})
+\begin{DoxyCompactList}\small\item\em Reads real-\/world graph data from CSV files and populates the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_script_a9a5fabb6f287ee885f1f9eb387c1d4e8}{read\+\_\+efcg}} (\mbox{\hyperlink{class_edge}{string}} \mbox{\hyperlink{class_edge}{s1}}, \mbox{\hyperlink{class_edge}{string}} \mbox{\hyperlink{class_edge}{s2}})
+\begin{DoxyCompactList}\small\item\em Reads extra fully connected graph data from a CSV file and populates the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_script_ae926ae52d8c253b754f4d5d99a7b2510}{get\+Ship\+Graph}} () \mbox{\hyperlink{class_edge}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the shipping graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_script_adb1fb11f62a71b5ad1d239cd5b37999f}{get\+St\+Graph}} () \mbox{\hyperlink{class_edge}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the stadium graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_script_a3be4fdbd7646631a95b691322f050ee8}{get\+Tm\+Graph}} () \mbox{\hyperlink{class_edge}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the tourism graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_script_a9ddf73fca134c69b78c37467f4242564}{get\+Real\+World\+Graph}} () \mbox{\hyperlink{class_edge}{const}}
+\begin{DoxyCompactList}\small\item\em Gets a real-\/world graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_script_a433b71f430b687429a9b223be81291f7}{get\+Extra\+Fully\+Connected}} () \mbox{\hyperlink{class_edge}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the extra fully connected graph with a required number of nodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_script_a433b71f430b687429a9b223be81291f7}\label{class_script_a433b71f430b687429a9b223be81291f7} 
+\index{Script@{Script}!getExtraFullyConnected@{getExtraFullyConnected}}
+\index{getExtraFullyConnected@{getExtraFullyConnected}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{getExtraFullyConnected()}{getExtraFullyConnected()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} Script\+::get\+Extra\+Fully\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the extra fully connected graph with a required number of nodes. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the extra fully connected graph. 
+\end{DoxyReturn}
+\Hypertarget{class_script_a9ddf73fca134c69b78c37467f4242564}\label{class_script_a9ddf73fca134c69b78c37467f4242564} 
+\index{Script@{Script}!getRealWorldGraph@{getRealWorldGraph}}
+\index{getRealWorldGraph@{getRealWorldGraph}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{getRealWorldGraph()}{getRealWorldGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} Script\+::get\+Real\+World\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets a real-\/world graph. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to a real-\/world graph. 
+\end{DoxyReturn}
+\Hypertarget{class_script_ae926ae52d8c253b754f4d5d99a7b2510}\label{class_script_ae926ae52d8c253b754f4d5d99a7b2510} 
+\index{Script@{Script}!getShipGraph@{getShipGraph}}
+\index{getShipGraph@{getShipGraph}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{getShipGraph()}{getShipGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} Script\+::get\+Ship\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the shipping graph. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the shipping graph. 
+\end{DoxyReturn}
+\Hypertarget{class_script_adb1fb11f62a71b5ad1d239cd5b37999f}\label{class_script_adb1fb11f62a71b5ad1d239cd5b37999f} 
+\index{Script@{Script}!getStGraph@{getStGraph}}
+\index{getStGraph@{getStGraph}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{getStGraph()}{getStGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} Script\+::get\+St\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the stadium graph. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the stadium graph. 
+\end{DoxyReturn}
+\Hypertarget{class_script_a3be4fdbd7646631a95b691322f050ee8}\label{class_script_a3be4fdbd7646631a95b691322f050ee8} 
+\index{Script@{Script}!getTmGraph@{getTmGraph}}
+\index{getTmGraph@{getTmGraph}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{getTmGraph()}{getTmGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} Script\+::get\+Tm\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the tourism graph. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the tourism graph. 
+\end{DoxyReturn}
+\Hypertarget{class_script_a9a5fabb6f287ee885f1f9eb387c1d4e8}\label{class_script_a9a5fabb6f287ee885f1f9eb387c1d4e8} 
+\index{Script@{Script}!read\_efcg@{read\_efcg}}
+\index{read\_efcg@{read\_efcg}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{read\_efcg()}{read\_efcg()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Script\+::read\+\_\+efcg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{string}}}]{s1,  }\item[{\mbox{\hyperlink{class_edge}{string}}}]{s2 }\end{DoxyParamCaption})}
+
+
+
+Reads extra fully connected graph data from a CSV file and populates the graph. 
+
+The file should contain edges in the format\+: origin, destination, distance. Each edge is added in both directions to the graph. \Hypertarget{class_script_a4b8495bacffc6d4722cb0c1ade6a5141}\label{class_script_a4b8495bacffc6d4722cb0c1ade6a5141} 
+\index{Script@{Script}!read\_rwg@{read\_rwg}}
+\index{read\_rwg@{read\_rwg}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{read\_rwg()}{read\_rwg()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Script\+::read\+\_\+rwg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{string}}}]{s1,  }\item[{\mbox{\hyperlink{class_edge}{string}}}]{s2 }\end{DoxyParamCaption})}
+
+
+
+Reads real-\/world graph data from CSV files and populates the graph. 
+
+Reads node coordinates from "{}nodes.\+csv"{} and edges from "{}edges.\+csv"{}. Each edge is added in both directions to the graph. \Hypertarget{class_script_a41a1628edc502f6878cb7ede2824fd8c}\label{class_script_a41a1628edc502f6878cb7ede2824fd8c} 
+\index{Script@{Script}!read\_shipping@{read\_shipping}}
+\index{read\_shipping@{read\_shipping}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{read\_shipping()}{read\_shipping()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Script\+::read\+\_\+shipping (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads shipping data from a CSV file and populates the shipping graph. 
+
+The file should contain edges in the format\+: origin, destination, distance. Each edge is added in both directions to the graph. \begin{DoxyNote}{Note}
+The file path is hardcoded to "{}../datasets/toy\+Graphs/shipping.\+csv"{}. 
+\end{DoxyNote}
+\Hypertarget{class_script_a9bf6410165e3ad92216f5c2028ad1804}\label{class_script_a9bf6410165e3ad92216f5c2028ad1804} 
+\index{Script@{Script}!read\_stadiums@{read\_stadiums}}
+\index{read\_stadiums@{read\_stadiums}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{read\_stadiums()}{read\_stadiums()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Script\+::read\+\_\+stadiums (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads stadium data from a CSV file and populates the stadium graph. 
+
+The file should contain edges in the format\+: origin, destination, distance. Each edge is added in both directions to the graph. \begin{DoxyNote}{Note}
+The file path is hardcoded to "{}../datasets/toy\+Graphs/stadiums.\+csv"{}. 
+\end{DoxyNote}
+\Hypertarget{class_script_a78830533894199811034c28aa3200f1e}\label{class_script_a78830533894199811034c28aa3200f1e} 
+\index{Script@{Script}!read\_tourism@{read\_tourism}}
+\index{read\_tourism@{read\_tourism}!Script@{Script}}
+\doxysubsubsection{\texorpdfstring{read\_tourism()}{read\_tourism()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Script\+::read\+\_\+tourism (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads tourism data from a CSV file and populates the tourism graph. 
+
+The file should contain edges in the format\+: origin, destination, distance, label\+Origin, label\+Destination. Each edge is added in both directions to the graph. \begin{DoxyNote}{Note}
+The file path is hardcoded to "{}../datasets/toy\+Graphs/tourism.\+csv"{}. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Script.\+h\item 
+Script.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,52 @@
+\doxysection{Script.\+h}
+\hypertarget{_script_8h_source}{}\label{_script_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ TRAVELLINGSALESMAN\_SCRIPT\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ TRAVELLINGSALESMAN\_SCRIPT\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <istream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}Graph.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_script}{Script}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_edge}{Graph<int>}}\ *\ shipGraph\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_edge}{Graph<int>}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_edge}{Graph<int>}}\ *\ stGraph\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_edge}{Graph<int>}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_edge}{Graph<int>}}\ *\ tmGraph\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_edge}{Graph<int>}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_edge}{Graph<int>}}\ *\ rwg\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_edge}{Graph<int>}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_edge}{Graph<int>}}\ *\ efcg\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_edge}{Graph<int>}}();}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_script_a41a1628edc502f6878cb7ede2824fd8c}{read\_shipping}}();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_script_a9bf6410165e3ad92216f5c2028ad1804}{read\_stadiums}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_script_a78830533894199811034c28aa3200f1e}{read\_tourism}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_script_a4b8495bacffc6d4722cb0c1ade6a5141}{read\_rwg}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_edge}{s1}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_edge}{s2}});}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_script_a9a5fabb6f287ee885f1f9eb387c1d4e8}{read\_efcg}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_edge}{s1}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_edge}{s2}});}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_edge}{Graph<int>}}\ *\mbox{\hyperlink{class_script_ae926ae52d8c253b754f4d5d99a7b2510}{getShipGraph}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_edge}{Graph<int>}}\ *\mbox{\hyperlink{class_script_adb1fb11f62a71b5ad1d239cd5b37999f}{getStGraph}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_edge}{Graph<int>}}\ *\mbox{\hyperlink{class_script_a3be4fdbd7646631a95b691322f050ee8}{getTmGraph}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_edge}{Graph<int>}}\ *\mbox{\hyperlink{class_script_a9ddf73fca134c69b78c37467f4242564}{getRealWorldGraph}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_edge}{Graph<int>}}\ *\mbox{\hyperlink{class_script_a433b71f430b687429a9b223be81291f7}{getExtraFullyConnected}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TRAVELLINGSALESMAN\_SCRIPT\_H}}
+
+\end{DoxyCode}
