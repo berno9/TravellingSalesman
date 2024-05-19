@@ -6,8 +6,8 @@ void TSPSolver::printClustersHelper() {
     cout << "Running times may vary." << endl << endl;
     this_thread::sleep_for(chrono::milliseconds(3000));
     cout << "Here are some suggestions for those numbers:" << endl;
-    cout << "Clusters: 5, 10, 20, 50, 100, 160, 220, ..." << endl;
-    cout << "Iterations: 60, 115, 220, 600, 1850, 2500, ..." << endl << endl;
+    cout << "Clusters: 5, 10, 20, 50, 100, 160, 180, 220, ..." << endl;
+    cout << "Iterations: 60, 115, 220, 600, 1850, 2100, 2500, ..." << endl << endl;
     this_thread::sleep_for(chrono::milliseconds(2000));
     cout << "However, the choices for these values are completely up to you." << endl << endl;
     this_thread::sleep_for(chrono::milliseconds(2000));
