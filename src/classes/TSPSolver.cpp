@@ -6,10 +6,10 @@ void TSPSolver::printClustersHelper() {
     cout << "Running times may vary." << endl << endl;
     this_thread::sleep_for(chrono::milliseconds(3000));
     cout << "Here are some suggestions for those numbers:" << endl;
-    cout << "Clusters: 5, 10, 20, 50, 100, 200, ..." << endl;
-    cout << "Iterations: 50, 100, 200, 500, 1000, 2000, ..." << endl << endl;
+    cout << "Clusters: 5, 10, 20, 50, 100, 160, 220, ..." << endl;
+    cout << "Iterations: 60, 115, 220, 600, 1850, 2500, ..." << endl << endl;
     this_thread::sleep_for(chrono::milliseconds(2000));
-    cout << "However, the choices for these values are completely up you." << endl << endl;
+    cout << "However, the choices for these values are completely up to you." << endl << endl;
     this_thread::sleep_for(chrono::milliseconds(2000));
     cout << "You are encouraged to try multiple combinations of inputs." << endl << endl;
     this_thread::sleep_for(chrono::milliseconds(2000));
@@ -796,23 +796,43 @@ void TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Clust
 }
 
 
+
+/**
+ * @brief Performs a 2-opt swap on the TSP path between indices i and k.
+ * @param tour Reference to the vector storing the TSP path.
+ * @param i The starting index for the swap.
+ * @param k The ending index for the swap.
+ * @return A vector representing a slightly modified path due to swapping
+ * @details This function performs the 2-opt swap to potentially shorten the TSP path.
+ *   - Time Complexity: O((k - i) / 2)
+ *   - Space Complexity: O(1)
+ */
 vector<Vertex<int>*> TSPSolver::twoOptSwapHelper(const vector<Vertex<int>*>& tour, int i, int k) {
     vector<Vertex<int>*> newTour(tour.size());
-    // 1. take route[0] to route[i-1] and add them in order to new_route
+
     for (int c = 0; c <= i - 1; ++c) {
         newTour[c] = tour[c];
     }
-    // 2. take route[i] to route[k] and add them in reverse order to new_route
+
     for (int c = i; c <= k; ++c) {
         newTour[c] = tour[k - (c - i)];
     }
-    // 3. take route[k+1] to end and add them in order to new_route
+
     for (int c = k + 1; c < tour.size(); ++c) {
         newTour[c] = tour[c];
     }
     return newTour;
 }
 
+/**
+ * @brief Improves the TSP path using the 2-opt algorithm, but returns path instead.
+ * @param tour Reference to the vector storing the TSP path.
+ * @param two_opt_iterations The number of iterations for the 2-opt algorithm.
+ * @return A vector representing the optimized path.
+ * @details This function iteratively applies the 2-opt swap to reduce the TSP path length.
+ *   - Time Complexity: O(n^2 * iterations), where n is the number of vertices and iterations is the number of 2-opt iterations.
+ *   - Space Complexity: O(1)
+ */
 vector<Vertex<int>*> TSPSolver::optimizeTourTwoOpt(const vector<Vertex<int>*>& tour) {
     vector<Vertex<int>*> bestTour = tour;
     double bestDistance = calculateTourDistance(tour);
@@ -835,7 +855,13 @@ vector<Vertex<int>*> TSPSolver::optimizeTourTwoOpt(const vector<Vertex<int>*>& t
     return bestTour;
 }
 
-
+/**
+ * @brief Calculates total cost of a path, using the haversine distance formula.
+ * @param tour Reference to the vector storing the TSP path.
+ * @return The total cost.
+ *   - Time Complexity: O(n)
+ *   - Space Complexity: O(1)
+ */
 double TSPSolver::calculateTourDistance(const vector<Vertex<int>*>& tour) {
     double totalDistance = 0.0;
     for (size_t i = 0; i < tour.size() - 1; ++i) {

@@ -369,7 +369,10 @@ void Menu::ifTwoOptHeuristic() {
     std::cout << std::endl;
     std::cout << "#######################################################################" << std::endl;
     std::cout << "##                                                                   ##" << std::endl;
-    std::cout << "##      Would you like to apply the 2-opt Heuristic?                 ##" << std::endl;
+    std::cout << "##      Would you like to apply the 2-opt heuristic                  ##" << std::endl;
+    std::cout << "##      to further locally optimize each tour?                       ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      Applying this optimization will increase run time.           ##" << std::endl;
     std::cout << "##                                                                   ##" << std::endl;
     std::cout << "##      y-> Yes                                                      ##" << std::endl;
     std::cout << "##                                                                   ##" << std::endl;
