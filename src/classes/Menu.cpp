@@ -58,9 +58,7 @@ void Menu::mainMenu() {
             mainMenu();
             break;
         case 3:
-            tspSolver.uniteAllClusterTours(g, tspSolver.kMeansClustering(g));
-            mainMenu();
-            break;
+            ifTwoOptHeuristic();
         case 4:
             tspSolver.calculateNearestNeighborTSP(g);
             mainMenu();
@@ -365,4 +363,44 @@ void Menu::printExtraFullyConnected() {
             printExtraFullyConnected();
             break;
     }
+}
+
+void Menu::ifTwoOptHeuristic() {
+    std::cout << std::endl;
+    std::cout << "#######################################################################" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      Would you like to apply the 2-opt heuristic                  ##" << std::endl;
+    std::cout << "##      to further locally optimize each tour?                       ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      Applying this optimization will increase run time.           ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      y-> Yes                                                      ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      n-> No                                                       ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "##      0-> Exit                                                     ##" << std::endl;
+    std::cout << "##                                                                   ##" << std::endl;
+    std::cout << "#######################################################################" << std::endl << std::endl;
+
+    string k;
+    std::cout << "Type 'y' for yes, 'n' for no: ";
+    std::cin >> k;
+
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cout << "Invalid input. Please enter a valid option." << std::endl;
+        ifTwoOptHeuristic();
+    }
+
+    if (k == "y") {
+        tspSolver.uniteAllClusterTours(g, tspSolver.kMeansClustering(g), true);
+        mainMenu();
+    }
+    if (k == "n") {
+        tspSolver.uniteAllClusterTours(g, tspSolver.kMeansClustering(g), false);
+        mainMenu();
+    }
+    if (k == "0")
+        exit(0);
 }
