@@ -1,0 +1,567 @@
+\doxysection{TSPSolver Class Reference}
+\hypertarget{class_t_s_p_solver}{}\label{class_t_s_p_solver}\index{TSPSolver@{TSPSolver}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_t_s_p_solver_ae9fc1e14f7ea550fd8a8f97a1cf7d151}\label{class_t_s_p_solver_ae9fc1e14f7ea550fd8a8f97a1cf7d151} 
+\mbox{\hyperlink{class_edge}{void}} {\bfseries print\+Clusters\+Helper} ()
+\item 
+\mbox{\hyperlink{class_edge}{double}} \mbox{\hyperlink{class_t_s_p_solver_a23a1af6a2629429a7e47cd70fec74b7a}{haversine\+Distance}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{v1}}, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{v2}})
+\begin{DoxyCompactList}\small\item\em Calculates the Haversine distance between two vertices. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_a8b5589cf8674b4ed0618064a0dbb08ef}{tsp\+Backtrack}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}g, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{current}}, \mbox{\hyperlink{class_edge}{double}} \mbox{\hyperlink{class_edge}{current\+\_\+cost}}, \mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{class_edge}{num\+\_\+visited}}, \mbox{\hyperlink{class_edge}{double}} \&\mbox{\hyperlink{class_edge}{min\+\_\+cost}}, \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{tsp\+\_\+path}}, \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{current\+\_\+path}})
+\begin{DoxyCompactList}\small\item\em Solves the TSP using a backtracking approach. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{double}} \mbox{\hyperlink{class_t_s_p_solver_a0dd2130eaa7fb56e843fd684aa5705a2}{tsp\+Brute\+Force}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}g, \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{tsp\+Path}})
+\begin{DoxyCompactList}\small\item\em Solves the TSP using a brute force approach. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_a28d0ef1ac8905a2a1a8dc643658451bb}{calculate\+TSP}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Calculates the TSP using brute force and prints the result. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_a1f4f40e94fc9de53b5abd810085f40d7}{prim}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}g, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{source}}, \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{result}}, \mbox{\hyperlink{class_edge}{double}} \&\mbox{\hyperlink{class_edge}{cost}})
+\begin{DoxyCompactList}\small\item\em Implements Prim\textquotesingle{}s algorithm to generate an MST and uses preorder traversal for TSP. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_a3ecd216dea1b693032b292e2b249fd9a}{preorder\+MST}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}g, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{current}}, std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{result}}, \mbox{\hyperlink{class_edge}{double}} \&\mbox{\hyperlink{class_edge}{cost}}, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\&\mbox{\hyperlink{class_edge}{prev}})
+\begin{DoxyCompactList}\small\item\em Performs a preorder traversal of the MST to generate the TSP path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_a13f497b3d04fb78942798a9c5c286288}{calculate\+Triangle\+TSP}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Calculates the TSP using a triangle inequality heuristic and prints the result. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_ae018ad3ee0b0a3641221fb39803466ce}{prim\+Helper}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}g, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{source}}, \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{result}}, \mbox{\hyperlink{class_edge}{double}} \&\mbox{\hyperlink{class_edge}{cost}})
+\begin{DoxyCompactList}\small\item\em Helper function for Prim\textquotesingle{}s algorithm to find minimum spanning tree (MST). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_t_s_p_solver_aed8372fd37507d191d8a7739737a7360}{calculate\+Triangle\+TSPReturning}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Calculates the TSP path using Triangle TSP algorithm and returns the result. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_a670b817d73432e1c0be732d963ff3cec}{initialize\+Centers}} (\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{struct_cluster}{Cluster}} $>$ \&\mbox{\hyperlink{class_edge}{clusters}}, \mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{graph}}, \mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{class_edge}{k}})
+\begin{DoxyCompactList}\small\item\em Initializes the cluster centers by selecting k random vertices from the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_a25897f27d13effa16b26feffa36f104d}{assign\+To\+Clusters}} (\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{struct_cluster}{Cluster}} $>$ \&\mbox{\hyperlink{class_edge}{clusters}}, \mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{graph}})
+\begin{DoxyCompactList}\small\item\em Assigns each vertex in the graph to the nearest cluster center. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_adb42ec3b61360210e6b07ec4057d541b}{update\+Centers}} (\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{struct_cluster}{Cluster}} $>$ \&\mbox{\hyperlink{class_edge}{clusters}}, \mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{graph}})
+\begin{DoxyCompactList}\small\item\em Updates the cluster centers based on the mean position of the vertices in each cluster. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{struct_cluster}{Cluster}} $>$ \mbox{\hyperlink{class_t_s_p_solver_a36f24d769f9519514d806a26fa64aa2f}{k\+Means\+Clustering}} (\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{graph}})
+\begin{DoxyCompactList}\small\item\em Performs k-\/means clustering on the graph vertices. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_t_s_p_solver_a79f95e3072ffb62c6c69e5e3e1820470}{find\+Best\+Tour\+For\+Cluster}} (\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{graph}}, \mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{struct_cluster}{Cluster}} \&\mbox{\hyperlink{class_edge}{cluster}}, \mbox{\hyperlink{class_edge}{bool}} \mbox{\hyperlink{class_edge}{two}})
+\begin{DoxyCompactList}\small\item\em Finds the best tour for a given cluster using the TSP algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_t_s_p_solver_aa84806283970f58c11a5b2e06209b79c}{find\+Closest\+City}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{city}}, \mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{tour}})
+\begin{DoxyCompactList}\small\item\em Finds the closest city to a given city from a tour. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_ad9defc1e53fd0d64745f1c4eb4f47ea4}{unite\+All\+Cluster\+Tours}} (\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_edge}{graph}}, \mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{struct_cluster}{Cluster}} $>$ \&\mbox{\hyperlink{class_edge}{clusters}}, \mbox{\hyperlink{class_edge}{bool}} \mbox{\hyperlink{class_edge}{two}})
+\begin{DoxyCompactList}\small\item\em Unites all cluster tours into a single complete tour. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_a89d53329c9e7da9f42082c71ef7e647d}{two\+Opt\+Swap}} (\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{tsp\+\_\+path}}, \mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{class_edge}{i}}, \mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{class_edge}{k}})
+\begin{DoxyCompactList}\small\item\em Performs a 2-\/opt swap on the TSP path between indices i and k. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_a6a0dcbff3c52d5a05cc9f772b2bf6669}{two\+Opt\+Algorithm}} (\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{tsp\+\_\+path}}, \mbox{\hyperlink{class_edge}{unsigned}} \mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{class_edge}{two\+\_\+opt\+\_\+iterations}})
+\begin{DoxyCompactList}\small\item\em Improves the TSP path using the 2-\/opt algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{double}} \mbox{\hyperlink{class_t_s_p_solver_affb810ca17901da3590fc236782ceba3}{tsp\+Nearest\+Neighbor}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}g, \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{tsp\+\_\+path}}, \mbox{\hyperlink{class_edge}{unsigned}} \mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{class_edge}{two\+\_\+opt\+\_\+iterations}})
+\begin{DoxyCompactList}\small\item\em Solves the TSP using the nearest neighbor heuristic with optional 2-\/opt optimization. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_t_s_p_solver_a52f55e37090465d75e9d8e0880274acc}{calculate\+Nearest\+Neighbor\+TSP}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Calculates the TSP using the nearest neighbor heuristic and prints the result. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_t_s_p_solver_a3f725eb6ac6dd42d9b7c2ee4666dd87d}{two\+Opt\+Swap\+Helper}} (\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{tour}}, \mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{class_edge}{i}}, \mbox{\hyperlink{class_edge}{int}} \mbox{\hyperlink{class_edge}{k}})
+\begin{DoxyCompactList}\small\item\em Performs a 2-\/opt swap on the TSP path between indices i and k. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_t_s_p_solver_a75374d02f7afb9ea2b6c2b88382c5137}{optimize\+Tour\+Two\+Opt}} (\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{tour}})
+\begin{DoxyCompactList}\small\item\em Improves the TSP path using the 2-\/opt algorithm, but returns path instead. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{double}} \mbox{\hyperlink{class_t_s_p_solver_ae97bdd06fbf8b08d0468fca86b4d5d90}{calculate\+Tour\+Distance}} (\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{class_edge}{tour}})
+\begin{DoxyCompactList}\small\item\em Calculates total cost of a path, using the haversine distance formula. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_t_s_p_solver_a25897f27d13effa16b26feffa36f104d}\label{class_t_s_p_solver_a25897f27d13effa16b26feffa36f104d} 
+\index{TSPSolver@{TSPSolver}!assignToClusters@{assignToClusters}}
+\index{assignToClusters@{assignToClusters}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{assignToClusters()}{assignToClusters()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::assign\+To\+Clusters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{struct_cluster}{Cluster}} $>$ \&}]{clusters,  }\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Assigns each vertex in the graph to the nearest cluster center. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clusters} & A reference to the vector of clusters. \\
+\hline
+{\em graph} & A pointer to the graph containing the vertices. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_t_s_p_solver_a52f55e37090465d75e9d8e0880274acc}\label{class_t_s_p_solver_a52f55e37090465d75e9d8e0880274acc} 
+\index{TSPSolver@{TSPSolver}!calculateNearestNeighborTSP@{calculateNearestNeighborTSP}}
+\index{calculateNearestNeighborTSP@{calculateNearestNeighborTSP}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{calculateNearestNeighborTSP()}{calculateNearestNeighborTSP()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::calculate\+Nearest\+Neighbor\+TSP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculates the TSP using the nearest neighbor heuristic and prints the result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph.\\
+\hline
+\end{DoxyParams}
+This function calculates the TSP path and cost using the nearest neighbor heuristic with optional 2-\/opt optimization, and prints the results including elapsed time.
+\begin{DoxyItemize}
+\item Time Complexity\+: O(V\texorpdfstring{$^\wedge$}{\string^}2 + n\texorpdfstring{$^\wedge$}{\string^}2 \texorpdfstring{$\ast$}{*} iterations), where V is the number of vertices and iterations is the number of 2-\/opt iterations.
+\item Space Complexity\+: O(\+V), for path storage. 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_ae97bdd06fbf8b08d0468fca86b4d5d90}\label{class_t_s_p_solver_ae97bdd06fbf8b08d0468fca86b4d5d90} 
+\index{TSPSolver@{TSPSolver}!calculateTourDistance@{calculateTourDistance}}
+\index{calculateTourDistance@{calculateTourDistance}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{calculateTourDistance()}{calculateTourDistance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{double}} TSPSolver\+::calculate\+Tour\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{tour }\end{DoxyParamCaption})}
+
+
+
+Calculates total cost of a path, using the haversine distance formula. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tour} & Reference to the vector storing the TSP path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total cost.
+\begin{DoxyItemize}
+\item Time Complexity\+: O(n)
+\item Space Complexity\+: O(1) 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{class_t_s_p_solver_a13f497b3d04fb78942798a9c5c286288}\label{class_t_s_p_solver_a13f497b3d04fb78942798a9c5c286288} 
+\index{TSPSolver@{TSPSolver}!calculateTriangleTSP@{calculateTriangleTSP}}
+\index{calculateTriangleTSP@{calculateTriangleTSP}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{calculateTriangleTSP()}{calculateTriangleTSP()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::calculate\+Triangle\+TSP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculates the TSP using a triangle inequality heuristic and prints the result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph.\\
+\hline
+\end{DoxyParams}
+This function calculates the TSP path and cost using a triangle inequality heuristic (MST-\/based) and prints the results including elapsed time.
+\begin{DoxyItemize}
+\item Time Complexity\+: O(V + E log V), where V is the number of vertices and E is the number of edges.
+\item Space Complexity\+: O(\+V), for path storage. 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_aed8372fd37507d191d8a7739737a7360}\label{class_t_s_p_solver_aed8372fd37507d191d8a7739737a7360} 
+\index{TSPSolver@{TSPSolver}!calculateTriangleTSPReturning@{calculateTriangleTSPReturning}}
+\index{calculateTriangleTSPReturning@{calculateTriangleTSPReturning}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{calculateTriangleTSPReturning()}{calculateTriangleTSPReturning()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ TSPSolver\+::calculate\+Triangle\+TSPReturning (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculates the TSP path using Triangle TSP algorithm and returns the result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of pointers to vertices representing the TSP path. 
+\end{DoxyReturn}
+\Hypertarget{class_t_s_p_solver_a28d0ef1ac8905a2a1a8dc643658451bb}\label{class_t_s_p_solver_a28d0ef1ac8905a2a1a8dc643658451bb} 
+\index{TSPSolver@{TSPSolver}!calculateTSP@{calculateTSP}}
+\index{calculateTSP@{calculateTSP}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{calculateTSP()}{calculateTSP()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::calculate\+TSP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculates the TSP using brute force and prints the result. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph.\\
+\hline
+\end{DoxyParams}
+This function calculates the TSP path and cost using the brute force method, and prints the results including elapsed time.
+\begin{DoxyItemize}
+\item Time Complexity\+: O(n!), where n is the number of vertices.
+\item Space Complexity\+: O(n), for path storage. 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_a79f95e3072ffb62c6c69e5e3e1820470}\label{class_t_s_p_solver_a79f95e3072ffb62c6c69e5e3e1820470} 
+\index{TSPSolver@{TSPSolver}!findBestTourForCluster@{findBestTourForCluster}}
+\index{findBestTourForCluster@{findBestTourForCluster}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{findBestTourForCluster()}{findBestTourForCluster()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ TSPSolver\+::find\+Best\+Tour\+For\+Cluster (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{graph,  }\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{struct_cluster}{Cluster}} \&}]{cluster,  }\item[{\mbox{\hyperlink{class_edge}{bool}}}]{two }\end{DoxyParamCaption})}
+
+
+
+Finds the best tour for a given cluster using the TSP algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & A pointer to the original graph containing the vertices. \\
+\hline
+{\em cluster} & A reference to the cluster for which to find the best tour. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of pointers to vertices representing the best tour for the cluster. 
+\end{DoxyReturn}
+\Hypertarget{class_t_s_p_solver_aa84806283970f58c11a5b2e06209b79c}\label{class_t_s_p_solver_aa84806283970f58c11a5b2e06209b79c} 
+\index{TSPSolver@{TSPSolver}!findClosestCity@{findClosestCity}}
+\index{findClosestCity@{findClosestCity}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{findClosestCity()}{findClosestCity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} TSPSolver\+::find\+Closest\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{city,  }\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{tour }\end{DoxyParamCaption})}
+
+
+
+Finds the closest city to a given city from a tour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & A pointer to the city for which to find the closest city. \\
+\hline
+{\em tour} & A vector of pointers to vertices representing the tour. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the closest city in the tour. 
+\end{DoxyReturn}
+\Hypertarget{class_t_s_p_solver_a23a1af6a2629429a7e47cd70fec74b7a}\label{class_t_s_p_solver_a23a1af6a2629429a7e47cd70fec74b7a} 
+\index{TSPSolver@{TSPSolver}!haversineDistance@{haversineDistance}}
+\index{haversineDistance@{haversineDistance}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{haversineDistance()}{haversineDistance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{double}} TSPSolver\+::haversine\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{v1,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Calculates the Haversine distance between two vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Pointer to the first vertex. \\
+\hline
+{\em v2} & Pointer to the second vertex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Haversine distance in kilometers.
+\end{DoxyReturn}
+This function uses the Haversine formula to calculate the great-\/circle distance between two points on the Earth.
+\begin{DoxyItemize}
+\item Time Complexity\+: O(1)
+\item Space Complexity\+: O(1) 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_a670b817d73432e1c0be732d963ff3cec}\label{class_t_s_p_solver_a670b817d73432e1c0be732d963ff3cec} 
+\index{TSPSolver@{TSPSolver}!initializeCenters@{initializeCenters}}
+\index{initializeCenters@{initializeCenters}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{initializeCenters()}{initializeCenters()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::initialize\+Centers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{struct_cluster}{Cluster}} $>$ \&}]{clusters,  }\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{graph,  }\item[{\mbox{\hyperlink{class_edge}{int}}}]{k }\end{DoxyParamCaption})}
+
+
+
+Initializes the cluster centers by selecting k random vertices from the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clusters} & A reference to the vector of clusters to initialize. \\
+\hline
+{\em graph} & A pointer to the graph containing the vertices. \\
+\hline
+{\em k} & The number of clusters to initialize. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_t_s_p_solver_a36f24d769f9519514d806a26fa64aa2f}\label{class_t_s_p_solver_a36f24d769f9519514d806a26fa64aa2f} 
+\index{TSPSolver@{TSPSolver}!kMeansClustering@{kMeansClustering}}
+\index{kMeansClustering@{kMeansClustering}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{kMeansClustering()}{kMeansClustering()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{struct_cluster}{Cluster}} $>$ TSPSolver\+::k\+Means\+Clustering (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Performs k-\/means clustering on the graph vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & A pointer to the graph containing the vertices. \\
+\hline
+{\em k} & The number of clusters to form. \\
+\hline
+{\em max\+Iterations} & The maximum number of iterations for the k-\/means algorithm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of clusters after the k-\/means algorithm has been applied. 
+\end{DoxyReturn}
+\Hypertarget{class_t_s_p_solver_a75374d02f7afb9ea2b6c2b88382c5137}\label{class_t_s_p_solver_a75374d02f7afb9ea2b6c2b88382c5137} 
+\index{TSPSolver@{TSPSolver}!optimizeTourTwoOpt@{optimizeTourTwoOpt}}
+\index{optimizeTourTwoOpt@{optimizeTourTwoOpt}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{optimizeTourTwoOpt()}{optimizeTourTwoOpt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ TSPSolver\+::optimize\+Tour\+Two\+Opt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{tour }\end{DoxyParamCaption})}
+
+
+
+Improves the TSP path using the 2-\/opt algorithm, but returns path instead. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tour} & Reference to the vector storing the TSP path. \\
+\hline
+{\em two\+\_\+opt\+\_\+iterations} & The number of iterations for the 2-\/opt algorithm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector representing the optimized path.
+\end{DoxyReturn}
+This function iteratively applies the 2-\/opt swap to reduce the TSP path length.
+\begin{DoxyItemize}
+\item Time Complexity\+: O(n\texorpdfstring{$^\wedge$}{\string^}2 \texorpdfstring{$\ast$}{*} iterations), where n is the number of vertices and iterations is the number of 2-\/opt iterations.
+\item Space Complexity\+: O(1) 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_a3ecd216dea1b693032b292e2b249fd9a}\label{class_t_s_p_solver_a3ecd216dea1b693032b292e2b249fd9a} 
+\index{TSPSolver@{TSPSolver}!preorderMST@{preorderMST}}
+\index{preorderMST@{preorderMST}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{preorderMST()}{preorderMST()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::preorder\+MST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{current,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{result,  }\item[{\mbox{\hyperlink{class_edge}{double}} \&}]{cost,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}\&}]{prev }\end{DoxyParamCaption})}
+
+
+
+Performs a preorder traversal of the MST to generate the TSP path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em current} & Pointer to the current vertex. \\
+\hline
+{\em result} & Reference to the vector storing the TSP path. \\
+\hline
+{\em cost} & Reference to the total cost of the path. \\
+\hline
+{\em prev} & Reference to the previous vertex in the path.\\
+\hline
+\end{DoxyParams}
+This function recursively traverses the MST in preorder to generate a TSP path.
+\begin{DoxyItemize}
+\item Time Complexity\+: O(V + E), where V is the number of vertices and E is the number of edges.
+\item Space Complexity\+: O(\+V), for path storage and recursion stack. 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_a1f4f40e94fc9de53b5abd810085f40d7}\label{class_t_s_p_solver_a1f4f40e94fc9de53b5abd810085f40d7} 
+\index{TSPSolver@{TSPSolver}!prim@{prim}}
+\index{prim@{prim}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{prim()}{prim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::prim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{source,  }\item[{\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{result,  }\item[{\mbox{\hyperlink{class_edge}{double}} \&}]{cost }\end{DoxyParamCaption})}
+
+
+
+Implements Prim\textquotesingle{}s algorithm to generate an MST and uses preorder traversal for TSP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em source} & Pointer to the source vertex. \\
+\hline
+{\em result} & Reference to the vector storing the TSP path. \\
+\hline
+{\em cost} & Reference to the total cost of the path.\\
+\hline
+\end{DoxyParams}
+This function uses Prim\textquotesingle{}s algorithm to generate a Minimum Spanning Tree (MST) and then performs a preorder traversal to estimate a TSP path.
+\begin{DoxyItemize}
+\item Time Complexity\+: O((V + E) log V), where V is the number of vertices and E is the number of edges.
+\item Space Complexity\+: O(V + E), for MST storage. 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_ae018ad3ee0b0a3641221fb39803466ce}\label{class_t_s_p_solver_ae018ad3ee0b0a3641221fb39803466ce} 
+\index{TSPSolver@{TSPSolver}!primHelper@{primHelper}}
+\index{primHelper@{primHelper}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{primHelper()}{primHelper()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::prim\+Helper (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{source,  }\item[{\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{result,  }\item[{\mbox{\hyperlink{class_edge}{double}} \&}]{cost }\end{DoxyParamCaption})}
+
+
+
+Helper function for Prim\textquotesingle{}s algorithm to find minimum spanning tree (MST). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em source} & Pointer to the source vertex. \\
+\hline
+{\em result} & Reference to the vector to store the MST vertices. \\
+\hline
+{\em cost} & Reference to the total cost of the MST. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_t_s_p_solver_a8b5589cf8674b4ed0618064a0dbb08ef}\label{class_t_s_p_solver_a8b5589cf8674b4ed0618064a0dbb08ef} 
+\index{TSPSolver@{TSPSolver}!tspBacktrack@{tspBacktrack}}
+\index{tspBacktrack@{tspBacktrack}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{tspBacktrack()}{tspBacktrack()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::tsp\+Backtrack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{current,  }\item[{\mbox{\hyperlink{class_edge}{double}}}]{current\+\_\+cost,  }\item[{\mbox{\hyperlink{class_edge}{int}}}]{num\+\_\+visited,  }\item[{\mbox{\hyperlink{class_edge}{double}} \&}]{min\+\_\+cost,  }\item[{\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{tsp\+\_\+path,  }\item[{\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{current\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Solves the TSP using a backtracking approach. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em current} & Pointer to the current vertex. \\
+\hline
+{\em current\+\_\+cost} & The current cost of the path. \\
+\hline
+{\em num\+\_\+visited} & The number of visited vertices. \\
+\hline
+{\em min\+\_\+cost} & Reference to the minimum cost found. \\
+\hline
+{\em tsp\+\_\+path} & Reference to the vector storing the TSP path. \\
+\hline
+{\em current\+\_\+path} & Reference to the vector storing the current path.\\
+\hline
+\end{DoxyParams}
+This function recursively explores all possible paths to solve the TSP.
+\begin{DoxyItemize}
+\item Time Complexity\+: O(n!), where n is the number of vertices.
+\item Space Complexity\+: O(n), for the recursion stack and path storage. 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_a0dd2130eaa7fb56e843fd684aa5705a2}\label{class_t_s_p_solver_a0dd2130eaa7fb56e843fd684aa5705a2} 
+\index{TSPSolver@{TSPSolver}!tspBruteForce@{tspBruteForce}}
+\index{tspBruteForce@{tspBruteForce}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{tspBruteForce()}{tspBruteForce()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{double}} TSPSolver\+::tsp\+Brute\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{tsp\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Solves the TSP using a brute force approach. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em tsp\+\_\+path} & Reference to the vector storing the TSP path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The minimum cost of the TSP path.
+\end{DoxyReturn}
+This function initializes the graph and calls the backtracking function to solve the TSP.
+\begin{DoxyItemize}
+\item Time Complexity\+: O(n!), where n is the number of vertices.
+\item Space Complexity\+: O(n), for path storage. 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_affb810ca17901da3590fc236782ceba3}\label{class_t_s_p_solver_affb810ca17901da3590fc236782ceba3} 
+\index{TSPSolver@{TSPSolver}!tspNearestNeighbor@{tspNearestNeighbor}}
+\index{tspNearestNeighbor@{tspNearestNeighbor}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{tspNearestNeighbor()}{tspNearestNeighbor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{double}} TSPSolver\+::tsp\+Nearest\+Neighbor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{tsp\+\_\+path,  }\item[{\mbox{\hyperlink{class_edge}{unsigned}} \mbox{\hyperlink{class_edge}{int}}}]{two\+\_\+opt\+\_\+iterations }\end{DoxyParamCaption})}
+
+
+
+Solves the TSP using the nearest neighbor heuristic with optional 2-\/opt optimization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em tsp\+\_\+path} & Reference to the vector storing the TSP path. \\
+\hline
+{\em two\+\_\+opt\+\_\+iterations} & The number of iterations for the 2-\/opt algorithm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total cost of the TSP path.
+\end{DoxyReturn}
+This function applies the nearest neighbor heuristic to generate an initial TSP path and then improves it using the 2-\/opt algorithm.
+\begin{DoxyItemize}
+\item Time Complexity\+: O(V\texorpdfstring{$^\wedge$}{\string^}2 + n\texorpdfstring{$^\wedge$}{\string^}2 \texorpdfstring{$\ast$}{*} iterations), where V is the number of vertices and iterations is the number of 2-\/opt iterations.
+\item Space Complexity\+: O(\+V), for path storage. 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_a6a0dcbff3c52d5a05cc9f772b2bf6669}\label{class_t_s_p_solver_a6a0dcbff3c52d5a05cc9f772b2bf6669} 
+\index{TSPSolver@{TSPSolver}!twoOptAlgorithm@{twoOptAlgorithm}}
+\index{twoOptAlgorithm@{twoOptAlgorithm}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{twoOptAlgorithm()}{twoOptAlgorithm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::two\+Opt\+Algorithm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{tsp\+\_\+path,  }\item[{\mbox{\hyperlink{class_edge}{unsigned}} \mbox{\hyperlink{class_edge}{int}}}]{two\+\_\+opt\+\_\+iterations }\end{DoxyParamCaption})}
+
+
+
+Improves the TSP path using the 2-\/opt algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tsp\+\_\+path} & Reference to the vector storing the TSP path. \\
+\hline
+{\em two\+\_\+opt\+\_\+iterations} & The number of iterations for the 2-\/opt algorithm.\\
+\hline
+\end{DoxyParams}
+This function iteratively applies the 2-\/opt swap to reduce the TSP path length.
+\begin{DoxyItemize}
+\item Time Complexity\+: O(n\texorpdfstring{$^\wedge$}{\string^}2 \texorpdfstring{$\ast$}{*} iterations), where n is the number of vertices and iterations is the number of 2-\/opt iterations.
+\item Space Complexity\+: O(1) 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_a89d53329c9e7da9f42082c71ef7e647d}\label{class_t_s_p_solver_a89d53329c9e7da9f42082c71ef7e647d} 
+\index{TSPSolver@{TSPSolver}!twoOptSwap@{twoOptSwap}}
+\index{twoOptSwap@{twoOptSwap}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{twoOptSwap()}{twoOptSwap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::two\+Opt\+Swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{tsp\+\_\+path,  }\item[{\mbox{\hyperlink{class_edge}{int}}}]{i,  }\item[{\mbox{\hyperlink{class_edge}{int}}}]{k }\end{DoxyParamCaption})}
+
+
+
+Performs a 2-\/opt swap on the TSP path between indices i and k. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tsp\+\_\+path} & Reference to the vector storing the TSP path. \\
+\hline
+{\em i} & The starting index for the swap. \\
+\hline
+{\em k} & The ending index for the swap.\\
+\hline
+\end{DoxyParams}
+This function performs the 2-\/opt swap to potentially shorten the TSP path.
+\begin{DoxyItemize}
+\item Time Complexity\+: O((k -\/ i) / 2)
+\item Space Complexity\+: O(1) 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_a3f725eb6ac6dd42d9b7c2ee4666dd87d}\label{class_t_s_p_solver_a3f725eb6ac6dd42d9b7c2ee4666dd87d} 
+\index{TSPSolver@{TSPSolver}!twoOptSwapHelper@{twoOptSwapHelper}}
+\index{twoOptSwapHelper@{twoOptSwapHelper}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{twoOptSwapHelper()}{twoOptSwapHelper()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ TSPSolver\+::two\+Opt\+Swap\+Helper (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*} $>$ \&}]{tour,  }\item[{\mbox{\hyperlink{class_edge}{int}}}]{i,  }\item[{\mbox{\hyperlink{class_edge}{int}}}]{k }\end{DoxyParamCaption})}
+
+
+
+Performs a 2-\/opt swap on the TSP path between indices i and k. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tour} & Reference to the vector storing the TSP path. \\
+\hline
+{\em i} & The starting index for the swap. \\
+\hline
+{\em k} & The ending index for the swap. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector representing a slightly modified path due to swapping
+\end{DoxyReturn}
+This function performs the 2-\/opt swap to potentially shorten the TSP path.
+\begin{DoxyItemize}
+\item Time Complexity\+: O((k -\/ i) / 2)
+\item Space Complexity\+: O(1) 
+\end{DoxyItemize}\Hypertarget{class_t_s_p_solver_ad9defc1e53fd0d64745f1c4eb4f47ea4}\label{class_t_s_p_solver_ad9defc1e53fd0d64745f1c4eb4f47ea4} 
+\index{TSPSolver@{TSPSolver}!uniteAllClusterTours@{uniteAllClusterTours}}
+\index{uniteAllClusterTours@{uniteAllClusterTours}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{uniteAllClusterTours()}{uniteAllClusterTours()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::unite\+All\+Cluster\+Tours (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{graph,  }\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{struct_cluster}{Cluster}} $>$ \&}]{clusters,  }\item[{\mbox{\hyperlink{class_edge}{bool}}}]{two }\end{DoxyParamCaption})}
+
+
+
+Unites all cluster tours into a single complete tour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & A pointer to the original graph containing the vertices. \\
+\hline
+{\em clusters} & A reference to the vector of clusters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of pointers to vertices representing the complete tour. 
+\end{DoxyReturn}
+\Hypertarget{class_t_s_p_solver_adb42ec3b61360210e6b07ec4057d541b}\label{class_t_s_p_solver_adb42ec3b61360210e6b07ec4057d541b} 
+\index{TSPSolver@{TSPSolver}!updateCenters@{updateCenters}}
+\index{updateCenters@{updateCenters}!TSPSolver@{TSPSolver}}
+\doxysubsubsection{\texorpdfstring{updateCenters()}{updateCenters()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} TSPSolver\+::update\+Centers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{vector}}$<$ \mbox{\hyperlink{struct_cluster}{Cluster}} $>$ \&}]{clusters,  }\item[{\mbox{\hyperlink{class_edge}{const}} \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_edge}{int}} $>$ \texorpdfstring{$\ast$}{*}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Updates the cluster centers based on the mean position of the vertices in each cluster. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clusters} & A reference to the vector of clusters. \\
+\hline
+{\em graph} & A pointer to the graph containing the vertices. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+TSPSolver.\+h\item 
+TSPSolver.\+cpp\end{DoxyCompactItemize}

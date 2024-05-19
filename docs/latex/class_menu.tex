@@ -1,0 +1,99 @@
+\doxysection{Menu Class Reference}
+\hypertarget{class_menu}{}\label{class_menu}\index{Menu@{Menu}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_a5a10cf763d77d64ca279862c5c0293ec}{Menu}} (\mbox{\hyperlink{class_t_s_p_solver}{TSPSolver}} tsp\+Solver, \mbox{\hyperlink{class_script}{Script}} script)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_menu}{Menu} object with a \doxylink{class_t_s_p_solver}{TSPSolver} and a \doxylink{class_script}{Script}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_menu_aef9edee86d2ea460606361c92e061583}{main\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Displays the main menu and processes user input to select TSP algorithms or other options. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_menu_a3d30b27b26b77263920d76d07862d036}{choose\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Displays the graph selection menu and processes user input to select the type of graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_menu_a941a0eb1718b465a53c01b9264e804e2}{print\+Toy\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Displays the toy graph selection menu and processes user input to select a specific toy graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_menu_a59e792fffb41dceefb7db80b048afaf7}{print\+Real\+World\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Displays the real world graph selection menu and processes user input to select a specific real world graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{void}} \mbox{\hyperlink{class_menu_a6a0a9b36f20fa7217e6d04b5405c4106}{print\+Extra\+Fully\+Connected}} ()
+\begin{DoxyCompactList}\small\item\em Displays the Extra Fully Connected selection menu and processes user input to select a specific Extra Fully Connected graph. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a2e3e105c609ef0790be3c889896081c8}\label{class_menu_a2e3e105c609ef0790be3c889896081c8} 
+\mbox{\hyperlink{class_edge}{void}} {\bfseries if\+Two\+Opt\+Heuristic} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_menu_a5a10cf763d77d64ca279862c5c0293ec}\label{class_menu_a5a10cf763d77d64ca279862c5c0293ec} 
+\index{Menu@{Menu}!Menu@{Menu}}
+\index{Menu@{Menu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily Menu\+::\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_t_s_p_solver}{TSPSolver}}}]{tsp\+Solver,  }\item[{\mbox{\hyperlink{class_script}{Script}}}]{script }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_menu}{Menu} object with a \doxylink{class_t_s_p_solver}{TSPSolver} and a \doxylink{class_script}{Script}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tsp\+Solver} & An instance of the \doxylink{class_t_s_p_solver}{TSPSolver} class. \\
+\hline
+{\em script} & An instance of the \doxylink{class_script}{Script} class. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_menu_a3d30b27b26b77263920d76d07862d036}\label{class_menu_a3d30b27b26b77263920d76d07862d036} 
+\index{Menu@{Menu}!chooseGraph@{chooseGraph}}
+\index{chooseGraph@{chooseGraph}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{chooseGraph()}{chooseGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Menu\+::choose\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the graph selection menu and processes user input to select the type of graph. 
+
+This function shows a menu with different types of graphs for the user to choose from. Depending on the user input, it calls the appropriate function to load the selected graph. \Hypertarget{class_menu_aef9edee86d2ea460606361c92e061583}\label{class_menu_aef9edee86d2ea460606361c92e061583} 
+\index{Menu@{Menu}!mainMenu@{mainMenu}}
+\index{mainMenu@{mainMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{mainMenu()}{mainMenu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Menu\+::main\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the main menu and processes user input to select TSP algorithms or other options. 
+
+This function shows a menu with several TSP algorithms and options for the user to choose from. Depending on the user input, it calls the appropriate function from the \doxylink{class_t_s_p_solver}{TSPSolver} or navigates to a sub-\/menu. \Hypertarget{class_menu_a6a0a9b36f20fa7217e6d04b5405c4106}\label{class_menu_a6a0a9b36f20fa7217e6d04b5405c4106} 
+\index{Menu@{Menu}!printExtraFullyConnected@{printExtraFullyConnected}}
+\index{printExtraFullyConnected@{printExtraFullyConnected}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{printExtraFullyConnected()}{printExtraFullyConnected()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Menu\+::print\+Extra\+Fully\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the Extra Fully Connected selection menu and processes user input to select a specific Extra Fully Connected graph. 
+
+This function shows a menu with different t\+Extra Fully Connected graphs for the user to choose from. Depending on the user input, it loads the selected Extra Fully Connected graph by calling the appropriate function from the \doxylink{class_script}{Script} class. \Hypertarget{class_menu_a59e792fffb41dceefb7db80b048afaf7}\label{class_menu_a59e792fffb41dceefb7db80b048afaf7} 
+\index{Menu@{Menu}!printRealWorldGraph@{printRealWorldGraph}}
+\index{printRealWorldGraph@{printRealWorldGraph}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{printRealWorldGraph()}{printRealWorldGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Menu\+::print\+Real\+World\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the real world graph selection menu and processes user input to select a specific real world graph. 
+
+This function shows a menu with different toy graphs for the user to choose from. Depending on the user input, it loads the selected real world graph by calling the appropriate function from the \doxylink{class_script}{Script} class. \Hypertarget{class_menu_a941a0eb1718b465a53c01b9264e804e2}\label{class_menu_a941a0eb1718b465a53c01b9264e804e2} 
+\index{Menu@{Menu}!printToyGraph@{printToyGraph}}
+\index{printToyGraph@{printToyGraph}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{printToyGraph()}{printToyGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{void}} Menu\+::print\+Toy\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays the toy graph selection menu and processes user input to select a specific toy graph. 
+
+This function shows a menu with different toy graphs for the user to choose from. Depending on the user input, it loads the selected toy graph by calling the appropriate function from the \doxylink{class_script}{Script} class. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Menu.\+h\item 
+Menu.\+cpp\end{DoxyCompactItemize}

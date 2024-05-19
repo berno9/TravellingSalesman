@@ -1,0 +1,75 @@
+\doxysection{TSPSolver.\+h}
+\hypertarget{_t_s_p_solver_8h_source}{}\label{_t_s_p_solver_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TRAVELLINGSALESMAN\_TSPSOLVER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TRAVELLINGSALESMAN\_TSPSOLVER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Graph.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <numeric>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}Script.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_cluster}{Cluster}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{double}\ centerX;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{double}\ centerY;}
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<int>\ cities;}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_s_p_solver}{TSPSolver}}\{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_script}{Script}}\ script;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ printClustersHelper();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_t_s_p_solver_a23a1af6a2629429a7e47cd70fec74b7a}{haversineDistance}}(\mbox{\hyperlink{class_edge}{Vertex<int>}}\ *\mbox{\hyperlink{class_edge}{v1}},\ \mbox{\hyperlink{class_edge}{Vertex<int>}}\ *\mbox{\hyperlink{class_edge}{v2}});}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_a8b5589cf8674b4ed0618064a0dbb08ef}{tspBacktrack}}(\mbox{\hyperlink{class_edge}{Graph<int>}}*\ g,\ \mbox{\hyperlink{class_edge}{Vertex<int>}}*\ \mbox{\hyperlink{class_edge}{current}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_edge}{current\_cost}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_edge}{num\_visited}},\ \textcolor{keywordtype}{double}\ \&\mbox{\hyperlink{class_edge}{min\_cost}},\ \mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}\ *>\ \&\mbox{\hyperlink{class_edge}{tsp\_path}},\ \mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}\ *>\ \&\mbox{\hyperlink{class_edge}{current\_path}});}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_t_s_p_solver_a0dd2130eaa7fb56e843fd684aa5705a2}{tspBruteForce}}(\mbox{\hyperlink{class_edge}{Graph<int>}}*\ g,\ \mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}\ *>\ \&\mbox{\hyperlink{class_edge}{tspPath}});}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_a28d0ef1ac8905a2a1a8dc643658451bb}{calculateTSP}}(\mbox{\hyperlink{class_edge}{Graph<int>}}*g);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_a1f4f40e94fc9de53b5abd810085f40d7}{prim}}(\mbox{\hyperlink{class_edge}{Graph<int>}}*\ g,\mbox{\hyperlink{class_edge}{Vertex<int>}}*\ \mbox{\hyperlink{class_edge}{source}},\ \mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}*>\ \&\mbox{\hyperlink{class_edge}{result}},\ \textcolor{keywordtype}{double}\ \&\mbox{\hyperlink{class_edge}{cost}});}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_a3ecd216dea1b693032b292e2b249fd9a}{preorderMST}}(\mbox{\hyperlink{class_edge}{Graph<int>}}*\ g,\ \mbox{\hyperlink{class_edge}{Vertex<int>}}*\ \mbox{\hyperlink{class_edge}{current}},\ std::vector<\mbox{\hyperlink{class_edge}{Vertex<int>}}*>\ \&\mbox{\hyperlink{class_edge}{result}},\ \textcolor{keywordtype}{double}\ \&\mbox{\hyperlink{class_edge}{cost}},\ \mbox{\hyperlink{class_edge}{Vertex<int>}}*\ \&\mbox{\hyperlink{class_edge}{prev}});}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_a13f497b3d04fb78942798a9c5c286288}{calculateTriangleTSP}}(\mbox{\hyperlink{class_edge}{Graph<int>}}*\ g);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_ae018ad3ee0b0a3641221fb39803466ce}{primHelper}}(\mbox{\hyperlink{class_edge}{Graph<int>}}*\ g,\mbox{\hyperlink{class_edge}{Vertex<int>}}*\ \mbox{\hyperlink{class_edge}{source}},\ \mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}*>\ \&\mbox{\hyperlink{class_edge}{result}},\ \textcolor{keywordtype}{double}\ \&\mbox{\hyperlink{class_edge}{cost}});}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_edge}{vector<Vertex<int>}}*>\ \mbox{\hyperlink{class_t_s_p_solver_aed8372fd37507d191d8a7739737a7360}{calculateTriangleTSPReturning}}(\mbox{\hyperlink{class_edge}{Graph<int>}}*\ g);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_a670b817d73432e1c0be732d963ff3cec}{initializeCenters}}(\mbox{\hyperlink{class_edge}{vector<Cluster>}}\&\ \mbox{\hyperlink{class_edge}{clusters}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_edge}{Graph<int>}}*\ \mbox{\hyperlink{class_edge}{graph}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_edge}{k}});\ \textcolor{comment}{//\ Initialize\ the\ cluster\ centers\ randomly}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_a25897f27d13effa16b26feffa36f104d}{assignToClusters}}(\mbox{\hyperlink{class_edge}{vector<Cluster>}}\&\ \mbox{\hyperlink{class_edge}{clusters}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_edge}{Graph<int>}}*\ \mbox{\hyperlink{class_edge}{graph}});\ \textcolor{comment}{//\ Assign\ vertices\ (cities)\ to\ clusters\ based\ on\ the\ nearest\ cluster\ center}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_adb42ec3b61360210e6b07ec4057d541b}{updateCenters}}(\mbox{\hyperlink{class_edge}{vector<Cluster>}}\&\ \mbox{\hyperlink{class_edge}{clusters}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_edge}{Graph<int>}}*\ \mbox{\hyperlink{class_edge}{graph}});\ \textcolor{comment}{//\ Update\ the\ cluster\ centers\ based\ on\ the\ mean\ of\ the\ vertices\ in\ each\ cluster}}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_edge}{vector<Cluster>}}\ \mbox{\hyperlink{class_t_s_p_solver_a36f24d769f9519514d806a26fa64aa2f}{kMeansClustering}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_edge}{Graph<int>}}*\ \mbox{\hyperlink{class_edge}{graph}});\ \textcolor{comment}{//\ Perform\ KMeans\ clustering}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_edge}{vector<Vertex<int>}}*>\ \mbox{\hyperlink{class_t_s_p_solver_a79f95e3072ffb62c6c69e5e3e1820470}{findBestTourForCluster}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_edge}{Graph<int>}}*\ \mbox{\hyperlink{class_edge}{graph}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cluster}{Cluster}}\&\ \mbox{\hyperlink{class_edge}{cluster}},\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_edge}{two}});\ \textcolor{comment}{//\ Find\ best\ tour\ on\ a\ single\ cluster}}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_edge}{Vertex<int>}}*\ \mbox{\hyperlink{class_t_s_p_solver_aa84806283970f58c11a5b2e06209b79c}{findClosestCity}}(\mbox{\hyperlink{class_edge}{Vertex<int>}}*\ \mbox{\hyperlink{class_edge}{city}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}*>\&\ \mbox{\hyperlink{class_edge}{tour}});\ \ \textcolor{comment}{//\ Find\ closest\ city\ to\ a\ given\ tour}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_ad9defc1e53fd0d64745f1c4eb4f47ea4}{uniteAllClusterTours}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_edge}{Graph<int>}}*\ \mbox{\hyperlink{class_edge}{graph}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_edge}{vector<Cluster>}}\&\ \mbox{\hyperlink{class_edge}{clusters}},\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_edge}{two}});\ \ \textcolor{comment}{//\ Find\ complete\ tour\ from\ all\ clusters}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_a89d53329c9e7da9f42082c71ef7e647d}{twoOptSwap}}(\mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}*>\&\ \mbox{\hyperlink{class_edge}{tsp\_path}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_edge}{i}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_edge}{k}});}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_a6a0dcbff3c52d5a05cc9f772b2bf6669}{twoOptAlgorithm}}(\mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}*>\&\ \mbox{\hyperlink{class_edge}{tsp\_path}},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_edge}{two\_opt\_iterations}});}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_t_s_p_solver_affb810ca17901da3590fc236782ceba3}{tspNearestNeighbor}}(\mbox{\hyperlink{class_edge}{Graph<int>}}*\ g,\ \mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}*>\&\ \mbox{\hyperlink{class_edge}{tsp\_path}},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_edge}{two\_opt\_iterations}});}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_s_p_solver_a52f55e37090465d75e9d8e0880274acc}{calculateNearestNeighborTSP}}(\mbox{\hyperlink{class_edge}{Graph<int>}}*\ g);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{class_edge}{vector<Vertex<int>}}*>\ \mbox{\hyperlink{class_t_s_p_solver_a3f725eb6ac6dd42d9b7c2ee4666dd87d}{twoOptSwapHelper}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}*>\&\ \mbox{\hyperlink{class_edge}{tour}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_edge}{i}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_edge}{k}});}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_edge}{vector<Vertex<int>}}*>\ \mbox{\hyperlink{class_t_s_p_solver_a75374d02f7afb9ea2b6c2b88382c5137}{optimizeTourTwoOpt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}*>\&\ \mbox{\hyperlink{class_edge}{tour}});}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_t_s_p_solver_ae97bdd06fbf8b08d0468fca86b4d5d90}{calculateTourDistance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_edge}{vector}}<\mbox{\hyperlink{class_edge}{Vertex<int>}}*>\&\ \mbox{\hyperlink{class_edge}{tour}});}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TRAVELLINGSALESMAN\_TSPSOLVER\_H}}
+
+\end{DoxyCode}
