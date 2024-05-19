@@ -670,6 +670,7 @@ void TSPSolver::updateCenters(vector<Cluster>& clusters, const Graph<int>* graph
 vector<Cluster> TSPSolver::kMeansClustering(const Graph<int>* graph) {
 
     printClustersHelper();
+    auto start = std::chrono::high_resolution_clock::now();
 
     int k, maxIterations;
     cout << "Insert number of clusters: ";
@@ -693,7 +694,13 @@ vector<Cluster> TSPSolver::kMeansClustering(const Graph<int>* graph) {
 
         updateCenters(clusters, graph);
     }
+
+    auto end = std::chrono::high_resolution_clock::now();
+    chrono::duration<double> duration = end - start;
+    cout << "Elapsed Time for clustering: " << duration.count() << " s\n\n";
+
     return clusters;
+
 }
 
 /**
@@ -791,7 +798,7 @@ void TSPSolver::uniteAllClusterTours(const Graph<int>* graph, const vector<Clust
     cout << "Total cost: " << totalCost << endl;
     cout << '\n';
 
-    cout << "Elapsed Time: " << duration.count() << " s\n\n";
+    cout << "Elapsed Time for uniting all tours: " << duration.count() << " s\n\n";
 
 }
 
